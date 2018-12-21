@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <title>未来科学国际合作联合实验室</title>
+    <link rel="stylesheet" href="../static/css/bootstrap.min.css" th:href="@{/css/bootstrap.min.css}">
+    <link rel="stylesheet" href="../static/css/font-awesome.min.css" th:href="@{/css/font-awesome.min.css}">
+    <link rel="stylesheet" href="../static/css/index.css" th:href="@{/css/index.css}">
+    <link rel="stylesheet" href="../static/css/person-list.css" th:href="@{/css/person-list.css}">
+    <style>
+        a {
+            text-decoration: none;
+        }
+    </style>
+    <style>
+        .go-top {
+            position: fixed;
+            bottom: 10px;
+            right: 10px;
+            display: none;
+            cursor: pointer;
+        }
+    </style>
+    <script src="../static/js/jquery-2.1.3.min.js" th:src="@{/js/jquery-2.1.3.min.js}"></script>
+    <script src="../static/js/layer/layer.min.js" th:src="@{/js/layer/layer.min.js}"></script>
+    <!-- <script type="text/javascript">
+    $(document).ready(function(){
+        var text = $("#hiddenp").text()
+        persons = JSON.parse(text)
+        len = persons.length
+        var persons_div = $("#person_div")
+        //根据长度动态生成person列表
+        for(var i=0;i<len;i++){
+            innerDiv = "<div class=\"media blog\">"
+            innerDiv += "<div class=\"media-left\">"
+            innerDiv += "<a href=\"/person\" style=\"padding-left: 50px;\"><img src="+'./pictures/'+(i+1)+'.jpg'+" class=\"img-reponsive\"></a>"
+            innerDiv += "</div>"
+            innerDiv += "<div class=\"media-body\">"
+            innerDiv += "<a href=\"#\"><h3 style:\"text-transform: initial;\">"+persons[i]["Family Name(EN)"]+" "+persons[i]["First Name(EN)"]+"</h3></a>"
+            innerDiv += "<div class=\"row m0 meta\">Publications : <a href=\"#\">"+persons[i]["Publications"].length+"</a> Projects : <a href=\"#\">115</a> Patents: <a href=\"\" >"+persons[i]["Patents"].length+"</a></div>"
+            innerDiv += "<p><span class=\"glyphicon glyphicon-home\" aria-hidden=\"true\"></span>&nbsp;&nbsp;&nbsp;"+persons[i]["AffiliationA/角色1所属单位"]+persons[i]["AffiliationA.1/子单位"]+"</p>"
+            innerDiv += "<p><span class=\"glyphicon glyphicon-briefcase\" aria-hidden=\"true\"></span>&nbsp;&nbsp;&nbsp;"+persons[i]["Talent Title人才称号"]+"</p>"
+            if(persons[i]["Scientific Sector(EN)"]!=''){
+                innerDiv += "<p><span class=\"glyphicon glyphicon-book\" aria-hidden=\"true\"></span>&nbsp;&nbsp;&nbsp;"+persons[i]["Scientific Sector(EN)"]+"</p>"
+            }else{
+                 innerDiv += "<p><span class=\"glyphicon glyphicon-book\" aria-hidden=\"true\"></span>&nbsp;&nbsp;&nbsp;"+persons[i]["Scientific Sector(ZH)研究方向"]+"</p>"
+            }
+            innerDiv += "</div></div>"
+            persons_div.append(innerDiv)
+        }
+        divs = document.getElementsByClassName("media-body")
+        for(var i=0;i<len;i++){
+            (function(i){
+                name_link = divs[i].children[0].children[0]
+                name_link.onclick=function(){
+                    id = i + 1
+                    window.location.href='./person.html?id=' + id
+                }
+            })(i)
+        }
+    })
+    </script> -->
+</head>
+<body class="default">
+<section class="row top_bar">
+    <div class="container">
+        <div class="row">
+            <div class="fleft phone" style="padding-bottom: 10px;">
+                <p><a href="#">Computational Intelligence Knowledge Mapping Laboratory, School of Computer Science and
+                    Technology, Jilin University</a></p>
+            </div>
+            <div class="fright">
+
+                <div class="fleft"><strong><a href="#">Sign up</a> | <a href="#">Sign in</a></strong></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<nav class="navbar navbar-default navbar-static-top navbar2" style="background: #0186d5;">
+    <div class="container" style="margin-left: -60px;">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#main_nav"
+                    aria-expanded="false">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <!-- <a href="book-appointment.html" class="navbar-toggle visible-xs" data-toggle="modal" data-target="#appointmefnt_form_pop">Search</a> -->
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="main_nav">
+            <a href="index.html"><img style="width:125px;height:80px;margin-left:280px ;margin-top: 2px;"
+                                      src="assets/wq4.png" alt=""></a>
+            <ul class="nav navbar-nav navbar-right">
+                <li class="active"><a href="index.html">Home</a></li>
+
+                <li><a href="aboutus.html">About Us</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Research</a>
+                    <ul class="dropdown-menu" role="menu">
+                        <li><a href="research_direction.html">Research Direction</a></li>
+                        <li><a href="paperlist.html">Papers</a></li>
+                        <li><a href="research_project.html">Projects</a></li>
+                    </ul>
+                </li>
+                <li><a href="personlist.html">People</a></li>
+                <li><a href="eventlist.html">News</a></li>
+                <li><a href="upload.html">Share</a></li>
+
+
+                <li><a href="join.html">Join Us</a></li>
+                <!-- <li class="hidden-xs book"><a href="#" data-toggle="modal" data-target="#appointmefnt_form_pop">Search</a></li> -->
+            </ul>
+        </div><!-- /.navbar-collapse -->
+    </div><!-- /.container -->
+</nav>
+<div class="content">
+    <!--<section class="row team">
+        <div class="container">
+         <div class="col-md-6 col-sm-12 col-xs-12">
+            <form action="#" class="row m0 search_form widget">
+                <div class="input-group">
+                   <input type="search" class="form-control" placeholder="Search here">
+                   <span class="input-group-addon"><button type="submit"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button></span>
+                </div>
+           </form>
+         </div>
+     </div>
+  </section>
+<hr>
+<section class="filter">
+    <div class="team sub-filter container">
+        <div class="col-md-1 filter-name">
+            <p><b>Research Team:</b></p>
+        </div>
+        <div class="col-md-11 filter-content">
+            <a href="">Advanced energy and environmental materials</a>&nbsp;&nbsp;&nbsp;
+            <a href="">High-pressure science and technology</a>&nbsp;&nbsp;&nbsp;
+            <a href="">Translational immunology</a>&nbsp;&nbsp;&nbsp;
+            <a href="">Millimeter microwave technology and applications</a>&nbsp;&nbsp;&nbsp;
+            <a href="">Advanced metallic materials</a>&nbsp;&nbsp;&nbsp;
+            <a href="">PaleoChemistry and PaleoEvolution of ancient life</a>&nbsp;&nbsp;&nbsp;
+        </div>
+    </div>
+    <hr>
+    <div class="Area sub-filter container">
+        <div class="col-md-1 filter-name">
+            <p><b>Area:</b></p>
+        </div>
+        <div class="col-md-11 filter-content">
+            <a href="">High-efficiency functional materials</a>&nbsp;&nbsp;&nbsp;
+            <a href="">Structural search and experimental preparation for the materials within the earth interior</a>&nbsp;&nbsp;&nbsp;
+            <a href="">Autoimmunity;Structural Biology;Tumor Immunology;Epigenetic Medicine</a>&nbsp;&nbsp;&nbsp;
+            <a href="">Millimeter microwave technology</a>&nbsp;&nbsp;&nbsp;
+            <a href="">Developing powder sintering and near net shape forming technology</a>&nbsp;&nbsp;&nbsp;
+            <a href="">Origin and the evolution of Tetrapods</a>&nbsp;&nbsp;&nbsp;
+        </div>
+    </div>
+    <hr>
+    <div class="title sub-filter container">
+        <div class="col-md-1 filter-name">
+            <p><b>Title:</b></p>
+        </div>
+        <div class="col-md-11 filter-content">
+            <a href="">professer</a>&nbsp;&nbsp;&nbsp;
+            <a href="">associate professor</a>&nbsp;&nbsp;&nbsp;
+            <a href="">Academicain</a>&nbsp;&nbsp;&nbsp;
+        </div>
+    </div>
+    <hr>
+</section>-->
+    <section class="row content_section">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12 col-md-3 sidebar">
+                    <div class="panel-group accordion white_bg sidefilter" id="accordion" role="tablist"
+                         aria-multiselectable="true" style="margin-top: 35px;">
+                        <div class="panel panel-default">
+                            <!--<div class="panel-heading">
+                                <h4 class="panel-title">
+                                    <a><b>Country / Area</b></a>
+                                </h4>
+                            </div>
+                            <div class="panel-collapse">
+                                <div class="panel-body" style="padding-top: 17px; text-transform: initial;">                                
+                                    <h4 class="sub_panel_title panel_title"><a href="#">China (12)</a></h4>
+                                    <h4 class="sub_panel_title panel_title"><a href="#">England (12)</a></h4>
+                                    <h4 class="sub_panel_title panel_title"><a href="#">America (12)</a></h4>
+                                    <h4 class="sub_panel_title panel_title"><a href="#">Japan (12)</a></h4>
+                                    <h4 class="sub_panel_title panel_title"><a href="#">Keara (12)</a></h4>
+                                    <h4 class="sub_panel_title panel_title"><a href="#">Canada (12)</a></h4>
+                                    <h4 class="sub_panel_title panel_title"><a href="#">Germany (12)</a></h4>
+                                    <h4 class="sub_panel_title panel_title"><a href="#">HongKong (China) (12)</a></h4>
+                                    <h4 class="sub_panel_title panel_title"><a href="#">Taiwan (China) (12)</a></h4>
+                                 </div>
+                            </div>-->
+                            <!-- <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+                                 <div class="panel-body">                                
+                                    <h4 class="sub_panel_title panel_title"><a href="">India (12)</a></h4>
+                                    <h4 class="sub_panel_title panel_title"><a href="">India (31)</a></h4>
+                                    <h4 class="sub_panel_title panel_title"><a href="">India (22)</a></h4>
+                                    <h4 class="sub_panel_title panel_title"><a href="">India (12)</a></h4>
+                                 </div>
+                             </div>
+                             <div class="panel-heading" role="tab" id="headingOne">
+                                 <h4 class="panel-title" style="">
+                                     <a style="background-color: #A2ADC2; color: #fff;" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                                         <b>View All / Hide</b>
+                                         <span class="sign" style="background-color: #828FA8; color: #fff;"></span>
+                                     </a>
+                                 </h4>
+                             </div> -->
+                        </div> <!--Panel-->
+                        <div class="panel panel-default">
+                            <!--<div class="panel-heading">
+                                <h4 class="panel-title">
+                                    <a><b>Talent Title</b></a>
+                                </h4>
+                            </div>
+                            <div class="panel-collapse">
+                                <div class="panel-body" style="padding-top: 17px;">                                
+                                    <h4 class="sub_panel_title panel_title"><a href="">Chinese Academy of Sciences (12)</a></h4>
+                                    <h4 class="sub_panel_title panel_title"><a href="">Changjiang Scholar (23)</a></h4>
+                                    <h4 class="sub_panel_title panel_title"><a href="">Thousand Talents program (23)</a></h4>
+                                    <h4 class="sub_panel_title panel_title"><a href="">Assistant Professor (23)</a></h4>
+                                 </div>
+                            </div>-->
+                        </div>
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h4 class="panel-title">
+                                    <a><b>教授</b></a>
+                                </h4>
+                            </div>
+                            <div class="panel-collapse">
+                                <div class="panel-body" style="padding-top: 17px;">
+                                    <h4 class="sub_panel_title panel_title"><a href="">教授&合作教授 </a></h4>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h4 class="panel-title">
+                                    <a><b>在读</b></a>
+                                </h4>
+                            </div>
+                            <div class="panel-collapse">
+                                <div class="panel-body" style="padding-top: 17px;">
+                                    <h4 class="sub_panel_title panel_title"><a href="personlist_doctor.html">博士 </a>
+                                    </h4>
+                                    <h4 class="sub_panel_title panel_title"><a href="personlist_master.html">硕士</a></h4>
+                                    <h4 class="sub_panel_title panel_title"><a
+                                            href="personlist_undergraduate.html">本科生</a></h4>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h4 class="panel-title">
+                                    <a><b>已毕业</b></a>
+                                </h4>
+                            </div>
+                            <div class="panel-collapse">
+                                <div class="panel-body" style="padding-top: 17px;">
+                                    <h4 class="sub_panel_title panel_title"><a href="personlist_doctor0.html">博士 </a>
+                                    </h4>
+                                    <h4 class="sub_panel_title panel_title"><a href="personlist_master0.html">硕士</a>
+                                    </h4>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h4 class="panel-title">
+                                    <a><b>Staff</b></a>
+                                </h4>
+                            </div>
+                            <div class="panel-collapse">
+                                <div class="panel-body" style="padding-top: 17px;">                                
+                                    <h4 class="sub_panel_title panel_title"><a href="">Researcher（23）</a></h4>
+                                    <h4 class="sub_panel_title panel_title"><a href="">Senior Engineer (23)</a></h4>
+                                    <h4 class="sub_panel_title panel_title"><a href="">Engineer (23)</a></h4>
+                                    <h4 class="sub_panel_title panel_title"><a href="">Assistant Engineer (23)</a></h4>
+                                 </div>
+                            </div>
+                         </div>  --><!--Panel-->
+                    </div>
+                </div>
+                <div class="col-sm-12 col-md-9 blog_list">
+                    <div id="person_div">
+                        <div class="media blog">
+                            <div class="media-left">
+                                <a href="/person" style="padding-left: 50px;"><img src="./pictures/pro1.jpg"
+                                                                                   class="img-reponsive"></a>
+                            </div>
+                            <!--<div class="media-body">
+                                <a href="#"><h3>徐昊</h3></a>
+                                <div class="row m0 meta">
+                                    Tel : <a href="#">XXXXXX</a> Email : <a href="#">xuhao@jlu.edu.cn</a>
+                                </div>
+                                <p><span class="glyphicon glyphicon-home" aria-hidden="true"></span>&nbsp;&nbsp;&nbsp;单位 – Unit(s)：吉林大学 – JiLin University</p>
+                                <p><span class="glyphicon glyphicon-briefcase" aria-hidden="true"></span>&nbsp;&nbsp;&nbsp;职称 – Title(s)：副教授– Associate professor</p>
+                                <p><span class="glyphicon glyphicon-book" aria-hidden="true"></span>&nbsp;&nbsp;&nbsp;研究方向 – Rearch Field(s)：知识图谱 、人机交互 、计算机视觉</p>
+                            </div>-->
+                            <!--/*@thymesVar id="personList" type="java.util.List<com.socog.website.module.person.entiy.Person>"*/-->
+                            <div class="media-body" th:each="person : ${personList}">
+                                <a href="#"><h3 th:text="">徐昊</h3></a>
+                                <div class="row m0 meta">
+                                    Tel : <a href="#">XXXXXX</a> Email : <a href="#">xuhao@jlu.edu.cn</a>
+                                </div>
+                                <p><span class="glyphicon glyphicon-home" aria-hidden="true"></span>&nbsp;&nbsp;&nbsp;单位
+                                    – Unit(s)：吉林大学 – JiLin University</p>
+                                <p><span class="glyphicon glyphicon-briefcase" aria-hidden="true"></span>&nbsp;&nbsp;&nbsp;职称
+                                    – Title(s)：副教授– Associate professor</p>
+                                <p><span class="glyphicon glyphicon-book" aria-hidden="true"></span>&nbsp;&nbsp;&nbsp;研究方向
+                                    – Rearch Field(s)：知识图谱 、人机交互 、计算机视觉</p>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="row paginationRow">
+                        <ul class="pagination">
+                            <li class="active"><a href="#">1</a></li>
+                            <li><a href="#">2</a></li>
+                            <li><a href="#">3</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+<footer class="row" style="padding-top: 30px;">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-8 col-md-7 col-lg-4 footer_menuList">
+                <div class="row menuList">
+                    <ul class="firstOrderList nav" style="text-transform: initial">
+                        <li><a href="#"><img style="width:40%;height: 30%;float: left;margin-left:40px ;"
+                                             src="assets/wq4.png" alt=""></a></li>
+
+                    </ul>
+                </div>
+            </div>
+            <div class="col-sm-4 col-md-5 col-lg-5 footer_menuList">
+                <div class="row menuList">
+                    <ul class="firstOrderList nav" style="text-transform: initial">
+                        <li><a href="">Jilin University</a></li>
+
+                        <li><a href="">Chinese Ministry of Education</a></li>
+
+                        <li><a href="">National Natural Science Foundation of China</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-sm-6 col-md-6 col-lg-3" style="text-align:center;">
+                <div><img style="width:32%; margin-top:2px; margin-bottom: 8px;" src="./assets/erweima.png" alt="">
+                </div>
+                <p style="margin-top: 18px; color: #eee; text-align: center;">关注微信公众号</p>
+            </div>
+            <div class="fright copyright col-sm-6 col-md-6 col-lg-12" style="text-align: center;margin-top: 1px">&copy;
+                <a href="index"> 吉林大学计算机科学与技术学院计算智能知识图谱实验室 </a></div>
+        </div>
+    </div>
+</footer>
+<a href="#top">
+    <button type="button" class="btn btn-primary btn-lg go-top">
+        <span class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span>
+    </button>
+</a>
+<div class="modal fade" id="searchform" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+     style="height: 100%; width: 100%;">
+    <div class="modal-dialog" role="document" style="height: 100%; width: 60%; margin-top: 99px;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>
+                </button>
+                <h4 class="modal-title" id="myModalLabel">Smart Search</h4>
+            </div>
+            <div class="modal-body" style="height: 200px;">
+                <form id="domain-search" action="/search" method="get">
+                    <input id="domain-text" type="text" name="domain" placeholder="Search here"/>
+                    <input id="search-btn" type="submit" name="submit" value="Search"/>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    window.onscroll = function () {
+        if ($(window).scrollTop() > 180) {
+            $('.go-top').show();
+        } else {
+            $('.go-top').hide();
+        }
+    }
+</script>
+<script src="js/jquery-2.1.3.min.js"></script>
+<!--Bootstrap JS-->
+<script src="js/bootstrap.min.js"></script>
+<!--Owl Carousel-->
+<script src="vendors/owl.carousel/js/owl.carousel.min.js"></script>
+</body>
+</html>
