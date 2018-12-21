@@ -33,6 +33,7 @@ public class PersonController {
 
     @GetMapping("/personlist")
     public String getAll(@RequestParam(defaultValue = "") String type, @RequestParam(defaultValue = "false") boolean graduate, Model model){
+
         /*List<Person> personList = new ArrayList<>();
 
         if (type == null || "".equals(type) || "all".equals(type)) {
