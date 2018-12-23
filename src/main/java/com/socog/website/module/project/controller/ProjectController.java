@@ -34,7 +34,6 @@ public class ProjectController {
         List<Project> projectList = new ArrayList<>();
         projectList = projectRepository.findAll();
         model.addAttribute( "projectList", projectList);
-
         return "research_project";
     }
 }
