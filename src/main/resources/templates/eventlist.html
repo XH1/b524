@@ -236,7 +236,7 @@
         $.each(datas, function (i, data) {
             var news = {
                 photo: data['photo'],
-                href: "news" + data['id'],
+                href: "news?id=" + data['id'],
                 title: data['title'],
                 date: data['date'],
                 content: data['content']
@@ -258,7 +258,7 @@
             }
 
             newsPageNowElem.val(0);
-            $.get("news/news",
+            $.get("news/newspage",
                 $("#newsPageForm").serialize(),
                 function (pager, status) {
                     whenNewsQuerySuccess(pager, status);
@@ -272,7 +272,7 @@
                 return;
             }
             newsPageNowElem.val(parseInt(newsPageNowElem.val()) - 1);
-            $.get("news/news",
+            $.get("news/newspage",
                 $("#newsPageForm").serialize(),
                 function (pager, status) {
                     whenNewsQuerySuccess(pager, status);
@@ -287,7 +287,7 @@
             }
             newsPageNowElem.val(parseInt(newsPageNowElem.val()) + 1);
 
-            $.get("news/news",
+            $.get("news/newspage",
                 $("#newsPageForm").serialize(),
                 function (pager, status) {
                     whenNewsQuerySuccess(pager, status);
@@ -303,7 +303,7 @@
 
             newsPageNowElem.val(parseInt($("#newsTotalPages").val()-1));
 
-            $.get("news/news",
+            $.get("news/newspage",
                 $("#newsPageForm").serialize(),
                 function (pager, status) {
                     whenNewsQuerySuccess(pager, status);

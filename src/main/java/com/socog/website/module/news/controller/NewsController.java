@@ -46,8 +46,8 @@ public class NewsController {
     }
 
     @ResponseBody
-    @GetMapping("/news")
-    public Page<News> getNews(@RequestParam(required = false , defaultValue = "0") int newsPageNow) {
+    @GetMapping("/newspage")
+    public Page<News> getNewsPage(@RequestParam(required = false , defaultValue = "0") int newsPageNow) {
         Pageable newsPageable = PageRequest.of(newsPageNow, 3,Sort.Direction.DESC,"id");
         Page<News> newsPage = newsRepository.findByNewsType(NewsType.NEWS,newsPageable);
         return newsPage;

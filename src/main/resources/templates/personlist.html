@@ -291,43 +291,75 @@
                     </div>
                 </div>
                 <div class="col-sm-12 col-md-9 blog_list">
-                    <div id="person_div">
-                        <div class="media blog">
-                            <div class="media-left">
-                                <a href="/person" style="padding-left: 50px;"><img src="./pictures/pro1.jpg"
-                                                                                   class="img-reponsive"></a>
-                            </div>
-                            <!--<div class="media-body">
-                                <a href="#"><h3>徐昊</h3></a>
-                                <div class="row m0 meta">
-                                    Tel : <a href="#">XXXXXX</a> Email : <a href="#">xuhao@jlu.edu.cn</a>
+                    <!--/*@thymesVar id="degree" type="com.socog.website.module.person.entiy.Degree"*/-->
+                    <!--/*@thymesVar id="personPage" type="org.springframework.data.domain.Page<com.socog.website.module.person.entiy.Person>"*/-->
+                    <!--/*@thymesVar id="person" type="com.socog.website.module.person.entiy.Person"*/-->
+                    <div id="person_div ">
+                        <div id="person_container">
+                            <div class="media blog" th:if="${degree} eq 'professor'"
+                                 th:each="person : ${personPage.getContent()}">
+                                <div class="media-left">
+                                    <a href="#" style="padding-left: 50px;"><img th:src="${person.getPhoto()}"
+                                                                                 class="img-reponsive"></a>
                                 </div>
-                                <p><span class="glyphicon glyphicon-home" aria-hidden="true"></span>&nbsp;&nbsp;&nbsp;单位 – Unit(s)：吉林大学 – JiLin University</p>
-                                <p><span class="glyphicon glyphicon-briefcase" aria-hidden="true"></span>&nbsp;&nbsp;&nbsp;职称 – Title(s)：副教授– Associate professor</p>
-                                <p><span class="glyphicon glyphicon-book" aria-hidden="true"></span>&nbsp;&nbsp;&nbsp;研究方向 – Rearch Field(s)：知识图谱 、人机交互 、计算机视觉</p>
-                            </div>-->
-                            <!--/*@thymesVar id="personList" type="java.util.List<com.socog.website.module.person.entiy.Person>"*/-->
-                            <div class="media-body" th:each="person : ${personList}">
-                                <a href="#"><h3 th:text="">徐昊</h3></a>
-                                <div class="row m0 meta">
-                                    Tel : <a href="#">XXXXXX</a> Email : <a href="#">xuhao@jlu.edu.cn</a>
-                                </div>
-                                <p><span class="glyphicon glyphicon-home" aria-hidden="true"></span>&nbsp;&nbsp;&nbsp;单位
-                                    – Unit(s)：吉林大学 – JiLin University</p>
-                                <p><span class="glyphicon glyphicon-briefcase" aria-hidden="true"></span>&nbsp;&nbsp;&nbsp;职称
-                                    – Title(s)：副教授– Associate professor</p>
-                                <p><span class="glyphicon glyphicon-book" aria-hidden="true"></span>&nbsp;&nbsp;&nbsp;研究方向
-                                    – Rearch Field(s)：知识图谱 、人机交互 、计算机视觉</p>
-                            </div>
-                        </div>
 
+                                <div class="media-body">
+                                    <a href="#">
+                                        <h3 th:text="${person.getName()} ">徐昊</h3></a>
+                                    <div class="row m0 meta">
+                                        Tel : <a href="#" th:text="${person.getTelephone()}">XXXXXX</a> Email : <a
+                                            href="#"
+                                            th:text="${person.getEmail()}">xuhao@jlu.edu.cn</a>
+                                    </div>
+                                    <p><span class="glyphicon glyphicon-home" aria-hidden="true"></span>&nbsp;&nbsp;&nbsp;单位
+                                        – Unit(s)：<span th:text="${person.getUnit()}">吉林大学 – JiLin University</span></p>
+                                    <p><span class="glyphicon glyphicon-briefcase" aria-hidden="true"></span>&nbsp;&nbsp;&nbsp;职称
+                                        – Title(s)：<span th:text="${person.getTitle()}">副教授– Associate professor</span>
+                                    </p>
+                                    <p><span class="glyphicon glyphicon-book" aria-hidden="true"></span>&nbsp;&nbsp;&nbsp;研究方向
+                                        – Rearch Field(s)：<span th:text="${person.getField()}">知识图谱 、人机交互 、计算机视觉</span>
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="media blog " th:unless="${degree} eq 'professor'"
+                                 th:each="person : ${personPage.getContent()}">
+                                <div class="media-left">
+                                    <a href="/person" style="padding-left: 50px;"><img th:src="${person.getPhoto()}"
+                                                                                       class="img-reponsive"></a>
+                                </div>
+                                <div class="media-body">
+                                    <a href="#"><h3 th:text="${person.getName()}">王一博</h3></a>
+                                    <div class="row m0 meta">
+                                        电话 : <a href="#" th:text="${person.getEmail()}">XXXXXX</a> 邮箱 : <a href="#"
+                                                                                                           th:text="${person.getEmail()}">@jlu.edu.cn</a>
+                                        年级 : <a
+                                            href="" th:text="${person.getGrade()}">2017级</a> <a href=""></a>
+                                    </div>
+                                    <p><span class="glyphicon glyphicon-home" aria-hidden="true"></span>&nbsp;&nbsp;&nbsp;单位
+                                        – Unit(s)：<span th:text="${person.getUnit()}">吉林大学 – JiLin University</span></p>
+                                    <p><span class="glyphicon glyphicon-book" aria-hidden="true"></span>&nbsp;&nbsp;&nbsp;研究方向
+                                        – Rearch Field(s)：<span th:text="${person.getField()}">本体</span></p>
+                                </div>
+                            </div>
+
+                        </div>
                     </div>
-                    <div class="row paginationRow">
-                        <ul class="pagination">
-                            <li class="active"><a href="#">1</a></li>
-                            <li><a href="#">2</a></li>
-                            <li><a href="#">3</a></li>
-                        </ul>
+                    <div class="row paginationRow" style="clear: both">
+                        <div class="pagination">
+                            <button type="button" id="person_first"><span
+                                    class="glyphicon glyphicon-fast-backward" aria-hidden="true"></span>
+                            </button>
+                            <button type="button" id="person_prev"><span
+                                    class="glyphicon glyphicon-triangle-left" aria-hidden="true"></span>
+                            </button>
+                            <button type="button" id="person_next"><span
+                                    class="glyphicon glyphicon-triangle-right"
+                                    aria-hidden="true"></span></button>
+                            <button type="button" id="person_last"><span
+                                    class="glyphicon glyphicon-fast-forward" aria-hidden="true"></span>
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -390,6 +422,16 @@
         </div>
     </div>
 </div>
+
+<form hidden="hidden" id="personPageForm">
+    <!--/*@thymesVar id="graduate" type="java.lang.Boolean"*/-->
+    <input type="hidden" name="personPageNow" id="personPageNow" th:value="${personPage.getNumber()}">
+    <input type="hidden" name="degree" id="degree" th:value="${degree}">
+    <input type="hidden" name="graduate" id="graduate" th:value="${graduate}">
+    <input type="hidden" id="personTotalPages" th:value="${personPage.getTotalPages()}">
+
+</form>
+
 <script>
     window.onscroll = function () {
         if ($(window).scrollTop() > 180) {
@@ -405,4 +447,164 @@
 <!--Owl Carousel-->
 <script src="vendors/owl.carousel/js/owl.carousel.min.js"></script>
 </body>
+
+<script th:inline="javascript">
+    /*字符串格式化工具*/
+    String.prototype.format = function () {
+        if (arguments.length === 0) return this;
+        var obj = arguments[0];
+        var s = this;
+        for (var key in obj) {
+            s = s.replace(new RegExp("\\{\\{" + key + "\\}\\}", "g"), obj[key]);
+        }
+        return s;
+    };
+
+    /*教授模板*/
+    var element1 = "<div class=\"media blog\">\n" +
+        "                            <div class=\"media-left\">\n" +
+        "                                <a href=\"{{href}}\" style=\"padding-left: 50px;\"><img src=\"{{photo}}\"\n" +
+        "                                                                                   class=\"img-reponsive\"></a>\n" +
+        "                            </div>\n" +
+        "                            <div class=\"media-body\">\n" +
+        "                                <a href=\"#\"><h3>{{name}}</h3></a>\n" +
+        "                                <div class=\"row m0 meta\">\n" +
+        "                                    Tel : <a href=\"#\">{{tel}}</a> Email : <a href=\"#\">{{email}}</a>\n" +
+        "                                </div>\n" +
+        "                                <p><span class=\"glyphicon glyphicon-home\" aria-hidden=\"true\"></span>&nbsp;&nbsp;&nbsp;单位\n" +
+        "                                    – Unit(s)：{{unit}}</p>\n" +
+        "                                <p><span class=\"glyphicon glyphicon-briefcase\" aria-hidden=\"true\"></span>&nbsp;&nbsp;&nbsp;职称\n" +
+        "                                    – Title(s)：{{title}}</p>\n" +
+        "                                <p><span class=\"glyphicon glyphicon-book\" aria-hidden=\"true\"></span>&nbsp;&nbsp;&nbsp;研究方向\n" +
+        "                                    – Rearch Field(s)：{{field}}</p>\n" +
+        "                            </div>\n" +
+        "                        </div>";
+
+    /*学生模板*/
+    var element2 = "<div class=\"media blog\">\n" +
+        "                        <div class=\"media-left\">\n" +
+        "                            <a href=\"{{href}}\" style=\"padding-left: 50px;\"><img src=\{{photo}} class=\"img-reponsive\"></a>\n" +
+        "                        </div>\n" +
+        "                        <div class=\"media-body\">\n" +
+        "                            <a href=\"#\"><h3>{{name}}</h3></a>\n" +
+        "                            <div class=\"row m0 meta\">\n" +
+        "                                电话 : <a href=\"#\">{{tel}}</a> 邮箱 : <a href=\"#\">{{email}}</a> 年级 : <a href=\"\">{{grade}}</a> <a href=\"\"></a>\n" +
+        "                            </div>\n" +
+        "                            <p><span class=\"glyphicon glyphicon-home\" aria-hidden=\"true\"></span>&nbsp;&nbsp;&nbsp;单位 – Unit(s)：{{unit}}</p>\n" +
+        "                            <p><span class=\"glyphicon glyphicon-book\" aria-hidden=\"true\"></span>&nbsp;&nbsp;&nbsp;研究方向 – Rearch Field(s)：{{field}}</p>\n" +
+        "                        </div>\n" +
+        "                    </div>";
+
+    /*查询成功后更改对应的显示内容*/
+
+    /*alert([[${degree}]]);*/
+
+    function whenPersonQuerySuccess(pager, status) {
+        console.log(pager);
+        var html = "";
+        var datas = pager['content'];
+        if ([[${degree}]] === "professor") {
+            $.each(datas, function (i, data) {
+                var professor = {
+                    photo: data['photo'],
+                    href: "person?id=" + data['id'],
+                    name: data['name'],
+                    tel: data['telephone'],
+                    email: data['email'],
+                    unit: data['unit'],
+                    title: data['title'],
+                    field: data['field']
+                };
+                html += element1.format(professor);
+            });
+        } else {
+            $.each(datas, function (i, data) {
+                var student = {
+                    photo: data['photo'],
+                    href: "person?id=" + data['id'],
+                    name: data['name'],
+                    tel: data['telephone'],
+                    email: data['email'],
+                    unit: data['unit'],
+                    grade: data['grade'],
+                    field: data['field']
+                };
+                html += element2.format(student);
+            });
+        }
+        //console.log(html);
+        $("#person_container").html(html);
+    }
+
+
+    /*------------------------------------------------------------------------------*/
+    $(function () {
+        /*person页面的ajax分页*/
+        var personPageNowElem = $("#personPageNow");
+
+
+        $("#person_first").click(function () {
+            if (personPageNowElem.val() <= 0) {
+                layer.msg("It's already the first page.");
+                return;
+            }
+
+            personPageNowElem.val(0);
+            $.get("person/personpage",
+                $("#personPageForm").serialize(),
+                function (pager, status) {
+                    whenPersonQuerySuccess(pager, status);
+                },
+                'json'
+            )
+        });
+        $("#person_prev").click(function () {
+            if (personPageNowElem.val() <= 0) {
+                layer.msg("There is no previous page.");
+                return;
+            }
+            personPageNowElem.val(parseInt(personPageNowElem.val()) - 1);
+            $.get("person/personpage",
+                $("#personPageForm").serialize(),
+                function (pager, status) {
+                    whenPersonQuerySuccess(pager, status);
+                },
+                'json'
+            )
+        });
+        $("#person_next").click(function () {
+            if (personPageNowElem.val() >= $("#personTotalPages").val() - 1) {
+                layer.msg("There is no next page.");
+                return;
+            }
+            personPageNowElem.val(parseInt(personPageNowElem.val()) + 1);
+
+            $.get("person/personpage",
+                $("#personPageForm").serialize(),
+                function (pager, status) {
+                    whenPersonQuerySuccess(pager, status);
+                },
+                'json'
+            )
+        });
+        $("#person_last").click(function () {
+            if (personPageNowElem.val() >= $("#personTotalPages").val() - 1) {
+                layer.msg("It's already the last page.");
+                return;
+            }
+
+            personPageNowElem.val(parseInt($("#personTotalPages").val() - 1));
+
+            $.get("person/personpage",
+                $("#personPageForm").serialize(),
+                function (pager, status) {
+                    whenPersonQuerySuccess(pager, status);
+                },
+                'json'
+            )
+        });
+    })
+
+
+</script>
 </html>

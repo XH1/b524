@@ -5,11 +5,13 @@ import com.socog.website.module.person.entiy.Person;
 import com.socog.website.module.person.repository.PersonRepository;
 import com.sun.org.apache.regexp.internal.REUtil;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -31,24 +33,39 @@ public class PersonController {
         this.personRepository = personRepository;
     }
 
-    @GetMapping("/personlist")
-    public String getAll(@RequestParam(defaultValue = "") String type, @RequestParam(defaultValue = "false") boolean graduate, Model model){
+    @GetMapping("")
+    public String getAll(@RequestParam(defaultValue = "professor") String degree, @RequestParam(defaultValue = "false") boolean graduate,
+                         @RequestParam(defaultValue = "0") int page, Model model) {
+        Pageable pageable = PageRequest.of(page, 3, Sort.Direction.DESC, "id");
+        Page<Person> personPage = checkPage(degree,graduate,pageable);
+        model.addAttribute("personPage", personPage);
+        model.addAttribute("degree", degree);
+        model.addAttribute("graduate", graduate);
+        return "personlist";
+    }
 
-        /*List<Person> personList = new ArrayList<>();
+    @ResponseBody
+    @GetMapping("/personpage")
+    public Page<Person> getPersonPage(@RequestParam(defaultValue = "professor") String degree, @RequestParam(defaultValue = "false") boolean graduate,
+                                      @RequestParam(defaultValue = "0") int personPageNow) {
 
-        if (type == null || "".equals(type) || "all".equals(type)) {
-            personList = personRepository.findAll();
-        } else if ("professor".equals(type)) {
-            personList = personRepository.findByDegree(Degree.PROFESSOR);
-            personList.addAll(personRepository.findByDegree(Degree.VISITING_PROFESSOR));
-        } else if ("PHD".equals(type)) {
-            personList = personRepository.findByDegreeAndGraduated(Degree.PHD,graduate);
-        } else if ("master".equals(type)) {
-            personList = personRepository.findByDegreeAndGraduated(Degree.MASTER,graduate);
-        } else if ("undergraduate".equals(type)) {
-            personList = personRepository.findByDegreeAndGraduated(Degree.UNDERGRADUATE,graduate);
+        Page<Person> personPage = null;
+        Pageable pageable = PageRequest.of(personPageNow, 3, Sort.Direction.DESC, "id");
+        personPage = checkPage(degree, graduate, pageable);
+        return personPage;
+    }
+
+    private Page<Person> checkPage(String degree,boolean graduate,Pageable pageable) {
+        Page<Person> personPage = null;
+        if ("professor".equals(degree) || "".equals(degree)) {
+            personPage = personRepository.findByDegreeOrDegree(Degree.PROFESSOR, Degree.VISITING_PROFESSOR, pageable);
+        } else if ("PHD".equals(degree)) {
+            personPage = personRepository.findByDegreeAndGraduated(Degree.PHD, graduate, pageable);
+        } else if ("master".equals(degree)) {
+            personPage = personRepository.findByDegreeAndGraduated(Degree.MASTER, graduate, pageable);
+        } else if ("undergraduate".equals(degree)) {
+            personPage = personRepository.findByDegreeAndGraduated(Degree.UNDERGRADUATE, graduate, pageable);
         }
-        model.addAttribute("personList", personList);
-        return "personlist";*/
+        return personPage;
     }
 }

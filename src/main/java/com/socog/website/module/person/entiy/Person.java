@@ -32,13 +32,16 @@ public class Person extends BaseEntity {
 
     private String field;
 
-    private int grade;
+    private Integer grade;
 
     private String photo;
 
     private String brief;
 
-    private boolean graduated;
+
+    private Boolean graduated;
+
+    private String title;
 
     @ManyToMany
     private List<Paper> paperList;
@@ -75,11 +78,11 @@ public class Person extends BaseEntity {
         this.degree = degree;
     }
 
-    public int getGrade() {
+    public Integer getGrade() {
         return grade;
     }
 
-    public void setGrade(int grade) {
+    public void setGrade(Integer grade) {
         this.grade = grade;
     }
 
@@ -123,11 +126,19 @@ public class Person extends BaseEntity {
         this.paperList = paperList;
     }
 
-    public boolean isGraduated() {
+    public Boolean getGraduated() {
         return graduated;
     }
 
-    public void setGraduated(boolean graduated) {
+    public void setGraduated(Boolean graduated) {
         this.graduated = graduated;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
     }
 }
