@@ -8,352 +8,571 @@
 	<link rel="stylesheet" href="css/index.css">
 	<link rel="stylesheet" href="css/person.css">
 	<link rel="stylesheet" href="css/achievement.css">
+	<style>
+		
+		.go-top {
+			position: fixed;
+			bottom: 10px;
+			right: 10px;
+			display: none;
+			cursor: pointer;
+		}
+	
+	</style>
   </head>
+	
   <body class="default">
-	<section class="row top_bar">
-        <div class="container">
-            <div class="row">
-                <div class="fleft phone" style="padding-bottom: 10px;">
-                    <p> <a href="#">吉林大学计算机科学与技术学院计算智能知识图谱实验室</a>    </p>
-                </div>
-                <div class="fright">
-                                    
-                    <div class="fleft"><strong><a href="#">Sign up</a> | <a href="#">Sign in</a></strong></div>
-                </div>
-            </div>
-        </div>
-    </section>
-    
-    <nav class="navbar navbar-default navbar-static-top navbar2"style="background: #0186d5;">
-        <div class="container" style="margin-left: -60px;">
-            <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="navbar-header">
-                            
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#main_nav" aria-expanded="false">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <!-- <a href="book-appointment.html" class="navbar-toggle visible-xs" data-toggle="modal" data-target="#appointmefnt_form_pop">Search</a> -->
-            </div>
-            
-            <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse" id="main_nav"> 
-                                   <a   href="index.html"><img style="width:125px;height:80px;margin-left:280px ;margin-top: 2px;" src="assets/wq4.png" alt=""></a>                                                 
-                                <ul  class="nav navbar-nav navbar-right">
-                                        <li class="active"><a href="index.html">Home</a></li>
-                                     
-                                        <li><a href="aboutus.html">About Us</a></li>
-                                        <li class="dropdown">
-                                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Research</a>
-                                            <ul class="dropdown-menu" role="menu">
-                                                <li><a href="research_direction.html">Research Direction</a></li>
-                                                <li><a href="paperlist.html">Papers</a></li>
-                                                <li><a href="research_project.html">Projects</a></li>
-                                            </ul>
-                                        </li>
-                                        <li><a href="personlist.html">People</a></li>
-                                        <li><a href="eventlist.html">News</a></li>  
-                                        <li><a href="eventlist.html">Share</a></li>
-
-                   <!-- <li class="dropdown">
-                        <a href="achievementlist" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Achievements</a>
-                        <ul class="dropdown-menu" role="menu">
-                            <li><a href="paperlist.html">Papers</a></li>
-                            <li><a href="projectlist.html">Projects</a></li>
-                            <li><a href="patentlist.html">Patents</a></li>
-                            <li><a href="awardlist.html">Awards</a></li>
-                        </ul>
-                    </li>-->
-                                        <li><a href="aboutus.html">Join Us</a></li>
-                    <!-- <li class="hidden-xs book"><a href="#" data-toggle="modal" data-target="#appointmefnt_form_pop">Search</a></li> -->
-                </ul>
-            </div><!-- /.navbar-collapse -->
-        </div><!-- /.container -->
-    </nav>
+	 <section class="row top_bar">
+	         <div class=""style="margin-left: 62px;margin-right:60px;margin-top: 10px;">
+	             <div class="row ">
+	                 <div class="fleft phone" style="padding-bottom: 10px;">
+	                     <p> <a href="#" style="
+	     text-decoration: none;
+	     color: #03536A;
+	 ">Computational Intelligence Knowledge Mapping Laboratory, School of Computer Science and Technology, Jilin University</a>  </p>
+	                 </div>
+	                 <div class="fright">
+	 									
+	                     <div class="fleft"><strong><a href="#" style="
+        text-decoration: none;
+        color: #03536A;">Sign in</a></strong></div>
+	                 </div>
+	             </div>
+	         </div>
+	     </section>
+	     
+	     <nav class="navbar navbar-default navbar-static-top navbar2"style="background: #0186d5;">
+	         <div class="container" style="margin-left: -10px;">
+	             <!-- Brand and toggle get grouped for better mobile display -->
+	             <div class="navbar-header">
+	 							
+	                 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#main_nav" aria-expanded="false">
+	                     <span class="icon-bar"></span>
+	                     <span class="icon-bar"></span>
+	                     <span class="icon-bar"></span>
+	                 </button>
+	                 <!-- <a href="book-appointment.html" class="navbar-toggle visible-xs" data-toggle="modal" data-target="#appointmefnt_form_pop">Search</a> -->
+	             </div>
+	             
+	             <!-- Collect the nav links, forms, and other content for toggling -->
+	             <div class="collapse navbar-collapse" id="main_nav"> 
+	 								   <a   href="index.html"><img style="width:125px;height:80px;margin-left:200px ;margin-top: 2px;" src="assets/wq4.png" alt=""></a>											    	
+	 								<ul  class="nav navbar-nav navbar-right">
+	 		                    			<li class="active"><a href="index.html">Home</a></li>
+	 					                 
+	 					                    <li><a href="aboutus.html">About Us</a></li>
+	 					                    <li class="dropdown">
+	                                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Research</a>
+	                                             <ul class="dropdown-menu" role="menu">
+	                                                 <li><a href="research_direction.html">Area</a></li>
+	                                                 <li><a href="paperlist.html">Papers</a></li>
+	                                                 <li><a href="research_project.html">Projects</a></li>
+	                                             </ul>
+	                                         </li>
+	 					                    <li><a href="personlist.html">People</a></li>
+	 										<li><a href="eventlist.html">News</a></li>	
+	 										<li><a href="upload.html">Resource</a></li>
+	 
+	                   
+	                     					<li><a href="join.html">Join Us</a></li>
+	                     <!-- <li class="hidden-xs book"><a href="#" data-toggle="modal" data-target="#appointmefnt_form_pop">Search</a></li> -->
+	                 </ul>
+	             </div><!-- /.navbar-collapse -->
+	         </div><!-- /.container -->
+	     </nav>
     <div class="content">
-    	<section class="row breadcrumbs">
-			<div class="container">
-				<p class="col-md-12 col-sm-12 bread-content"><a href="index.html">Home</a>&nbsp; >> &nbsp;<a href="personlist.html">Scholars</a>&nbsp; >> &nbsp;<b>Jihong Yu</b></p>
-			</div>
-		</section>
-		<section class="row infomation-scholars">
-			<div class="container">
-				<div class="col-md-3 col-sm-12 basic-info">
-						<div class="info-img col-sm-6 col-md-12">
-							<img src="assets/img/avatar.png" alt="">
-						</div>
-						<div class="scholar-info col-sm-6 col-md-12">
-							<p><span class="glyphicon glyphicon-user" aria-hidden="true"></span>&nbsp;&nbsp;CAS Academician, Professor</p>
-							<p><span class="glyphicon glyphicon-globe" aria-hidden="true"></span>&nbsp;&nbsp;Chief Scientist of National 973 Project</p>
-							<p><span class="glyphicon glyphicon-briefcase" aria-hidden="true"></span>&nbsp;&nbsp;Associate Editor of Chemistry Science</p>
-							<p><span class="glyphicon glyphicon-link" aria-hidden="true"></span>&nbsp;&nbsp;http://melab.jlu.edu.cn</p>
-							<p><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>&nbsp;&nbsp;jihong@jlu.edu.cn</p>
-						</div>
-				</div>
-				<div class="col-md-9 col-sm-12 scholar-introduction">
-					<div class="col-md-12 col-sm-12 blue-background">
-						<div class="col-md-4 col-sm-4 name-apartment">
-							<h1>Jihong Yu</h1>
-							<h3><span class="glyphicon glyphicon-home"></span> &nbsp;&nbsp;Chemistry</h3>
-						</div>
-						<div class="col-md-5 col-sm-5 research-area">
-							<h4>Research Area</h4>
-							<p>Research Area1</p>
-							<p>Research Area2</p>
-							<p>Research Area3</p>
-							<p>Research Area4</p>
-						</div>
-						<div class="col-md-3 col-sm-3 graph-botton">
-							<div class="orange-button">
-								<h4>Data Visualization of Graph</h4>
-							</div>
-						</div>
-					</div>
-					<div class="col-sm-6 col-md-6 timeline-edu">
-						<h3 class="blue-line"><b>Education Experience</b></h3>
-						<div class="row timeline-content">
-							<div class="line"></div>
-							<div class="col-md-3 col-sm-3 date">
-								<p>1986<br>08</p>
-							</div>
-							<div class="col-md-9 col-sm-9 details">
-								<h4><b>Jilin University</b></h4>
-								<p><b>Marster</b>&nbsp;&nbsp;&nbsp; Chemistry</p>
-							</div>
-							<div class="col-md-3 col-sm-3 date">
-								<p>1986<br>08</p>
-							</div>
-							<div class="col-md-9 col-sm-9 details">
-								<h4><b>Jilin University</b></h4>
-								<p><b>Marster</b>&nbsp;&nbsp;&nbsp; Chemistry</p>
-							</div>
-							<div class="col-md-3 col-sm-3 date">
-								<p>1986<br>08</p>
-							</div>
-							<div class="col-md-9 col-sm-9 details">
-								<h4><b>Jilin University</b></h4>
-								<p><b>Marster</b>&nbsp;&nbsp;&nbsp; Chemistry</p>
-							</div>
-						</div>
-					</div>
-					<div class="col-sm-6 col-md-6 timeline-work">
-						<h3 class="blue-line"><b>Work Experience</b></h3>
-						<div class="row timeline-content">
-							<div class="line"></div>
-							<div class="col-md-3 col-sm-3 date">
-								<p>1986<br>08</p>
-							</div>
-							<div class="col-md-9 col-sm-9 details">
-								<h4><b>Jilin University</b></h4>
-								<p><b>Professor</b>&nbsp;&nbsp;&nbsp; Chemistry</p>
-							</div>
-							<div class="col-md-3 col-sm-3 date">
-								<p>1986<br>08</p>
-							</div>
-							<div class="col-md-9 col-sm-9 details">
-								<h4><b>Jilin University</b></h4>
-								<p><b>Professor</b>&nbsp;&nbsp;&nbsp; Chemistry</p>
-							</div>
-							<div class="col-md-3 col-sm-3 date">
-								<p>1986<br>08</p>
-							</div>
-							<div class="col-md-9 col-sm-9 details">
-								<h4><b>Jilin University</b></h4>
-								<p><b>Professor</b>&nbsp;&nbsp;&nbsp; Chemistry</p>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</section>
-		<section class="row achievement_tab">
-        <div class="container">
-          <div class="col-sm-12 col-md-4">
-            <div class="panel-group accordion white_bg" id="accordion" role="tablist" aria-multiselectable="true">
-                         <div class="panel panel-default">
-                             <div class="panel-heading" role="tab" id="headingOne">
-                                 <h4 class="panel-title">
-                                     <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                         <b>Plications</b>
-                                         <span class="sign"></span>
-                                     </a>
-                                 </h4>
-                             </div>
-                             <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
-                                 <div class="panel-body">                                
-                                    <h4 class="panel_title">2017</h4>
-                                    <h4 class="panel_title">2016</h4>
-                                    <h4 class="panel_title">2015</h4>
-                                    <h4 class="panel_title">2014</h4>
-                                 </div>
-                             </div>
-                         </div> <!--Panel-->
-                         <div class="panel panel-default">
-                             <div class="panel-heading" role="tab" id="headingTwo">
-                                 <h4 class="panel-title">
-                                     <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                         <b>Projects</b>
-                                         <span class="sign"></span>
-                                     </a>
-                                 </h4>
-                             </div>
-                             <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
-                                 <div class="panel-body">
-                                    <h4 class="panel_title">2017</h4>
-                                    <h4 class="panel_title">2016</h4>
-                                    <h4 class="panel_title">2015</h4>
-                                    <h4 class="panel_title">2014</h4>
-                                 </div>
-                             </div>
-                         </div> <!--Panel-->
-                         <div class="panel panel-default">
-                             <div class="panel-heading" role="tab" id="headingThree">
-                                 <h4 class="panel-title">
-                                     <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                                         <b>Patents</b>
-                                         <span class="sign"></span>
-                                     </a>
-                                 </h4>
-                             </div>
-                             <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
-                                 <div class="panel-body">
-                                    <h4 class="panel_title">2017</h4>
-                                    <h4 class="panel_title">2016</h4>
-                                    <h4 class="panel_title">2015</h4>
-                                    <h4 class="panel_title">2014</h4>
-                                 </div>
-                             </div>
-                         </div> <!--Panel-->
-                         <div class="panel panel-default">
-                             <div class="panel-heading" role="tab" id="headingFour">
-                                 <h4 class="panel-title">
-                                     <a data-toggle="collapse" data-parent="#accordion" href="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
-                                         <b>Awards</b>
-                                         <span class="sign"></span>
-                                     </a>
-                                 </h4>
-                             </div>
-                             <div id="collapseFour" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFour">
-                                 <div class="panel-body">
-                                    <h4 class="panel_title">2017</h4>
-                                    <h4 class="panel_title">2016</h4>
-                                    <h4 class="panel_title">2015</h4>
-                                    <h4 class="panel_title">2014</h4>
-                                 </div>
-                             </div>
-                         </div> <!--Panel-->
-                         <div class="panel panel-default">
-                             <div class="panel-heading" role="tab" id="headingFive">
-                                 <h4 class="panel-title">
-                                     <a data-toggle="collapse" data-parent="#accordion" href="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
-                                         <b>courses</b>
-                                         <span class="sign"></span>
-                                     </a>
-                                 </h4>
-                             </div>
-                             <div id="collapseFive" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFive">
-                                 <div class="panel-body">
-                                    <h4 class="panel_title">2017</h4>
-                                    <h4 class="panel_title">2016</h4>
-                                    <h4 class="panel_title">2015</h4>
-                                    <h4 class="panel_title">2014</h4>
-                                 </div>
-                             </div>
-                         </div> <!--Panel-->
-                    </div>
+  		<section class="row infomation-scholars">
+  			<div class="container">
+  				<div class="col-md-3 col-sm-12 basic-info">
+  						<div class="info-img col-sm-6 col-md-12">
+  							<img src="assets/img/avatar.png" alt="">
+  						</div>
+  						<div class="scholar-info col-sm-6 col-md-12">
+  							<p><span class="glyphicon glyphicon-user" aria-hidden="true"></span>&nbsp;&nbsp;CAS Academician, Professor</p>
+  							<p><span class="glyphicon glyphicon-briefcase" aria-hidden="true"></span>&nbsp;&nbsp;Associate Editor of Chemistry Science</p>
+  							<p><span class="glyphicon glyphicon-link" aria-hidden="true"></span>&nbsp;&nbsp;http://melab.jlu.edu.cn</p>
+  							<p><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>&nbsp;&nbsp;jihong@jlu.edu.cn</p>
+  						</div>
+  				</div>
+  				<div class="col-md-9 col-sm-12 scholar-introduction">
+  					<div class="col-md-12 col-sm-12 blue-background">
+  						<div class="col-md-4 col-sm-4 name-apartment">
+  							<h2 style="margin-top:13px;">徐昊</h2>
+  						</div>
+  						<div class="col-md-7 col-sm-7 research-area">
+  							<h3 style="padding-top: 28px;"><span class="glyphicon glyphicon-home"></span> &nbsp;&nbsp;computer science and Technology</h3>
+  						</div>
+  						<!-- <div class="col-md-3 col-sm-3 graph-botton">
+  							<div class="orange-button" style="margin-top: 12px;">
+  								<h4 data-toggle="modal" data-target="#graph" >Data Visualization of Graph</h4>
+  							</div>
+  						</div> -->
+                         <!-- <div class="modal fade" id="graph" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" style="height: 100%; width: 100%;">
+                            <div class="modal-dialog" role="document" style="height: 100%; width: 60%; margin-top: 99px;">
+                              <div class="modal-content">
+                                <div class="modal-header">
+                                  <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                  <h4 class="modal-title" id="myModalLabel" style="color: #111;">Data Visualization of Graph</h4>
+                                </div>
+                                <div class="modal-body">
+                                  <div id="main1" style="width: 800px;height:680px;"></div>
+                                  <script type="text/javascript">
+                                      // 基于准备好的dom，初始化echarts实例
+                                      var myChart = echarts.init(document.getElementById('main1'));
+  
+                                      // 指定图表的配置项和数据
+                                      var option = {
+                                          title: {
+                                              text: ''
+                                          },
+                                          tooltip: {},
+                                          animationDurationUpdate: 1500,
+                                          animationEasingUpdate: 'quinticInOut',
+                                          legend: {
+                                              x: "center",
+                                              data: ['论文', '作者', '组织', '专利', '奖项']
+                                          },
+                                          label: {
+                                              normal: {
+                                                  show: true,
+                                                  textStyle: {
+                                                      fontSize: 12
+                                                  },
+                                              }
+                                          },
+                                          series: [
+                                              {
+                                                  type: 'graph',
+                                                  layout: 'force',
+                                                  symbolSize: 35,
+                                                  focusNodeAdjacency: true,
+                                                  roam: true,
+                                                  categories: [{
+                                                      name: '论文',
+                                                      itemStyle: {
+                                                          normal: {
+                                                              color: "#00B0F0",
+                                                          }
+                                                      }
+                                                  }, {
+                                                      name: '作者',
+                                                      itemStyle: {
+                                                          normal: {
+                                                              color: "#A5EAFF",
+                                                          }
+                                                      }
+                                                  }, {
+                                                      name: '组织',
+                                                      itemStyle: {
+                                                          normal: {
+                                                              color: "#BEFFF8",
+                                                          }
+                                                      }
+                                                  }, {
+                                                      name: '专利',
+                                                      itemStyle: {
+                                                          normal: {
+                                                              color: "#9EC4F6",
+                                                          }
+                                                      }
+                                                  }, {
+                                                      name: '奖项',
+                                                      itemStyle: {
+                                                          normal: {
+                                                              color: "#E1DCFC",
+                                                          }
+                                                      }
+                                                  }],
+                                                  label: {
+                                                      normal: {
+                                                          show: false,
+                                                          position: 'top',
+                                                          textStyle: {
+                                                              fontSize: 12
+                                                          },
+                                                      }
+                                                  },
+                                                  force: {
+                                                      repulsion: 1000
+                                                  },
+                                                  edgeSymbolSize: [4, 50],
+                                                  edgeLabel: {
+                                                      normal: {
+                                                          show: true,
+                                                          textStyle: {
+                                                              fontSize: 11
+                                                          },
+                                                          formatter: "{c}"
+                                                      }
+                                                  },
+                                                  data: [{
+                                                      name: 'Dark and Light: Entrepreneurship and Innovation in New Technology Spaces',
+                                                      category: 0,
+                                                      draggable: true,
+                                                  }, {
+                                                      name: 'Cooke, Philip',
+                                                      category: 1,
+                                                      draggable: true,
+                                                  }, {
+                                                      name: 'Investigaciones Regionales',
+                                                      category: 3,
+                                                      draggable: true,
+                                                  }, {
+                                                      name: 'United States',
+                                                      category: 6,
+                                                      draggable: true,
+                                                  }, {
+                                                      name: 'Bosnia and Herzegovina',
+                                                      category: 6,
+                                                      draggable: true,
+                                                  }, {
+                                                      name: 'Israel',
+                                                      category: 6,
+                                                      draggable: true,
+                                                  }, {
+                                                      name: 'Cardiff University',
+                                                      category: 2,
+                                                      draggable: true,
+                                                  }, {
+                                                      name: "'Digital tech' and the public sector: what new role after public funding?",
+                                                      category: 0,
+                                                      draggable: true,
+                                                  }, {
+                                                      name: "'Digital' tech and the public sector: what new role after public funding?",
+                                                      category: 0,
+                                                      draggable: true,
+                                                  }, {
+                                                      name: "A ground-up 'Quaternary' innovation strategy for South Korea using entrepreneurial ecosystem platforms.",
+                                                      category: 0,
+                                                      draggable: true,
+                                                  }, {
+                                                      name: 'Evolution and variety in complex geographies and enterprise policies.',
+                                                      category: 0,
+                                                      draggable: true,
+                                                  }, {
+                                                      name: 'The virtues of variety in regional innovation systems and entrepreneurial ecosystems.',
+                                                      category: 0,
+                                                      draggable: true,
+                                                  }, {
+                                                      name: 'United Kingdom',
+                                                      category: 5,
+                                                      draggable: true,
+                                                  }],
+                                                  links: [{
+                                                      source: 0,
+                                                      target: 1,
+                                                      category: 0,
+                                                      value: 'Author'
+                                                  }, {
+                                                      source: 0,
+                                                      target: 2,
+                                                      value: 'source'
+                                                  }, {
+                                                      source: 0,
+                                                      target: 3,
+                                                      value: 'Research Entity'
+                                                  }, {
+                                                      source: 0,
+                                                      target: 4,
+                                                      value: 'Research Entity'
+                                                  }, {
+                                                      source: 1,
+                                                      target: 6,
+                                                      value: 'organization'
+                                                  }, {
+                                                      source: 0,
+                                                      target: 5,
+                                                      value: 'Research Entity'
+                                                  }, {
+                                                      source: 6,
+                                                      target: 12,
+                                                      value: 'location'
+                                                  }, {
+                                                      source: 1,
+                                                      target: 8,
+                                                      value: 'paper'
+                                                  }, {
+                                                      source: 1,
+                                                      target: 9,
+                                                      value: 'paper'
+                                                  }, {
+                                                      source: 1,
+                                                      target: 11,
+                                                      value: 'paper'
+                                                  }, {
+                                                      source: 1,
+                                                      target: 10,
+                                                      value: 'paper'
+                                                  }, {
+                                                      source: 1,
+                                                      target: 7,
+                                                      value: 'paper'
+                                                  }],
+                                                  lineStyle: {
+                                                      normal: {
+                                                          opacity: 0.9,
+                                                          width: 1,
+                                                          curveness: 0
+                                                      }
+                                                  }
+                                              }
+                                          ]
+                                      };
+  
+                                      // 使用刚指定的配置项和数据显示图表。
+                                      myChart.setOption(option);
+                                  </script>
+                                </div>
+                              </div>
+                            </div>
+                          </div>-->
+  					</div> 
+                    <!--  <div class="col-sm-6 col-md-12 timeline-edu">
+                          <h3 class="blue-line"><b>Competence</b></h3>
+                          <div class="row">
+                              <p style="margin-left: 20px;">
+                                  <span class="label label-info">Chemistry</span>
+                                  <span class="label label-info">Materials Science</span>
+                                  <span class="label label-info">Crystallization</span>
+                                  <span class="label label-info">Atoms</span></p>
+                          </div>
+                      </div> -->
+  					<div class="col-sm-6 col-md-12 timeline-edu"style="margin-top: 50px;">
+  						<h3 class="blue-line"><b>Introduction</b></h3>
+  						<div class="row timeline-content">
+  							<p>放上个人简介xxXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+                              </p>
+  						</div>
+  					</div>
+  				</div>
+  			</div>
+  		</section>
+  		<section class="row achievement_tab">
+          <div class="container">
+            <div class="col-sm-12 col-md-4">
+              <div class="panel-group accordion white_bg" id="accordion" role="tablist" aria-multiselectable="true">
+                          
+													
+													
+													
+													 <div class="panel panel-default">
+                               <div class="panel-heading" role="tab" id="headingOne">
+                                   <h4 class="panel-title">
+                                       <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                           <b>Publications</b>
+                                           <span class="sign"></span>
+                                       </a>
+                                   </h4>
+                               </div>
+                               <div id="collapseOne" class="panel-collapse collapse in "style="background: #E5E7FF;" role="tabpanel" aria-labelledby="headingOne">
+                                   <div class="panel-body">                                
+                                      <h4 class="panel_title">2017</h4>
+                                      <h4 class="panel_title">2016</h4>
+                                      <h4 class="panel_title">2015</h4>
+                                      <h4 class="panel_title">2014</h4>
+                                   </div>
+                               </div>
+                           </div> <!--Panel-->
+                          <!-- <div class="panel panel-default">
+                               <div class="panel-heading" role="tab" id="headingTwo">
+                                   <h4 class="panel-title">
+                                       <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                           <b>Projects</b>
+                                           <span class="sign"></span>
+                                       </a>
+                                   </h4>
+                               </div>
+                               <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+                                   <div class="panel-body">
+                                      <h4 class="panel_title">2017</h4>
+                                      <h4 class="panel_title">2016</h4>
+                                      <h4 class="panel_title">2015</h4>
+                                      <h4 class="panel_title">2014</h4>
+                                   </div>
+                               </div>
+                           </div> -->
+                         <!--  <div class="panel panel-default">
+                               <div class="panel-heading" role="tab" id="headingThree">
+                                   <h4 class="panel-title">
+                                       <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                           <b>Patents</b>
+                                           <span class="sign"></span>
+                                       </a>
+                                   </h4>
+                               </div>
+                               <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+                                   <div class="panel-body">
+                                      <h4 class="panel_title">2017</h4>
+                                      <h4 class="panel_title">2016</h4>
+                                      <h4 class="panel_title">2015</h4>
+                                      <h4 class="panel_title">2014</h4>
+                                   </div>
+                               </div>
+                           </div> --> <!--Panel-->
+                         <!--  <div class="panel panel-default">
+                               <div class="panel-heading" role="tab" id="headingFour">
+                                   <h4 class="panel-title">
+                                       <a data-toggle="collapse" data-parent="#accordion" href="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                                           <b>Awards</b>
+                                           <span class="sign"></span>
+                                       </a>
+                                   </h4>
+                               </div>
+                               <div id="collapseFour" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingFour">
+                                   <div class="panel-body">
+                                      <h4 class="panel_title">2017</h4>
+                                      <h4 class="panel_title">2016</h4>
+                                      <h4 class="panel_title">2015</h4>
+                                      <h4 class="panel_title">2014</h4>
+                                   </div>
+                               </div>
+                           </div> --> <!--Panel-->
+                       <!--    <div class="panel panel-default">
+                               <div class="panel-heading" role="tab" id="headingFive">
+                                   <h4 class="panel-title">
+                                       <a data-toggle="collapse" data-parent="#accordion" href="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+                                           <b>courses</b>
+                                           <span class="sign"></span>
+                                       </a>
+                                   </h4>
+                               </div>
+                               <div id="collapseFive" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFive">
+                                   <div class="panel-body">
+                                      <h4 class="panel_title">2017</h4>
+                                      <h4 class="panel_title">2016</h4>
+                                      <h4 class="panel_title">2015</h4>
+                                      <h4 class="panel_title">2014</h4>
+                                   </div>
+                               </div>
+                           </div> --> <!--Panel-->
+                      </div>
+            </div>
+            <div class="col-sm-12 col-md-8 achievement-content">
+              <div class="titleRow">
+                      <h4><b>Publications</b>&nbsp;&nbsp;</h4>
+                  </div>
+                  <div class="filter">
+                
+                  </div>
+              <div class="achievement-item container">
+                <div class="achievement-img col-md-3 col-sm-3">
+                  <img src="assets/img/big-achievement.png" alt="">
+                </div>
+                <div class="achievement-title col-md-6 col-sm-7">
+                  <h4><b>
+									<a href="paperlist.html"style="text-decoration: none;color: black;">
+									Title of publication</a>
+									</b></h4>
+                  <p><a href="paperlist.html"style="text-decoration: none;color: #666;">
+										Title of publication title of publication title of publication title of publication of publication title of publication title of publication...</p>
+                </a>
+								</div>
+              </div>
+              <div class="achievement-item container">
+                <div class="achievement-img col-md-3 col-sm-3">
+                  <img src="assets/img/big-achievement.png" alt="">
+                </div>
+                <div class="achievement-title col-md-6 col-sm-7">
+                 	<h4><b>
+                 	<a href="paperlist.html"style="text-decoration: none;color: black;">
+                 	Title of publication</a>
+                 	</b></h4>
+                 	<p><a href="paperlist.html"style="text-decoration: none;color: #666;">
+                 		Title of publication title of publication title of publication title of publication of publication title of publication title of publication...</p>
+                 </a>      </div>
+              </div>
+              <div class="achievement-item container">
+                <div class="achievement-img col-md-3 col-sm-3">
+                  <img src="assets/img/big-achievement.png" alt="">
+                </div>
+                <div class="achievement-title col-md-6 col-sm-7">
+                 	<h4><b>
+                 	<a href="paperlist.html"style="text-decoration: none;color: black;">
+                 	Title of publication</a>
+                 	</b></h4>
+                 	<p><a href="paperlist.html"style="text-decoration: none;color: #666;">
+                 		Title of publication title of publication title of publication title of publication of publication title of publication title of publication...</p>
+                 </a></div>
+              </div>
+              <div class="achievement-item container">
+                <div class="achievement-img col-md-3 col-sm-3">
+                  <img src="assets/img/big-achievement.png" alt="">
+                </div>
+                <div class="achievement-title col-md-6 col-sm-7">
+                 	<h4><b>
+                 	<a href="paperlist.html"style="text-decoration: none;color: black;">
+                 	Title of publication</a>
+                 	</b></h4>
+                 	<p><a href="paperlist.html"style="text-decoration: none;color: #666;">
+                 		Title of publication title of publication title of publication title of publication of publication title of publication title of publication...</p>
+                 </a> </div>
+              </div>
+            </div>
           </div>
-          <div class="col-sm-12 col-md-8 achievement-content">
-            <div class="titleRow">
-                    <h4><b>Papers</b>&nbsp;&nbsp;>&nbsp;&nbsp;<b>2017</b>(<b>12</b>)</h4>
-                </div>
-                <div class="filter">
-              
-                </div>
-            <div class="achievement-item container">
-              <div class="achievement-img col-md-3 col-sm-3">
-                <img src="assets/img/big-achievement.png" alt="">
-              </div>
-              <div class="achievement-title col-md-6 col-sm-7">
-                <h4><b>Title of publication</b></h4>
-                <p>Title of publication title of publication title of publication title of publication of publication title of publication title of publication...</p>
-              </div>
-            </div>
-            <div class="achievement-item container">
-              <div class="achievement-img col-md-3 col-sm-3">
-                <img src="assets/img/big-achievement.png" alt="">
-              </div>
-              <div class="achievement-title col-md-6 col-sm-7">
-                <h4><b>Title of publication</b></h4>
-                <p>Title of publication title of publication title of publication title of publication of publication title of publication title of publication...</p>
-              </div>
-            </div>
-            <div class="achievement-item container">
-              <div class="achievement-img col-md-3 col-sm-3">
-                <img src="assets/img/big-achievement.png" alt="">
-              </div>
-              <div class="achievement-title col-md-6 col-sm-7">
-                <h4><b>Title of publication</b></h4>
-                <p>Title of publication title of publication title of publication title of publication of publication title of publication title of publication...</p>
-              </div>
-            </div>
-            <div class="achievement-item container">
-              <div class="achievement-img col-md-3 col-sm-3">
-                <img src="assets/img/big-achievement.png" alt="">
-              </div>
-              <div class="achievement-title col-md-6 col-sm-7">
-                <h4><b>Title of publication</b></h4>
-                <p>Title of publication title of publication title of publication title of publication of publication title of publication title of publication...</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-	</div>
-    <footer class="row">
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-8 col-md-6 col-lg-4 footer_menuList">
-                    <div class="row menuList">
-                        <ul class="firstOrderList nav">
-                            <li class="active"><a href="index">Home</a></li>
-                            <li><a href="eventlist">News</a></li>
-                            <li><a href="organizationlist">Groups</a></li>
-                            <li><a href="personlist">Scholars</a></li>
-                            <li><a href="eventlist">Events</a></li>
-                        </ul>
-                        <ul class="secondOrderList nav">                                
-                            <li><a href="#">Publications</a></li>
-                            <li><a href="#">Projects</a></li>
-                            <li><a href="#">Patents</a></li>
-                            <li><a href="#">Awards</a></li>
-                            <li><a href="#">About us</a></li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-sm-4 col-md-6 col-lg-3 footer_address">
-                    <div class="row address m0">
-                        <div class="media address_line">
-                            <div class="media-left icon"><i class="fa fa-map-marker"></i></div>
-                            <div class="media-body address_text">Jilin University</div>
-                        </div>
-                        <div class="media address_line">
-                            <div class="media-left icon"><i class="fa fa-envelope"></i></div>
-                            <div class="media-body address_text">XXXXX@jlu.edu.cn</div>
-                        </div>
-                        <div class="media address_line">
-                            <div class="media-left icon"><i class="fa fa-phone"></i></div>
-                            <div class="media-body address_text">123 7890 456</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-12 col-md-12 col-lg-5">
-                    <div class="heading row m0"></div>                    
-                    <div class="fright copyright">&copy; <a href="index.html">Future Science 2017</a>. 未来科学国际联合合作实验室.</div>
-                </div>
-            </div>
-        </div>
-    </footer>
+        </section>
+  	
+    	<footer class="row" style="padding-top: 30px;">
+    					<div class="container">
+    									<div class="row">
+    													<div class="col-sm-8 col-md-7 col-lg-4 footer_menuList">
+    																	<div class="row menuList">
+    																					<ul class="firstOrderList nav" style="text-transform: initial">
+    																									<li><a href="#"><img style="width:40%;height: 30%;float: left;margin-left:40px ;" src="assets/wq4.png" alt=""></a></li>
+    																									
+    																					</ul>
+    																	</div>
+    													</div>
+    													<div class="col-sm-4 col-md-5 col-lg-5 footer_menuList">
+    																	<div class="row menuList">
+    																					<ul class="firstOrderList nav" style="text-transform: initial">
+    																									<li><a href="">Jilin University</a></li>
+    
+    																									<li><a href="">Chinese Ministry of Education</a></li>
+    																									
+    																									<li><a href="">National Natural Science Foundation of China</a></li>
+    																					</ul>
+    																	</div>
+    													</div>
+    													<div class="col-sm-6 col-md-6 col-lg-3" style="text-align:center;">
+    																	<div><img style="width:32%; margin-top:2px; margin-bottom: 8px;" src="./assets/erweima.png" alt=""></div>
+    																	<p style="margin-top: -3px; color: #eee; text-align: center;">关注微信公众号</p>                    
+    													</div>
+    													<div class="fright copyright col-sm-6 col-md-6 col-lg-12" style="text-align: center;margin-top: -22px">&copy; <a href="index"> 吉林大学计算机科学与技术学院计算智能知识图谱实验室 </a></div>
+    									</div>
+    					</div>
+    	</footer>
+    <a href="#top">
+    <button type="button" class="btn btn-primary btn-lg go-top">
+    	<span class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span>
+    </button>
+    </a>
+    <div class="modal fade" id="searchform" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" style="height: 100%; width: 100%;">
+    	<div class="modal-dialog" role="document" style="height: 100%; width: 60%; margin-top: 99px;">
+    		<div class="modal-content">
+    			<div class="modal-header">
+    				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+    				<h4 class="modal-title" id="myModalLabel">Smart Search</h4>
+    			</div>
+    			<div class="modal-body" style="height: 200px;">
+    				<form id="domain-search" action="/search" method="get">
+    					<input id="domain-text" type="text" name="domain" placeholder="Search here" />
+    					<input id="search-btn" type="submit" name="submit" value="Search" />
+    				</form>
+    			</div>
+    		</div>
+    	</div>
+    </div>
+    <script>
+    	window.onscroll=function(){
+    			if($(window).scrollTop()>180){
+    					$('.go-top').show();
+    			}else{
+    					$('.go-top').hide();
+    			}
+    	}
+    </script>
+			
+   
 	<script src="js/jquery-2.1.3.min.js"></script>
 	<!--Bootstrap JS-->
 	<script src="js/bootstrap.min.js"></script>

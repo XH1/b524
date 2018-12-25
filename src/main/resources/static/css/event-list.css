@@ -72,7 +72,13 @@
 }
 .new_list .new .new_content_abs{
     font-size: 12px;
-    color: #333333;
+    color: black;
+	
+}
+.new_list .new .new_content_abs a {
+   
+    color: black;
+    text-decoration: none;
 }
 /*----------------------------------------------------------------*/
 
@@ -109,6 +115,7 @@
 .blog .media-body h4{
   color: #333333;
   font-weight: bolder;
+  text-transform: capitalize;
 }
 
 .blog .media-body p{

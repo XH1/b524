@@ -58,7 +58,7 @@ footer.row {
 .default .navbar #main_nav .nav li a {
   color: #ccd5e7;
   text-shadow: none;
-  text-transform: uppercase;
+  text-transform: capitalize;
   line-height: 48px;
   padding: 0 16px;
   font-family: 'Karla', sans-serif;
@@ -157,12 +157,13 @@ footer.row {
   line-height: 88px;
   color: white;
 	font-size:16px;
+	font-weight: 500;
 }
 .default .navbar.navbar2 #main_nav .nav li a:hover {
   background: #0174B0;
 }
 .default .navbar.navbar2 #main_nav .nav li.active a {
-  color: #404d5f;
+  color: white;
 }
 .default .navbar.navbar2 #main_nav .nav li.dropdown .dropdown-menu li a {
   color: rgba(255, 255, 255, 0.7);
@@ -274,7 +275,7 @@ footer .footer_menuList .menuList ul li a {
   font-family: 'Karla', sans-serif;
   font-weight:bold;
   padding: 0 15px;
-  line-height: 36px;
+  line-height: 30px;
   color: #828fa8;
 }
 footer .footer_menuList .menuList ul li a:hover {
@@ -333,7 +334,7 @@ footer .footer_bottom ul li a:hover {
 }
 
 .domainsearch-slide{
-    padding-top: 180px;
+   
     padding-bottom: 11px;
     position: relative;
 }
