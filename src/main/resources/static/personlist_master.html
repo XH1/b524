@@ -7,7 +7,17 @@
     <link rel="stylesheet" href="css/font-awesome.min.css">
 	<link rel="stylesheet" href="css/index.css">
 	<link rel="stylesheet" href="css/person-list.css">
-    <style>
+    
+   <style>
+   .default .navbar.navbar2 {
+   		background: #fff;
+   		height: auto;
+   		padding-top: 0;
+   		margin-bottom: 0;
+   		margin-top: -10px;
+   }
+   </style> 
+		<style>
         a {
             text-decoration: none;
         }
@@ -32,21 +42,21 @@ $(document).ready(function(){
     //根据长度动态生成person列表
     for(var i=0;i<len;i++){
         innerDiv = "<div class=\"media blog\">"
-        innerDiv += "<div class=\"media-left\">"
+        innerDiv += "<div class=\"media-left\">"                     
         innerDiv += "<a href=\"/person\" style=\"padding-left: 50px;\"><img src="+'./pictures/'+(i+1)+'.jpg'+" class=\"img-reponsive\"></a>"
-        innerDiv += "</div>"
+        innerDiv += "</div>"  
         innerDiv += "<div class=\"media-body\">"
-        innerDiv += "<a href=\"#\"><h3 style:\"text-transform: initial;\">"+persons[i]["Family Name(EN)"]+" "+persons[i]["First Name(EN)"]+"</h3></a>"
+        innerDiv += "<a href=\"#\"><h3 style:\"text-transform: initial;\">"+persons[i]["Family Name(EN)"]+" "+persons[i]["First Name(EN)"]+"</h3></a>"            
         innerDiv += "<div class=\"row m0 meta\">Publications : <a href=\"#\">"+persons[i]["Publications"].length+"</a> Projects : <a href=\"#\">115</a> Patents: <a href=\"\" >"+persons[i]["Patents"].length+"</a></div>"
-        innerDiv += "<p><span class=\"glyphicon glyphicon-home\" aria-hidden=\"true\"></span>&nbsp;&nbsp;&nbsp;"+persons[i]["AffiliationA/角色1所属单位"]+persons[i]["AffiliationA.1/子单位"]+"</p>"
+        innerDiv += "<p><span class=\"glyphicon glyphicon-home\" aria-hidden=\"true\"></span>&nbsp;&nbsp;&nbsp;"+persons[i]["AffiliationA/角色1所属单位"]+persons[i]["AffiliationA.1/子单位"]+"</p>"               
         innerDiv += "<p><span class=\"glyphicon glyphicon-briefcase\" aria-hidden=\"true\"></span>&nbsp;&nbsp;&nbsp;"+persons[i]["Talent Title人才称号"]+"</p>"
         if(persons[i]["Scientific Sector(EN)"]!=''){
             innerDiv += "<p><span class=\"glyphicon glyphicon-book\" aria-hidden=\"true\"></span>&nbsp;&nbsp;&nbsp;"+persons[i]["Scientific Sector(EN)"]+"</p>"
         }else{
              innerDiv += "<p><span class=\"glyphicon glyphicon-book\" aria-hidden=\"true\"></span>&nbsp;&nbsp;&nbsp;"+persons[i]["Scientific Sector(ZH)研究方向"]+"</p>"
         }
-        innerDiv += "</div></div>"
-        persons_div.append(innerDiv)
+        innerDiv += "</div></div>"   
+        persons_div.append(innerDiv)               
     }
     divs = document.getElementsByClassName("media-body")
     for(var i=0;i<len;i++){
@@ -63,59 +73,64 @@ $(document).ready(function(){
   </head>
   <body class="default">
 	<section class="row top_bar">
-        <div class="container">
-            <div class="row">
-                <div class="fleft phone" style="padding-bottom: 10px;">
-                    <p> <a href="#">Computational Intelligence Knowledge Mapping Laboratory, School of Computer Science and Technology, Jilin University</a>    </p>
-                </div>
-                <div class="fright">
-
-                    <div class="fleft"><strong><a href="#">Sign up</a> | <a href="#">Sign in</a></strong></div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <nav class="navbar navbar-default navbar-static-top navbar2"style="background: #0186d5;">
-        <div class="container" style="margin-left: -60px;">
-            <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="navbar-header">
-
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#main_nav" aria-expanded="false">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <!-- <a href="book-appointment.html" class="navbar-toggle visible-xs" data-toggle="modal" data-target="#appointmefnt_form_pop">Search</a> -->
-            </div>
-
-            <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse" id="main_nav">
-                                   <a   href="index.html"><img style="width:125px;height:80px;margin-left:280px ;margin-top: 2px;" src="assets/wq4.png" alt=""></a>
-                                <ul  class="nav navbar-nav navbar-right">
-                                        <li class="active"><a href="index.html">Home</a></li>
-
-                                        <li><a href="aboutus.html">About Us</a></li>
-                                        <li class="dropdown">
-                                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Research</a>
-                                            <ul class="dropdown-menu" role="menu">
-                                                <li><a href="research_direction.html">Research Direction</a></li>
-                                                <li><a href="paperlist.html">Papers</a></li>
-                                                <li><a href="research_project.html">Projects</a></li>
-                                            </ul>
-                                        </li>
-                                        <li><a href="personlist.html">People</a></li>
-                                        <li><a href="eventlist.html">News</a></li>
-                                        <li><a href="upload.html">Share</a></li>
-
-
-                                        <li><a href="join.html">Join Us</a></li>
-                    <!-- <li class="hidden-xs book"><a href="#" data-toggle="modal" data-target="#appointmefnt_form_pop">Search</a></li> -->
-                </ul>
-            </div><!-- /.navbar-collapse -->
-        </div><!-- /.container -->
-    </nav>
-
+	        <div class=""style="margin-left: 62px;margin-right:60px;margin-top: 10px;">
+	            <div class="row ">
+	                <div class="fleft phone" style="padding-bottom: 10px;">
+	                    <p> <a href="#" style="
+	    text-decoration: none;
+	    color: #03536A;
+	">Computational Intelligence Knowledge Mapping Laboratory, School of Computer Science and Technology, Jilin University</a>  </p>
+	                </div>
+	                <div class="fright">
+										
+	                    <div class="fleft"><strong><a href="#" style="
+        text-decoration: none;
+        color: #03536A;">Sign in</a></strong></div>
+	                </div>
+	            </div>
+	        </div>
+	    </section>
+	    
+	    <nav class="navbar navbar-default navbar-static-top navbar2"style="background: #0186d5;">
+	        <div class="container" style="margin-left: -10px;">
+	            <!-- Brand and toggle get grouped for better mobile display -->
+	            <div class="navbar-header">
+								
+	                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#main_nav" aria-expanded="false">
+	                    <span class="icon-bar"></span>
+	                    <span class="icon-bar"></span>
+	                    <span class="icon-bar"></span>
+	                </button>
+	                <!-- <a href="book-appointment.html" class="navbar-toggle visible-xs" data-toggle="modal" data-target="#appointmefnt_form_pop">Search</a> -->
+	            </div>
+	            
+	            <!-- Collect the nav links, forms, and other content for toggling -->
+	            <div class="collapse navbar-collapse" id="main_nav"> 
+									   <a   href="index.html"><img style="width:125px;height:80px;margin-left:200px ;margin-top: 2px;" src="assets/wq4.png" alt=""></a>											    	
+									<ul  class="nav navbar-nav navbar-right">
+			                    			<li class="active"><a href="index.html">Home</a></li>
+						                 
+						                    <li><a href="aboutus.html">About Us</a></li>
+						                    <li class="dropdown">
+	                                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Research</a>
+	                                            <ul class="dropdown-menu" role="menu">
+	                                                <li><a href="research_direction.html">Area</a></li>
+	                                                <li><a href="paperlist.html">Papers</a></li>
+	                                                <li><a href="research_project.html">Projects</a></li>
+	                                            </ul>
+	                                        </li>
+						                    <li><a href="personlist.html">People</a></li>
+											<li><a href="eventlist.html">News</a></li>	
+											<li><a href="upload.html">Resource</a></li>
+	
+	                  
+	                    					<li><a href="join.html">Join Us</a></li>
+	                    <!-- <li class="hidden-xs book"><a href="#" data-toggle="modal" data-target="#appointmefnt_form_pop">Search</a></li> -->
+	                </ul>
+	            </div><!-- /.navbar-collapse -->
+	        </div><!-- /.container -->
+	    </nav>
+        
     <div class="content">
 		<!--<section class="row team">
             <div class="container">
@@ -234,7 +249,7 @@ $(document).ready(function(){
                                 </h4>
                             </div>
                             <div class="panel-collapse">
-                                <div class="panel-body" style="padding-top: 17px;">
+                                <div class="panel-body" style="padding-top: 17px;">    
                                     <h4 class="sub_panel_title panel_title"><a href="personlist.html">教授&合作教授 </a></h4>
                                  </div>
                             </div>
@@ -246,7 +261,7 @@ $(document).ready(function(){
                                 </h4>
                             </div>
                             <div class="panel-collapse">
-                                <div class="panel-body" style="padding-top: 17px;">
+                                <div class="panel-body" style="padding-top: 17px;">    
                                     <h4 class="sub_panel_title panel_title"><a href="personlist_doctor.html">博士 </a></h4>
                                     <h4 class="sub_panel_title panel_title"><a href="personlist_master.html">硕士</a></h4>
                                     <h4 class="sub_panel_title panel_title"><a href="personlist_undergraduate.html">本科生</a></h4>
@@ -260,7 +275,7 @@ $(document).ready(function(){
                                 </h4>
                             </div>
                             <div class="panel-collapse">
-                                <div class="panel-body" style="padding-top: 17px;">
+                                <div class="panel-body" style="padding-top: 17px;">    
                                     <h4 class="sub_panel_title panel_title"><a href="personlist_doctor0.html">博士 </a></h4>
                                     <h4 class="sub_panel_title panel_title"><a href="personlist_master0.html">硕士</a></h4>
                                  </div>
@@ -280,7 +295,7 @@ $(document).ready(function(){
                                     <h4 class="sub_panel_title panel_title"><a href="">Assistant Engineer (23)</a></h4>
                                  </div>
                             </div>
-                         </div>  --><!--Panel-->
+                         </div>  --><!--Panel-->  
                     </div>
                 </div>
                 <div class="col-sm-12 col-md-9 blog_list">
@@ -290,12 +305,12 @@ $(document).ready(function(){
                             <a href="/person" style="padding-left: 50px;"><img src="./pictures/master1.jpg" class="img-reponsive"></a>
                         </div>
                         <div class="media-body">
-                            <a href="#"><h3>王一博</h3></a>
+                            <a href="#"><h3 style:"text-transform:="" initial;"="">王一博</h3></a>
                             <div class="row m0 meta">
-                                电话 : <a href="#">XXXXXX</a> 邮箱 : <a href="#">@jlu.edu.cn</a> 年级 : <a href="">2017级</a> <a href=""></a>
+                                Tel : <a href="#">XXXXXX</a> Mail : <a href="#">@jlu.edu.cn</a> Class : <a href="">2017</a> <a href=""></a>
                             </div>
-                            <p><span class="glyphicon glyphicon-home" aria-hidden="true"></span>&nbsp;&nbsp;&nbsp;单位 – Unit(s)：吉林大学 – JiLin University</p>
-                            <p><span class="glyphicon glyphicon-book" aria-hidden="true"></span>&nbsp;&nbsp;&nbsp;研究方向 – Rearch Field(s)：本体</p>
+                            <p><span class="glyphicon glyphicon-home" aria-hidden="true"></span>&nbsp;&nbsp;&nbsp;Major：Computer application technology</p>
+                            <p><span class="glyphicon glyphicon-book" aria-hidden="true"></span>&nbsp;&nbsp;&nbsp;Rearch Field(s)：Ontology</p>
                         </div>
                     </div>
                     <div class="media blog">
@@ -305,10 +320,10 @@ $(document).ready(function(){
                         <div class="media-body">
                             <a href="#"><h3 style:"text-transform:="" initial;"="">祁晓慧</h3></a>
                             <div class="row m0 meta">
-                                 电话 : <a href="#">XXXXXX</a> 邮箱 : <a href="#">@jlu.edu.cn</a> 年级 : <a href="">2017级</a> <a href=""></a>
+                                 Tel : <a href="#">XXXXXX</a> Mail : <a href="#">@jlu.edu.cn</a> Class : <a href="">2017</a> <a href=""></a>
                             </div>
-                            <p><span class="glyphicon glyphicon-home" aria-hidden="true"></span>&nbsp;&nbsp;&nbsp;单位 – Unit(s)：吉林大学 – JiLin University</p>
-                            <p><span class="glyphicon glyphicon-book" aria-hidden="true"></span>&nbsp;&nbsp;&nbsp;研究方向 – Rearch Field(s)：知识图谱</p>
+                            <p><span class="glyphicon glyphicon-home" aria-hidden="true"></span>&nbsp;&nbsp;&nbsp;Major：Computer application technology</p>
+                            <p><span class="glyphicon glyphicon-book" aria-hidden="true"></span>&nbsp;&nbsp;&nbsp;Rearch Field(s)：Knowledge Graph</p>
                         </div>
                     </div>
                     <div class="media blog">
@@ -318,15 +333,15 @@ $(document).ready(function(){
                         <div class="media-body">
                             <a href="#"><h3 style:"text-transform:="" initial;"="">申强</h3></a>
                             <div class="row m0 meta">
-                                 电话 : <a href="#">XXXXXX</a> 邮箱 : <a href="#">@jlu.edu.cn</a> 年级 : <a href="">2017级</a> <a href=""></a>
+                                 Tel : <a href="#">XXXXXX</a> Mail : <a href="#">@jlu.edu.cn</a> Class : <a href="">2017</a> <a href=""></a>
                             </div>
-                            <p><span class="glyphicon glyphicon-home" aria-hidden="true"></span>&nbsp;&nbsp;&nbsp;单位 – Unit(s)：吉林大学 – JiLin University</p>
-                            <p><span class="glyphicon glyphicon-book" aria-hidden="true"></span>&nbsp;&nbsp;&nbsp;研究方向 – Rearch Field(s)：胜任力管理</p>
+                            <p><span class="glyphicon glyphicon-home" aria-hidden="true"></span>&nbsp;&nbsp;&nbsp;Major：Software Engineering</p>
+                            <p><span class="glyphicon glyphicon-book" aria-hidden="true"></span>&nbsp;&nbsp;&nbsp;Rearch Field(s)：Competency</p>
                         </div>
                     </div>
 
-                    <!--
-                        <div class="media blog">
+                    <!-- 
+                        <div class="media blog">                        
                         <div class="media-left">
                             <a href="/person" style="padding-left: 50px;"><img src="./assets/img/avatar.png" alt="" class="img-reponsive"></a>
                         </div>
@@ -338,7 +353,7 @@ $(document).ready(function(){
                             <p><span class="glyphicon glyphicon-book" aria-hidden="true"></span>&nbsp;&nbsp;&nbsp;Chemistry</p>
                         </div>
                         </div> -->
-                   </div>
+                   </div>       
                     <div class="row paginationRow">
                         <ul class="pagination">
                             <li class="active"><a href="#">1</a></li>
@@ -358,7 +373,7 @@ $(document).ready(function(){
                                     <div class="row menuList">
                                             <ul class="firstOrderList nav" style="text-transform: initial">
                                                     <li><a href="#"><img style="width:40%;height: 30%;float: left;margin-left:40px ;" src="assets/wq4.png" alt=""></a></li>
-
+                                                    
                                             </ul>
                                     </div>
                             </div>
@@ -366,18 +381,18 @@ $(document).ready(function(){
                                     <div class="row menuList">
                                             <ul class="firstOrderList nav" style="text-transform: initial">
                                                     <li><a href="">Jilin University</a></li>
-
+  
                                                     <li><a href="">Chinese Ministry of Education</a></li>
-
+                                                    
                                                     <li><a href="">National Natural Science Foundation of China</a></li>
                                             </ul>
                                     </div>
                             </div>
                             <div class="col-sm-6 col-md-6 col-lg-3" style="text-align:center;">
                                     <div><img style="width:32%; margin-top:2px; margin-bottom: 8px;" src="./assets/erweima.png" alt=""></div>
-                                    <p style="margin-top: 18px; color: #eee; text-align: center;">关注微信公众号</p>
+                                    <p style="margin-top: -3px; color: #eee; text-align: center;">关注微信公众号</p>                    
                             </div>
-                            <div class="fright copyright col-sm-6 col-md-6 col-lg-12" style="text-align: center;margin-top: 1px">&copy; <a href="index"> 吉林大学计算机科学与技术学院计算智能知识图谱实验室 </a></div>
+                            <div class="fright copyright col-sm-6 col-md-6 col-lg-12" style="text-align: center;margin-top: -22px">&copy; <a href="index"> 吉林大学计算机科学与技术学院计算智能知识图谱实验室 </a></div>
                     </div>
             </div>
     </footer>

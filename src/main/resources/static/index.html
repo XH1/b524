@@ -8,10 +8,31 @@
 	<link rel="stylesheet" href="css/index.css">
 	<link rel="stylesheet" href="css/index1.css">
   </head>
-	<style>.domainsearch-slide {
-    padding-top: 180px;
-    padding-bottom: 0px; 
-    position: relative;
+	<style>
+		
+		.go-top {
+			position: fixed;
+			bottom: 10px;
+			right: 10px;
+			display: none;
+			cursor: pointer;
+		}
+	</style>
+	<style>
+		
+		.service_tab #service_tab li a {
+   
+    height: 120px;
+}
+		.achievement-left {
+    padding: 0px 90px 10px 10px;
+}
+		.domainsearch-slide .image-holder {
+    position: relative; 
+    width: 100%;
+    text-align: center;
+    top: 100px;
+    z-index: -1;
 }
 		 .newslist li{
 			 line-height: 30px;
@@ -30,24 +51,46 @@
 			 border: 1px solid #0186d5;
 			 background-color: white;
 		 }
+		 .achievement-right img {
+    width: 580px;
+    padding-left: 160px;
+   padding-top: 0px;
+    z-index: 0;
+}
+
+.service_tab .tab-content .tab-pane p {
+  color: #717680;
+    line-height: 27px;
+    font-size: 16px;
+    font-weight: normal;
+    font-family: helvetica; 
+    text-align: justify;
+    text-justify: inter-ideograph;
+}
 	</style>
   <body class="default">
 	<section class="row top_bar">
-        <div class="container">
-            <div class="row">
+        <div class=""style="margin-left: 60px;margin-right:60px;margin-top: 10px;">
+            <div class="row ">
                 <div class="fleft phone" style="padding-bottom: 10px;">
-                    <p> <a href="#">Computational Intelligence Knowledge Mapping Laboratory, School of Computer Science and Technology, Jilin University</a>    </p>
+                    <p> <a href="#" style="
+    text-decoration: none;
+    color: #03536A;
+">Computational Intelligence Knowledge Mapping Laboratory, School of Computer Science and Technology, Jilin University</a>  </p>
                 </div>
                 <div class="fright">
 									
-                    <div class="fleft"><strong><a href="#">Sign up</a> | <a href="#">Sign in</a></strong></div>
+                  						
+                  							<div class="fleft"><strong><a href="#" style="
+                  text-decoration: none;
+                  color: #03536A;">Sign in</a></strong></div>
                 </div>
             </div>
         </div>
     </section>
     
     <nav class="navbar navbar-default navbar-static-top navbar2"style="background: #0186d5;">
-        <div class="container" style="margin-left: -60px;">
+        <div class="container" style="margin-left: -10px;">
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
 							
@@ -61,22 +104,22 @@
             
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="main_nav"> 
-								   <a   href="index.html"><img style="width:125px;height:80px;margin-left:280px ;margin-top: 2px;" src="assets/wq4.png" alt=""></a>											    	
+								   <a   href="index.html"><img style="width:125px;height:80px;margin-left:200px ;margin-top: 2px;" src="assets/wq4.png" alt=""></a>											    	
 								<ul  class="nav navbar-nav navbar-right">
 		                    			<li class="active"><a href="index.html">Home</a></li>
 					                 
 					                    <li><a href="aboutus.html">About Us</a></li>
 					                    <li class="dropdown">
                                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Research</a>
-                                            <ul class="dropdown-menu" role="menu">
-                                                <li><a href="research_direction.html">Research Direction</a></li>
+                                            <ul class="dropdown-menu"  role="menu">
+                                                <li><a href="research_direction.html">Area</a></li>
                                                 <li><a href="paperlist.html">Papers</a></li>
                                                 <li><a href="research_project.html">Projects</a></li>
                                             </ul>
                                         </li>
 					                    <li><a href="personlist.html">People</a></li>
 										<li><a href="eventlist.html">News</a></li>	
-										<li><a href="upload.html">Share</a></li>
+										<li><a href="upload.html">Resource</a></li>
 
                   
                     					<li><a href="join.html">Join Us</a></li>
@@ -86,18 +129,17 @@
         </div><!-- /.container -->
     </nav>
     <div class="content">
-    <div class="slide domainsearch-slide" title="Search">
-      <div class="image-holder">	
-				<img src="assets/img/bg1.png" alt="" />
-	  </div>
-      <div class="domain-search-holder" style="width:700px; margin-top: -200px;">
-             	<!-- <h2 style="text-align:center;font-weight:bold; color: #838a98; margin-top: 40px;" >关于SoCoG</h2> -->
-				<h2 style="color: gray;    color: #8595b1;line-height: 190px;font-size: 30px;margin-left:75px;margin-top: 40px; font-weight: normal;
- font-family: 'Karla', sans-serif;">
- 				                     Hi，Everyone! We are SoCoG
+     <div class="slide domainsearch-slide" title="Search">
+      <div class="image-holder"><img src="assets/img/bg1.png" alt="" />
+      <div  style="position: relative;margin-top:-240px;">
+        <h2 style="color: gray;  color: #8595b1;font-size: 30px; font-weight: normal;text-align:center;
+ font-family: 'Karla', sans-serif;margin-top: 100px;">
+ 				                 
 				</h2>
+      </div>
+			</div>
     </div>	
-	<div  id="carousel-example-generic" class="carousel slide big-achievement" data-ride="carousel">
+	<div  id="carousel-example-generic" class="carousel slide big-achievement container" data-ride="carousel">
 	  <!-- Indicators -->
 	  <ol class="carousel-indicators">
 	    <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
@@ -106,7 +148,7 @@
 	  </ol>
 
 	  <!-- Wrapper for slides -->
-	  <div class="carousel-inner" role="listbox">
+	  <div class="carousel-inner" role="listbox" >
 	    <div class="item active row" >
 				
 	      <div class="col-md-6 achievement-left">
@@ -118,11 +160,11 @@
 The Social Computing Working Group (SoCoG) is a research department under the Department of Computing Intelligence of the School of Computer Science and Technology of Jilin University. It is chaired and led by Associate Professor Xu Wei. Mainly for human computer interaction, knowledge engineering and data science in computer education, knowledge management and medical education.
 </p>
                     <br>
-                    <a href="single-service.html" class="view_all">read more</a>
+                    <a href="news.html" class="view_all">read more</a>
                 </div>
               </div>
 	      </div>
-	      <div class="col-md-6 achievement-right">
+	      <div class="  col-md-6 achievement-right">
 	      	<img src="pictures/pro2.jpg" alt="...">
 	      	<div class="achievement-date">
 			<h2>07</h2><p>/04/2018</p>
@@ -141,7 +183,7 @@ The Social Computing Working Group (SoCoG) is a research department under the De
                     <div class="blue-line"></div>
                     <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley </p>
                     <br>
-                    <a href="single-service.html" class="view_all">read more</a>
+                    <a href="news.html" class="view_all">read more</a>
                 </div>
               </div>
 	      </div>
@@ -167,7 +209,9 @@ The Social Computing Working Group (SoCoG) is a research department under the De
 	    <span class="sr-only">Next</span>
 	  </a>
 		</div>
-		<div class="container" style="margin-top: -80px;">
+				
+		
+		<div class="container" style="margin-top: -60px;">
 		    <section class="service_tab">
 		      
    		<section class="row service_tab">
@@ -187,7 +231,7 @@ The Social Computing Working Group (SoCoG) is a research department under the De
 	               --> </ul>
 
 	                <!-- Tab panes -->
-	                <div class="tab-content">
+	                <div class="tab-content" style="margin-left: 110px;">
 	                    <div role="tabpanel" class="tab-pane active" id="heart_surgery">
 	                        <div class="col-sm-6">
 	                            <div class="row m0">
@@ -198,7 +242,7 @@ The Social Computing Working Group (SoCoG) is a research department under the De
 	                            <div class="row m0">
 	                                <h3>Knowledge Graph</h3>
 	                                <p >Knowledge Graph, also known as scientific knowledge map, is a series of different graphs showing the relationship between knowledge development process and structure. It uses visual technology to describe knowledge resources and their carriers, and to mine, analyze, construct, draw and display knowledge. And the interconnection between them. </p>
-	                                <a href="single-service.html" class="view_all">read more</a>
+	                                <a href="research_direction.html" class="view_all">read more</a>
 	                            </div>
 	                        </div>
 	                    </div>
@@ -212,7 +256,7 @@ The Social Computing Working Group (SoCoG) is a research department under the De
 	                            <div class="row m0">
 	                                <h3>Human–Computer Interaction</h3>
 	                                <p>Human-computer interaction is a study of the interaction between the system and the user. The system can be a wide variety of machines or computerized systems and software. The human-computer interaction interface usually refers to the part that is visible to the user. The user communicates with the system through the human-computer interaction interface and operates.</p>
-	                                <a href="single-service.html" class="view_all">read more</a>
+	                                <a href="research_direction.html" class="view_all">read more</a>
 	                            </div>
 	                        </div>
 	                    </div>
@@ -226,7 +270,7 @@ The Social Computing Working Group (SoCoG) is a research department under the De
 	                            <div class="row m0">
 	                                <h3>Natural Language Processing</h3>
 	                                <p>Natural language processing is an important direction in the field of computer science and artificial intelligence. It studies various theories and methods that enable effective communication between humans and computers in natural language. Natural language processing is a science that integrates linguistics, computer science, and mathematics. </p>
-	                                <a href="single-service.html" class="view_all">read more</a>
+	                                <a href="research_direction.html" class="view_all">read more</a>
 	                            </div>
 	                        </div>
 	                    </div>
@@ -240,7 +284,7 @@ The Social Computing Working Group (SoCoG) is a research department under the De
 	                            <div class="row m0">
 	                                <h3>Computer Vision</h3>
 	                                <p>Computer vision is a science that studies how to make a machine "look". Further, it refers to the use of cameras and computers instead of human eyes to identify, track and measure machine vision, and further graphic processing to make computers Processing becomes an image that is more suitable for human eye observation or transmission to the instrument for detection.</p>
-	                                <a href="single-service.html" class="view_all">read more</a>
+	                                <a href="research_direction.html" class="view_all">read more</a>
 	                            </div>
 	                        </div>
 	                    </div>
@@ -254,7 +298,7 @@ The Social Computing Working Group (SoCoG) is a research department under the De
 	                            <div class="row m0">
 	                                <h3>Group5</h3>
 	                                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley </p>
-	                                <a href="single-service.html" class="view_all">read more</a>
+	                                <a href="research_direction.html" class="view_all">read more</a>
 	                            </div>
 	                        </div>
 	                    </div>
@@ -268,7 +312,7 @@ The Social Computing Working Group (SoCoG) is a research department under the De
 	                            <div class="row m0">
 	                                <h3>Group6</h3>
 	                                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley </p>
-	                                <a href="single-service.html" class="view_all">read more</a>
+	                                <a href="research_direction.htmls" class="view_all">read more</a>
 	                            </div>
 	                        </div>
 	                    </div>
@@ -524,10 +568,40 @@ The Social Computing Working Group (SoCoG) is a research department under the De
   									<div><img style="width:32%; margin-top:2px; margin-bottom: 8px;" src="./assets/erweima.png" alt=""></div>
   									<p style="margin-top: 18px; color: #eee; text-align: center;">关注微信公众号</p>                    
   							</div>
-  							<div class="fright copyright col-sm-6 col-md-6 col-lg-12" style="text-align: center;margin-top: 1px">&copy; <a href="index"> 吉林大学计算机科学与技术学院计算智能知识图谱实验室 </a></div>
+  							<div  class="fright copyright col-sm-6 col-md-6 col-lg-12" style="text-align: center;margin-top: -15px">&copy; <a href="index"> 吉林大学计算机科学与技术学院计算智能知识图谱实验室 </a></div>
   					</div>
   			</div>
   	</footer>
+		<a href="#top">
+		<button type="button" class="btn btn-primary btn-lg go-top">
+			<span class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span>
+		</button>
+		</a>
+		<div class="modal fade" id="searchform" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" style="height: 100%; width: 100%;">
+			<div class="modal-dialog" role="document" style="height: 100%; width: 60%; margin-top: 99px;">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+						<h4 class="modal-title" id="myModalLabel">Smart Search</h4>
+					</div>
+					<div class="modal-body" style="height: 200px;">
+						<form id="domain-search" action="/search" method="get">
+							<input id="domain-text" type="text" name="domain" placeholder="Search here" />
+							<input id="search-btn" type="submit" name="submit" value="Search" />
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+		<script>
+			window.onscroll=function(){
+					if($(window).scrollTop()>180){
+							$('.go-top').show();
+					}else{
+							$('.go-top').hide();
+					}
+			}
+		</script>
   <!--  <footer class="row">
 		
         <div style="margin-left: 450px;" class="container">

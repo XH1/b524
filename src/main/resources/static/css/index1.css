@@ -390,13 +390,14 @@ button:hover {
 
 /*big-achievement*/
 .big-achievement {
-	margin-top: 140px;
+	margin-top: 260px;
+	
 }
 .achievement-left .col-sm-6 .content-left {
 	float: right;
 }
 .achievement-left {
-	padding: 10px 90px 10px 200px;
+	padding: 10px 90px 10px 230px;
 }
 .achievement-left .col-sm-6 .m0 a {
 	display: block;

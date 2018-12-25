@@ -122,11 +122,11 @@
  .panel .panel-heading h4 a {
   display: block;
   line-height: 50px;
-  text-transform: uppercase;
+  text-transform: capitalize;
   font-family: 'Karla', sans-serif;
   font-size: 14px;
   font-weight: 400;
-  letter-spacing: 1px;
+  /* letter-spacing: 1px; */
   border: none;
   padding-left: 30px;
   padding-top: 0;
@@ -170,6 +170,7 @@
 }
 .sub_panel_title a {
     color: #828FA8;
+    text-transform: capitalize;
 }
 .panel .panel-collapse .panel-body p {
   margin: 0;
