@@ -15,5 +15,5 @@ import java.util.List;
  */
 
 public interface DirectionRepository extends JpaRepository<Direction,Integer> {
-    Page<Paper> findByName(String name,Pageable pageable);
+
 }
