@@ -15,10 +15,8 @@ public interface PaperRepository extends JpaRepository<Paper, Integer> {
     Page<Paper> findByArea(String area, Pageable pageable);
     @Query(value = "select type,count(type) as counts from paper group by type", nativeQuery = true)
     List<Map<String,Object>> groupByType();
-    @Query(value = "select year,count(year) as counts from paper group by year", nativeQuery = true)
+    @Query(value = "select year,count(year) as counts from paper group by year DESC", nativeQuery = true)
     List<Map<String,Object>> groupByYear();
     @Query(value = "select area,count(area) as counts from paper group by area", nativeQuery = true)
     List<Map<String,Object>> groupByArea();
-
-
 }

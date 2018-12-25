@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -28,17 +29,29 @@ public class PaperController {
     @GetMapping("")
     public String getAll(@RequestParam(defaultValue = "all") String searchWay, @RequestParam(defaultValue = "0") String specificWay,
                          @RequestParam(defaultValue = "0") int page, Model model) {
+        System.out.println("searchWay£º"+searchWay+",specificWay£º"+specificWay);
         Pageable pageable = PageRequest.of(page, 3, Sort.Direction.DESC, "id");
         Page<Paper> paperPage =checkPage(searchWay,specificWay,pageable);
         List<Map<String,Object>> year_count=paperRepository.groupByYear();
         List<Map<String,Object>> type_count=paperRepository.groupByType();
         List<Map<String,Object>> area_count=paperRepository.groupByArea();
+        List<Map<String,Object>> firstThreeYearCount=new ArrayList<>();
+        List<Map<String,Object>> restYearCount=new ArrayList<>();
+        for (int i=0;i<3;i++){
+            firstThreeYearCount.add(year_count.get(i));
+        }
+        for(int j=3;j<year_count.size();j++){
+            restYearCount.add(year_count.get(j));
+        }
         model.addAttribute("paperPage", paperPage);
         model.addAttribute("searchWay", searchWay);
         model.addAttribute("specificWay", specificWay);
-        model.addAttribute("year_count", year_count);
+        //model.addAttribute("year_count", year_count);
         model.addAttribute("type_count", type_count);
         model.addAttribute("area_count", area_count);
+        //model.addAttribute("testYearCount", year_count.size());
+        model.addAttribute("firstThreeYearCount", firstThreeYearCount);
+        model.addAttribute("restYearCount", restYearCount);
         System.out.println("²é¿´paperPage");
         for (Paper paper:paperPage) {
             System.out.println(paper.getId());
