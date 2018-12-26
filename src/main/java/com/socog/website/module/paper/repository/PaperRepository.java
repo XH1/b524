@@ -10,10 +10,10 @@ import java.util.List;
 import java.util.Map;
 
 public interface PaperRepository extends JpaRepository<Paper, Integer> {
-    //paperlisté¡µé¢æ‰€éœ€
+    //paperlistÒ³ÃæËùĞè
     Page<Paper> findByYear(String year, Pageable pageable);
     Page<Paper> findByType(String type, Pageable pageable);
-    Page<Paper> findByArea(String area, Pageable pageable);//paper_areaä¹Ÿéœ€è¦
+    Page<Paper> findByArea(String area, Pageable pageable);//paper_areaÒ²ĞèÒª
     @Query(value = "select type,count(type) as counts from paper group by type", nativeQuery = true)
     List<Map<String,Object>> groupByType();
     @Query(value = "select year,count(year) as counts from paper group by year DESC", nativeQuery = true)
@@ -24,7 +24,7 @@ public interface PaperRepository extends JpaRepository<Paper, Integer> {
 
 
     //***************************************************************
-    //paper_areaé¡µé¢æ‰€éœ€
+    //paper_areaÒ³ÃæËùĞè
    // Page<Paper> findByArea(String area, Pageable pageable);
     Page<Paper> findByAreaAndYear(String area, String year, Pageable pageable);
     @Query(value = "select year,count(year) as counts from paper where area=?1 group by year DESC ", nativeQuery = true)

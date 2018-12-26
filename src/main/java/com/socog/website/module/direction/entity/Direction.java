@@ -21,7 +21,7 @@ public class Direction extends BaseEntity {
     @Column(unique = false,nullable = true)
     private String name;
 
-    @Column(nullable = true)
+    @Column(nullable = true,columnDefinition = "text")
     private String brief;
 
 

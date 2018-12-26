@@ -3,7 +3,6 @@ package com.socog.website.module.person.controller;
 import com.socog.website.module.person.entiy.Degree;
 import com.socog.website.module.person.entiy.Person;
 import com.socog.website.module.person.repository.PersonRepository;
-import com.sun.org.apache.regexp.internal.REUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -31,10 +30,10 @@ public class PersonController {
         this.personRepository = personRepository;
     }
 
-    @GetMapping("/personlist")
+/*    @GetMapping("/personlist")
     public String getAll(@RequestParam(defaultValue = "") String type, @RequestParam(defaultValue = "false") boolean graduate, Model model){
 
-        /*List<Person> personList = new ArrayList<>();
+        *//*List<Person> personList = new ArrayList<>();
 
         if (type == null || "".equals(type) || "all".equals(type)) {
             personList = personRepository.findAll();
@@ -49,6 +48,6 @@ public class PersonController {
             personList = personRepository.findByDegreeAndGraduated(Degree.UNDERGRADUATE,graduate);
         }
         model.addAttribute("personList", personList);
-        return "personlist";*/
-    }
+        return "personlist";*//*
+    }*/
 }

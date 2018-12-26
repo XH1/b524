@@ -29,7 +29,7 @@ public class ProjectController {
     @Autowired
     public ProjectController(ProjectRepository projectRepository){this.projectRepository=projectRepository;}
 
-    @GetMapping("/research_project")
+    @GetMapping("/project")
     public String getAll(Model model){
         List<Project> projectList = new ArrayList<>();
         projectList = projectRepository.findAll();
