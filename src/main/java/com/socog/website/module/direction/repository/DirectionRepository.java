@@ -5,8 +5,10 @@ import com.socog.website.module.paper.entity.Paper;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * @author qixiaohui
@@ -15,5 +17,8 @@ import java.util.List;
  */
 
 public interface DirectionRepository extends JpaRepository<Direction,Integer> {
-
+    /*Page<Paper> findByArea(String area, Pageable pageable);
+    Page<Paper> findByAreaAndYear(String area, String year, Pageable pageable);
+    @Query(value = "select year,count(year) as counts from paper where area=#{area} group by year DESC ", nativeQuery = true)
+    List<Map<String,Object>> groupByYear(String area);*/
 }

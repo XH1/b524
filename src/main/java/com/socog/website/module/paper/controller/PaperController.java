@@ -10,7 +10,6 @@ import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -19,14 +18,16 @@ import java.util.List;
 import java.util.Map;
 
 @Controller
-@RequestMapping("/paper")
+//@RequestMapping("/paper")
 public class PaperController {
     private final PaperRepository paperRepository;
     @Autowired
     public PaperController(PaperRepository paperRepository) {
         this.paperRepository = paperRepository;
     }
-    @GetMapping("")
+
+    //paperlist页面
+    @GetMapping("/paper")
     public String getAll(@RequestParam(defaultValue = "all") String searchWay, @RequestParam(defaultValue = "0") String specificWay,
                          @RequestParam(defaultValue = "0") int page, Model model) {
         System.out.println("searchWay："+searchWay+",specificWay："+specificWay);
@@ -37,11 +38,15 @@ public class PaperController {
         List<Map<String,Object>> area_count=paperRepository.groupByArea();
         List<Map<String,Object>> firstThreeYearCount=new ArrayList<>();
         List<Map<String,Object>> restYearCount=new ArrayList<>();
-        for (int i=0;i<3;i++){
-            firstThreeYearCount.add(year_count.get(i));
-        }
-        for(int j=3;j<year_count.size();j++){
-            restYearCount.add(year_count.get(j));
+        if (year_count.size()>3){
+            for (int i=0;i<3;i++){
+                firstThreeYearCount.add(year_count.get(i));
+            }
+            for(int j=3;j<year_count.size();j++){
+                restYearCount.add(year_count.get(j));
+            }
+        }else{
+            firstThreeYearCount=year_count;
         }
         model.addAttribute("paperPage", paperPage);
         model.addAttribute("searchWay", searchWay);
@@ -52,31 +57,12 @@ public class PaperController {
         //model.addAttribute("testYearCount", year_count.size());
         model.addAttribute("firstThreeYearCount", firstThreeYearCount);
         model.addAttribute("restYearCount", restYearCount);
-        System.out.println("查看paperPage");
-        for (Paper paper:paperPage) {
-            System.out.println(paper.getId());
-        }
-        System.out.println("查看year_count");
-        for (Map<String,Object> map:year_count) {
-            System.out.println(map.get("year"));
-            System.out.println(map.get("counts"));
-        }
-        System.out.println("查看type_count");
-        for (Map<String,Object> map:type_count) {
-            System.out.println(map.get("type"));
-            System.out.println(map.get("counts"));
-        }
-        System.out.println("查看area_count");
-        for (Map<String,Object> map:area_count) {
-            System.out.println(map.get("area"));
-            System.out.println(map.get("counts"));
-        }
 
         return "paperlist";
     }
     @ResponseBody
     @GetMapping("/paperpage")
-    public Page<Paper> getPersonPage(@RequestParam(defaultValue = "all") String searchWay, @RequestParam(defaultValue = "0") String specificWay,
+    public Page<Paper> getPaperPage(@RequestParam(defaultValue = "all") String searchWay, @RequestParam(defaultValue = "0") String specificWay,
                                       @RequestParam(defaultValue = "0") int paperPageNow) {
 
         Page<Paper> paperPage = null;
@@ -94,6 +80,59 @@ public class PaperController {
             paperPage = paperRepository.findByType(specificWay, pageable);
         } else if ("area".equals(searchWay)) {
             paperPage = paperRepository.findByArea(specificWay, pageable);
+        }
+        return paperPage;
+    }
+
+
+    //*******************************************************************************
+    //paper_area页面
+     @GetMapping("/paperArea")
+    public String getAll1(@RequestParam(defaultValue = "0") String area, @RequestParam(defaultValue = "all") String year,
+                         @RequestParam(defaultValue = "0") int page, Model model) {
+         System.out.println("area:"+area+",year:"+year+",page:"+page);
+        Pageable pageable = PageRequest.of(page, 3, Sort.Direction.DESC, "id");
+        Page<Paper> paperPage =checkPage1(area,year,pageable);
+        List<Map<String,Object>> year_count=new ArrayList<>();
+        year_count=paperRepository.groupByYear1(area);
+         List<Map<String,Object>> firstThreeYearCount=new ArrayList<>();
+         List<Map<String,Object>> restYearCount=new ArrayList<>();
+         System.out.println("year_count.size为："+year_count.size());
+         if (year_count.size()>3){
+             for (int i=0;i<3;i++){
+                 firstThreeYearCount.add(year_count.get(i));
+             }
+             for(int j=3;j<year_count.size();j++){
+                 restYearCount.add(year_count.get(j));
+             }
+         }else{
+             firstThreeYearCount=year_count;
+         }
+         System.out.println("restYearCount:"+restYearCount.size());
+        model.addAttribute("paperPage", paperPage);
+        model.addAttribute("area", area);
+        model.addAttribute("year", year);
+        //model.addAttribute("year_count", year_count);
+         model.addAttribute("firstThreeYearCount", firstThreeYearCount);
+         model.addAttribute("restYearCount", restYearCount);
+        return "paper_area";
+    }
+    @ResponseBody
+    @GetMapping("/paperAreaPage")
+    public Page<Paper> getPaperPage1(@RequestParam(defaultValue = "0") String area, @RequestParam(defaultValue = "all") String year,
+                                     @RequestParam(defaultValue = "0") int paperPageNow) {
+        System.out.println("paperPageNow:"+paperPageNow);
+        Page<Paper> paperPage = null;
+        Pageable pageable = PageRequest.of(paperPageNow, 3, Sort.Direction.DESC, "id");
+        paperPage = checkPage1(area, year, pageable);
+        return paperPage;
+    }
+    private Page<Paper> checkPage1(String area, String year, Pageable pageable) {
+        Page<Paper> paperPage = null;
+        if ("all".equals(year) || "".equals(year)){
+            paperPage=paperRepository.findByArea(area,pageable);
+        }else{
+            paperPage=paperRepository.findByAreaAndYear(area,year,pageable);
         }
         return paperPage;
     }

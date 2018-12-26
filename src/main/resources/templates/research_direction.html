@@ -85,7 +85,7 @@
                 <h3 th:text="${direction.getName()}">Knowledge Graph</h3>
                 <h4>KG text</h4>
                 <p th:text="${direction.getBrief()}">Knowledge Graph, also known as scientific knowledge map, is a series of different graphs showing the relationship between knowledge development process and structure. It uses visual technology to describe knowledge resources and their carriers, and to mine, analyze, construct, draw and display knowledge. And the interconnection between them. </p>
-                <a href="single-service.html" class="view_all" th:href="@{http://localhost:8080/direction(direction=${direction.getName()})}">read more</a>
+                <a href="single-service.html" class="view_all" th:href="@{http://localhost:8080/paperArea(area=${direction.getName()})}">read more</a>
             </div>
         </div>
     </section>
@@ -95,7 +95,7 @@
                 <h3 th:text="${direction.getName()}">Human-computer Interaction</h3>
                 <h4>Human-computer Interaction text</h4>
                 <p th:text="${direction.getBrief()}">Human-computer interaction is a study of the interaction between the system and the user. The system can be a wide variety of machines or computerized systems and software. The human-computer interaction interface usually refers to the part that is visible to the user. The user communicates with the system through the human-computer interaction interface and operates.</p>
-                <a href="single-service.html" class="view_all" th:href="@{http://localhost:8080/direction(direction=${direction.getName()})}">read more</a>
+                <a href="single-service.html" class="view_all" th:href="@{http://localhost:8080/paperArea(area=${direction.getName()})}">read more</a>
             </div>
             <div class="col-sm-12 col-md-4 group-img">
                 <img th:src="${direction.getPhoto()}" src="assets/pages/service/HI.jpg" alt="" class="img-responsive">

@@ -140,136 +140,7 @@
             </div>
         </div> -->
     </section>
-    <!--<section class="row content_section">
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-12 col-md-3 sidebar">
-                    <div class="panel-group accordion white_bg sidefilter" id="accordion" role="tablist"
-                         aria-multiselectable="true" style="margin-top: 36px;">
-                        <div class="panel panel-default">
-                            <div class="panel-heading">
-                                <h4 class="panel-title">
-                                    <a><b>Years</b></a>
-                                </h4>
-                            </div>
-                            <div class="panel-collapse">
-                                <div class="panel-body" style="padding-top: 28px;" th:each="year : ${year_count}">
-                                    <h4 class="sub_panel_title panel_title"><a href=""
-                                                                               th:text="${year.get('year')}"></a><a>&nbsp;&nbsp;(</a><a
-                                            href="" th:text="${year.get('counts')} "></a><a>)</a></h4>
 
-                                </div>
-                            </div>
-                            <div id="collapseOne" class="panel-collapse collapse" role="tabpanel"
-                                 aria-labelledby="headingOne">
-                                <div class="panel-body">
-                                    <h4 class="sub_panel_title panel_title"><a href="">2009 (12)</a></h4>
-                                    <h4 class="sub_panel_title panel_title"><a href="">2008 (31)</a></h4>
-                                    <h4 class="sub_panel_title panel_title"><a href="">2007 (22)</a></h4>
-                                    <h4 class="sub_panel_title panel_title"><a href="">2006 (12)</a></h4>
-                                </div>
-                            </div>
-                            <div class="panel-heading" role="tab" id="headingOne">
-                                <h4 class="panel-title" style="">
-                                    <a style="background-color: #A2ADC2; color: #fff;" data-toggle="collapse"
-                                       data-parent="#accordion" href="#collapseOne" aria-expanded="false"
-                                       aria-controls="collapseOne">
-                                        <b>View All / Hide</b>
-                                        <span class="sign" style="background-color: #828FA8; color: #fff;"></span>
-                                    </a>
-                                </h4>
-                            </div>
-                        </div> &lt;!&ndash;Panel&ndash;&gt;
-                        <div class="panel panel-default">
-                            <div class="panel-heading">
-                                <h4 class="panel-title">
-                                    <a><b>Type</b></a>
-                                </h4>
-                            </div>
-                            <div class="panel-collapse">
-                                &lt;!&ndash;<div class="panel-body" style="padding-top: 28px;">
-                                    <h4 class="sub_panel_title panel_title"><a href="">Conference paper (45)</a></h4>
-                                    <h4 class="sub_panel_title panel_title"><a href="">Journal paper (31)</a></h4>
-                                    <h4 class="sub_panel_title panel_title"><a href="">Theses (22)</a></h4>
-                                 </div>&ndash;&gt;
-                                <div class="panel-body" style="padding-top: 28px;" th:each="type : ${type_count}">
-                                    <h4 class="sub_panel_title panel_title"><a href=""
-                                                                               th:text="${type.get('type')}"></a><a>&nbsp;&nbsp;(</a><a
-                                            href="" th:text="${type.get('counts')} "></a><a>)</a></h4>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="panel panel-default">
-                            <div class="panel-heading">
-                                <h4 class="panel-title">
-                                    <a><b>Area</b></a>
-                                </h4>
-                            </div>
-                            <div class="panel-collapse">
-                                &lt;!&ndash;<div class="panel-body" style="padding-top: 28px;">
-                                    <h4 class="sub_panel_title panel_title"><a href="">Knowledge Graph (45)</a></h4>
-                                    <h4 class="sub_panel_title panel_title"><a href="">Human-computer Interaction (31)</a></h4>
-                                    <h4 class="sub_panel_title panel_title"><a href="">Natural Language Processing (22)</a></h4>
-                                    <h4 class="sub_panel_title panel_title"><a href="">Computer Vision (22)</a></h4>
-                                 </div>&ndash;&gt;
-                                <div class="panel-body" style="padding-top: 28px;" th:each="area : ${area_count}">
-                                    <h4 class="sub_panel_title panel_title"><a href=""
-                                                                               th:text="${area.get('area')}"></a><a>&nbsp;&nbsp;(</a><a
-                                            href="" th:text="${area.get('counts')} "></a><a>)</a></h4>
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-                <div class="col-sm-12 col-md-9 blog_list">
-                    <div id="paper_div">
-                        <div id="paper_container">
-                            <div class="media blog row" th:each="paper : ${paperPage.getContent()}">
-                                <div class="media-body col-md-9 col-sm-9">
-                                    <a href="paper"><h4><b th:text="${paper.getTitle()}">title</b></h4></a>
-                                    <div class="row m0 meta">Authors: <a href="#" th:text="${paper.getAuthors()}">authors</a>
-                                    </div>
-                                    <div class="row m0 meta">Class: <a href="#" th:text="${paper.getLevel()}">level</a>
-                                    </div>
-                                    <p><b>Key words:</b>&nbsp;<span th:text="${paper.getKeywords()}">keywords</span></p>
-                                </div>
-                                <p class="col-md-3 col-sm-6"><a href="#"><span class="glyphicon glyphicon-download-alt"
-                                                                               aria-hidden="true"></span>&nbsp;&nbsp;download</a>
-                                </p>
-                            </div> &lt;!&ndash;single blog&ndash;&gt;
-                        </div>
-                    </div>
-
-                            <div class="row paginationRow" style="clear: both">
-                                <div class="pagination">
-                                    <button type="button" id="paper_first"><span
-                                            class="glyphicon glyphicon-fast-backward" aria-hidden="true"></span>
-                                    </button>
-                                    <button type="button" id="paper_prev"><span
-                                            class="glyphicon glyphicon-triangle-left" aria-hidden="true"></span>
-                                    </button>
-                                    <button type="button" id="paper_next"><span
-                                            class="glyphicon glyphicon-triangle-right"
-                                            aria-hidden="true"></span></button>
-                                    <button type="button" id="paper_last"><span
-                                            class="glyphicon glyphicon-fast-forward" aria-hidden="true"></span>
-                                    </button>
-                                </div>
-                            </div>
-                            &lt;!&ndash;<div class="row paginationRow">
-                                <ul class="pagination">
-                                    <li class="active"><a href="#">1</a></li>
-                                    <li><a href="#">2</a></li>
-                                    <li><a href="#">3</a></li>
-                                </ul>
-                            </div>&ndash;&gt;
-
-                        </div>
-                </div>
-
-        </div>
-    </section>-->
     <section class="row content_section">
         <div class="container">
             <div class="row">
@@ -512,6 +383,7 @@
         "                        <p class=\"col-md-3 col-sm-6\"><a href=\"#\"><span class=\"glyphicon glyphicon-download-alt\" aria-hidden=\"true\"></span>&nbsp;&nbsp;download</a></p>\n" +
         "                    </div>";
 
+
     /*查询成功后更改对应的显示内容*/
 
 
@@ -525,6 +397,7 @@
                 authors: data['authors'],
                 level: data['level'],
                 keywords: data['keywords'],
+
             };
             html += element.format(paper);
         });
@@ -559,7 +432,7 @@
             }
 
             paperPageNowElem.val(0);
-            $.get("paper/paperpage",
+            $.get("paperpage",
                 $("#paperPageForm").serialize(),
                 function (pager, status) {
                     whenPaperQuerySuccess(pager, status);
@@ -574,7 +447,7 @@
                 return;
             }
             paperPageNowElem.val(parseInt(paperPageNowElem.val()) - 1);
-            $.get("paper/paperpage",
+            $.get("paperpage",
                 $("#paperPageForm").serialize(),
                 function (pager, status) {
                     whenPaperQuerySuccess(pager, status);
@@ -589,7 +462,7 @@
             }
             paperPageNowElem.val(parseInt(paperPageNowElem.val()) + 1);
 
-            $.get("paper/paperpage",
+            $.get("paperpage",
                 $("#paperPageForm").serialize(),
                 function (pager, status) {
                     whenPaperQuerySuccess(pager, status);
@@ -605,7 +478,7 @@
 
             paperPageNowElem.val(parseInt($("#paperTotalPages").val() - 1));
 
-            $.get("paper/paperpage",
+            $.get("paperpage",
                 $("#paperPageForm").serialize(),
                 function (pager, status) {
                     whenPaperQuerySuccess(pager, status);
