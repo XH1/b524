@@ -10,6 +10,7 @@ import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -18,7 +19,7 @@ import java.util.List;
 import java.util.Map;
 
 @Controller
-//@RequestMapping("/paper")
+@RequestMapping("/paper")
 public class PaperController {
     private final PaperRepository paperRepository;
     @Autowired
@@ -27,7 +28,7 @@ public class PaperController {
     }
 
     //paperlist页面
-    @GetMapping("/paper")
+    @GetMapping("/paperlist")
     public String getAll(@RequestParam(defaultValue = "all") String searchWay, @RequestParam(defaultValue = "0") String specificWay,
                          @RequestParam(defaultValue = "0") int page, Model model) {
         System.out.println("searchWay："+searchWay+",specificWay："+specificWay);
@@ -63,8 +64,8 @@ public class PaperController {
     @ResponseBody
     @GetMapping("/paperpage")
     public Page<Paper> getPaperPage(@RequestParam(defaultValue = "all") String searchWay, @RequestParam(defaultValue = "0") String specificWay,
-                                      @RequestParam(defaultValue = "0") int paperPageNow) {
-
+                                    @RequestParam(defaultValue = "0") int paperPageNow) {
+        System.out.println("哈哈");
         Page<Paper> paperPage = null;
         Pageable pageable = PageRequest.of(paperPageNow, 3, Sort.Direction.DESC, "id");
         paperPage = checkPage(searchWay, specificWay, pageable);
@@ -87,34 +88,34 @@ public class PaperController {
 
     //*******************************************************************************
     //paper_area页面
-     @GetMapping("/paperArea")
+    @GetMapping("/paperArea")
     public String getAll1(@RequestParam(defaultValue = "0") String area, @RequestParam(defaultValue = "all") String year,
-                         @RequestParam(defaultValue = "0") int page, Model model) {
-         System.out.println("area:"+area+",year:"+year+",page:"+page);
+                          @RequestParam(defaultValue = "0") int page, Model model) {
+        System.out.println("area:"+area+",year:"+year+",page:"+page);
         Pageable pageable = PageRequest.of(page, 3, Sort.Direction.DESC, "id");
         Page<Paper> paperPage =checkPage1(area,year,pageable);
         List<Map<String,Object>> year_count=new ArrayList<>();
         year_count=paperRepository.groupByYear1(area);
-         List<Map<String,Object>> firstThreeYearCount=new ArrayList<>();
-         List<Map<String,Object>> restYearCount=new ArrayList<>();
-         System.out.println("year_count.size为："+year_count.size());
-         if (year_count.size()>3){
-             for (int i=0;i<3;i++){
-                 firstThreeYearCount.add(year_count.get(i));
-             }
-             for(int j=3;j<year_count.size();j++){
-                 restYearCount.add(year_count.get(j));
-             }
-         }else{
-             firstThreeYearCount=year_count;
-         }
-         System.out.println("restYearCount:"+restYearCount.size());
+        List<Map<String,Object>> firstThreeYearCount=new ArrayList<>();
+        List<Map<String,Object>> restYearCount=new ArrayList<>();
+        System.out.println("year_count.size为："+year_count.size());
+        if (year_count.size()>3){
+            for (int i=0;i<3;i++){
+                firstThreeYearCount.add(year_count.get(i));
+            }
+            for(int j=3;j<year_count.size();j++){
+                restYearCount.add(year_count.get(j));
+            }
+        }else{
+            firstThreeYearCount=year_count;
+        }
+        System.out.println("restYearCount:"+restYearCount.size());
         model.addAttribute("paperPage", paperPage);
         model.addAttribute("area", area);
         model.addAttribute("year", year);
         //model.addAttribute("year_count", year_count);
-         model.addAttribute("firstThreeYearCount", firstThreeYearCount);
-         model.addAttribute("restYearCount", restYearCount);
+        model.addAttribute("firstThreeYearCount", firstThreeYearCount);
+        model.addAttribute("restYearCount", restYearCount);
         return "paper_area";
     }
     @ResponseBody

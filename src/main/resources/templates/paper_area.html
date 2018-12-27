@@ -62,7 +62,7 @@
 	            
 	            <!-- Collect the nav links, forms, and other content for toggling -->
 	            <div class="collapse navbar-collapse" id="main_nav"> 
-									   <a   href="index.html"><img style="width:125px;height:80px;margin-left:280px ;margin-top: 2px;" src="assets/wq4.png" alt=""></a>											    	
+									   <a   href="index.html"><img style="width:125px;height:80px;margin-left:280px ;margin-top: 2px;" src="../static/assets/wq4.png" th:src="@{/assets/wq4.png}" alt=""></a>
 									<ul  class="nav navbar-nav navbar-right">
 			                    			<li class="active"><a href="index.html">Home</a></li>
 						                 
@@ -158,7 +158,7 @@
                             </div>-->
                              <div class="panel-collapse">
                                  <div class="panel-body" style="padding-top: 28px;" th:each="years : ${firstThreeYearCount}">
-                                     <h4 class="sub_panel_title panel_title"><a th:href="@{http://localhost:8080/paperArea(area=${area},year=${years.get('year')})}"
+                                     <h4 class="sub_panel_title panel_title"><a th:href="@{http://localhost:8080/paper/paperArea(area=${area},year=${years.get('year')})}"
                                                                                 th:text="${years.get('year')}"></a><a>&nbsp;&nbsp;(</a><a
                                              href="" th:text="${years.get('counts')} "></a><a>)</a></h4>
 
@@ -183,7 +183,7 @@
                              </div>-->
                              <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
                                  <div class="panel-body" style="padding-top: 28px;" th:each="years : ${restYearCount}">
-                                     <h4 class="sub_panel_title panel_title" ><a th:href="@{http://localhost:8080/paperArea(area=${area},year=${years.get('year')})}"
+                                     <h4 class="sub_panel_title panel_title" ><a th:href="@{http://localhost:8080/paper/paperArea(area=${area},year=${years.get('year')})}"
                                                                                  th:text="${years.get('year')}"></a><a>&nbsp;&nbsp;(</a><a
                                              href="" th:text="${years.get('counts')} "></a><a>)</a></h4>
                                  </div>
@@ -258,7 +258,7 @@
                             <div class="col-sm-8 col-md-7 col-lg-4 footer_menuList">
                                     <div class="row menuList">
                                             <ul class="firstOrderList nav" style="text-transform: initial">
-                                                    <li><a href="#"><img style="width:40%;height: 30%;float: left;margin-left:40px ;" src="assets/wq4.png" alt=""></a></li>
+                                                    <li><a href="#"><img style="width:40%;height: 30%;float: left;margin-left:40px ;" src="../static/assets/wq4.png" th:src="@{/assets/wq4.png}" alt=""></a></li>
                                                     
                                             </ul>
                                     </div>
@@ -275,7 +275,7 @@
                                     </div>
                             </div>
                             <div class="col-sm-6 col-md-6 col-lg-3" style="text-align:center;">
-                                    <div><img style="width:32%; margin-top:2px; margin-bottom: 8px;" src="./assets/erweima.png" alt=""></div>
+                                    <div><img style="width:32%; margin-top:2px; margin-bottom: 8px;"  src="../static/assets/erweima.png" th:src="@{/assets/erweima.png}" alt=""></div>
                                     <p style="margin-top: -3px; color: #eee; text-align: center;">关注微信公众号</p>                    
                             </div>
                             <div class="fright copyright col-sm-6 col-md-6 col-lg-12" style="text-align: center;margin-top: -22px">&copy; <a href="index"> 吉林大学计算机科学与技术学院计算智能知识图谱实验室 </a></div>
@@ -321,12 +321,18 @@
 		</script>
 
 
-    <script src="js/jquery-2.1.3.min.js"></script>
-    <!--Bootstrap JS-->
+   <!-- <script src="js/jquery-2.1.3.min.js"></script>
+    &lt;!&ndash;Bootstrap JS&ndash;&gt;
     <script src="js/bootstrap.min.js"></script>
-    <script src="js/layer/layer.min.js"></script>
+    <script src="js/layer/layer.min.js"></script>-->
     <!--Owl Carousel-->
    <!-- <script src="vendors/owl.carousel/js/owl.carousel.min.js"></script>-->
+    <script src="../static/js/jquery-2.1.3.min.js" th:src="@{/js/jquery-2.1.3.min.js}"></script>
+    <!--Bootstrap JS-->
+    <script src="../static/js/bootstrap.min.js" th:src="@{/js/bootstrap.min.js}"></script>
+    <script src="../static/js/layer/layer.min.js" th:src="@{/js/layer/layer.min.js}"></script>
+    <!--Owl Carousel-->
+    <script src="vendors/owl.carousel/js/owl.carousel.min.js"></script>
 
 
   </body>
@@ -351,7 +357,7 @@
           "                            <div class=\"row m0 meta\">Class:   <a href=\"#\">{{level}}</a>   </div>\n" +
           "                            <p><b>Key words:</b>&nbsp;{{keywords}}</p>\n" +
           "                        </div>\n" +
-          "                        <p class=\"col-md-3 col-sm-6\"><a href=\"#\"><span class=\"glyphicon glyphicon-download-alt\" aria-hidden=\"true\"></span>&nbsp;&nbsp;download</a></p>\n" +
+          "                        <p class=\"col-md-3 col-sm-6\"><a href=\"{{href}}\"><span class=\"glyphicon glyphicon-download-alt\" aria-hidden=\"true\"></span>&nbsp;&nbsp;download</a></p>\n" +
           "                    </div>";
 
       /*查询成功后更改对应的显示内容*/
@@ -367,6 +373,7 @@
                   authors: data['authors'],
                   level: data['level'],
                   keywords: data['keywords'],
+                  href:data['paperURL'],
               };
               html += element.format(paper);
           });
@@ -403,7 +410,7 @@
               }
 
               paperPageNowElem.val(0);
-              $.get("paperAreaPage",
+              $.get("/paper/paperAreaPage",
                   $("#paperPageForm").serialize(),
                   function (pager, status) {
                       whenPaperQuerySuccess(pager, status);
@@ -418,7 +425,7 @@
                   return;
               }
               paperPageNowElem.val(parseInt(paperPageNowElem.val()) - 1);
-              $.get("paperAreaPage",
+              $.get("/paper/paperAreaPage",
                   $("#paperPageForm").serialize(),
                   function (pager, status) {
                       whenPaperQuerySuccess(pager, status);
@@ -436,7 +443,7 @@
               console.log("哈哈，还没到最后一页，还有下一页")
               console.log("现在页数："+(parseInt(paperPageNowElem.val())))
 
-              $.get("paperAreaPage",
+              $.get("/paper/paperAreaPage",
                   $("#paperPageForm").serialize(),
                   function (pager, status) {
                       whenPaperQuerySuccess(pager, status);
@@ -452,7 +459,7 @@
 
               paperPageNowElem.val(parseInt($("#paperTotalPages").val() - 1));
 
-              $.get("paperAreaPage",
+              $.get("/paper/paperAreaPage",
                   $("#paperPageForm").serialize(),
                   function (pager, status) {
                       whenPaperQuerySuccess(pager, status);
