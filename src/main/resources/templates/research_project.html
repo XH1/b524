@@ -86,7 +86,7 @@
         </div><!-- /.navbar-collapse -->
     </div><!-- /.container -->
 </nav>
-<div class="content" th:each="project : ${projectList}">
+<div class="content" th:each="project : ${projectList}" >
     <section class="row grouplist" id="group1" th:if="${projectStat.index}%2==0" >
         <div class="container groupinfo" id="heart_surgery">
             <div class="col-sm-12 col-md-4 group-img">

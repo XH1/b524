@@ -81,7 +81,8 @@
         </div>
     </section>
         <!--/*@thymesVar id="directionList" type="java.util.List<com.socog.website.module.direction.entity.Direction>"*/-->
-    <section class="row grouplist" id="group1" th:each="direction : ${directionList}"  th:if="${directionStat.index}%2==0">
+   <div th:each="direction : ${directionList}">
+    <section class="row grouplist" id="group1"  th:if="${directionStat.index}%2==0">
         <div class="container groupinfo" id="heart_surgery">
             <div class="col-sm-12 col-md-4 group-img">
                 <img th:src="${direction.getPhoto()}" src="assets/pages/service/kg.png" alt="" class="img-responsive">
@@ -93,7 +94,7 @@
             </div>
         </div>
     </section>
-    <section class="row grouplist" id="group2" th:each="direction : ${directionList}"  th:if="${directionStat.index}%2!=0">
+    <section class="row grouplist" id="group2"  th:if="${directionStat.index}%2!=0">
         <div class="container groupinfo" id="heart_surgery">
             <div class="col-sm-12 col-md-8 groupintro">
                 <h3 th:text="${direction.getName()}">Human-computer Interaction</h3>
@@ -105,6 +106,7 @@
             </div>
         </div>
     </section>
+   </div>
     <!--<section class="row grouplist" id="group3">
         <div class="container groupinfo" id="heart_surgery">
             <div class="col-sm-12 col-md-4 group-img">
