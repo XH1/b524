@@ -22,7 +22,7 @@ import java.util.List;
  */
 
 @Controller
-/*@RequestMapping("/research")*/
+@RequestMapping("/research")
 public class ProjectController {
     private final ProjectRepository projectRepository;
 

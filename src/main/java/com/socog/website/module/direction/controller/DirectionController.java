@@ -18,7 +18,7 @@ import java.util.List;
  */
 
 @Controller
-/*@RequestMapping("/research")*/
+@RequestMapping("/research")
 public class DirectionController  {
     private final
     DirectionRepository directionRepository;
