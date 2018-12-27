@@ -2,6 +2,7 @@ package com.socog.website.module.project.entity;
 
 import com.socog.website.module.BaseEntity;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 
 /**
@@ -15,6 +16,9 @@ public class Project extends BaseEntity {
     private String name;
     private String photo;
     private String brief;
+
+    @Column(nullable = true)
+    private String projectURL;
 
     public String getName() {
         return name;
@@ -39,4 +43,8 @@ public class Project extends BaseEntity {
     public void setBrief(String brief) {
         this.brief = brief;
     }
+
+    public String getProjectURL() { return projectURL; }
+
+    public void setProjectURL(String projectURL) { this.projectURL = projectURL; }
 }

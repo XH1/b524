@@ -22,14 +22,14 @@ import java.util.List;
  */
 
 @Controller
-@RequestMapping("/research")
+/*@RequestMapping("/research")*/
 public class ProjectController {
     private final ProjectRepository projectRepository;
 
     @Autowired
     public ProjectController(ProjectRepository projectRepository){this.projectRepository=projectRepository;}
 
-    @GetMapping("/research_project")
+    @GetMapping("/project")
     public String getAll(Model model){
         List<Project> projectList = new ArrayList<>();
         projectList = projectRepository.findAll();
