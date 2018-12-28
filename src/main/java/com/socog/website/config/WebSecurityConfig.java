@@ -22,10 +22,13 @@ import org.springframework.web.filter.HttpPutFormContentFilter;
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     private final MyUserDetailService userDetailService;
 
+    private final
+    LoginSuccessHandler loginSuccessHandler;
 
     @Autowired
-    public WebSecurityConfig(MyUserDetailService userDetailService) {
+    public WebSecurityConfig(MyUserDetailService userDetailService, LoginSuccessHandler loginSuccessHandler) {
         this.userDetailService = userDetailService;
+        this.loginSuccessHandler = loginSuccessHandler;
     }
 
     @Autowired
@@ -36,13 +39,15 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests()
+                .antMatchers("/resource","/resource/*").authenticated()
                 .anyRequest().permitAll()
                 .and()
 
                 .formLogin()
                 .loginPage("/user/login")
                 .loginProcessingUrl("/user/login")
-                .defaultSuccessUrl("/index.html")
+                /*.successHandler(loginSuccessHandler)*/
+                .defaultSuccessUrl("/index")
                 .failureUrl("/user/login?error")
                 .and()
 

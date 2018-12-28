@@ -31,7 +31,6 @@ public class Paper extends BaseEntity {
 
     private String type;
     private String area;
-    private String year;
 
     public String getType() {
         return type;
@@ -48,16 +47,6 @@ public class Paper extends BaseEntity {
     public void setArea(String area) {
         this.area = area;
     }
-
-    public String getYear() {
-        return year;
-    }
-
-    public void setYear(String year) {
-        this.year = year;
-    }
-
-
 
     public String getTitle() {
         return title;
@@ -106,5 +95,7 @@ public class Paper extends BaseEntity {
     public void setPaperURL(String paperURL) {
         this.paperURL = paperURL;
     }
+
+
 }
 

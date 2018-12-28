@@ -1,112 +1,131 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
-  <head>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
     <meta charset="utf-8">
+    <base href="/socog/">
     <title>未来科学国际合作联合实验室</title>
     <link rel="stylesheet" href="../static/css/bootstrap.min.css" th:href="@{/css/bootstrap.min.css}">
     <link rel="stylesheet" href="../static/css/font-awesome.min.css" th:href="@{/css/font-awesome.min.css}">
-	<link rel="stylesheet" href="../static/css/index.css" th:href="@{/css/index.css}">
-	<link rel="stylesheet" href="../static/css/research_direction.css" th:href="@{/css/research_direction.css}">
-  </head>
-  <body class="default">
-  <section class="row top_bar">
-      <div class=""style="margin-left: 62px;margin-right:60px;margin-top: 10px;">
-          <div class="row ">
-              <div class="fleft phone" style="padding-bottom: 10px;">
-                  <p> <a href="#" style="
+    <link rel="stylesheet" href="../static/css/index.css" th:href="@{/css/index.css}">
+    <link rel="stylesheet" href="../static/css/research_direction.css" th:href="@{/css/research_direction.css}">
+</head>
+<body class="default">
+<section class="row top_bar">
+    <div class="" style="margin-left: 62px;margin-right:60px;margin-top: 10px;">
+        <div class="row ">
+            <div class="fleft phone" style="padding-bottom: 10px;">
+                <p><a href="#" style="
 	    text-decoration: none;
 	    color: #03536A;
-	">Computational Intelligence Knowledge Mapping Laboratory, School of Computer Science and Technology, Jilin University</a>  </p>
-              </div>
-              <div class="fright">
-
-                  <div class="fleft"><strong><a href="#" style="
-        text-decoration: none;
-        color: #03536A;">Sign in</a></strong></div>
-              </div>
-          </div>
-      </div>
-  </section>
-    
-    <nav class="navbar navbar-default navbar-static-top navbar2"style="background: #0186d5;">
-        <div class="container" style="margin-left: -60px;">
-            <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="navbar-header">
-                            
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#main_nav" aria-expanded="false">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <!-- <a href="book-appointment.html" class="navbar-toggle visible-xs" data-toggle="modal" data-target="#appointmefnt_form_pop">Search</a> -->
+	">Computational Intelligence Knowledge Mapping Laboratory, School of Computer Science and Technology, Jilin
+                    University</a></p>
             </div>
-            
-            <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse" id="main_nav">
-                <a   href="index.html"><img style="width:125px;height:80px;margin-left:200px ;margin-top: 2px;" src="/assets/wq4.png" alt=""></a>
-                <ul  class="nav navbar-nav navbar-right">
-                    <li class="active"><a href="http://localhost:8080/index.html">Home</a></li>
+            <div class="fright">
 
-                    <li><a href="http://localhost:8080/aboutus.html">About Us</a></li>
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Research</a>
-                        <ul class="dropdown-menu" role="menu">
-                            <li><a href="http://localhost:8080/research/direction">Directions</a></li>
-                            <li><a href="http://localhost:8080/paper/paperlist">Papers</a></li>
-                            <li><a href="http://localhost:8080/research/project">Projects</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="http://localhost:8080/personlist.html">People</a></li>
-                    <li><a href="http://localhost:8080/news">News</a></li>
-                    <li><a href="http://localhost:8080/upload.html">Resource</a></li>
+                <div class="fleft" sec:authorize="!isAuthenticated()"><strong><a href="#" th:href="@{/user/login}" style="
+          			text-decoration: none;
+          			color: #03536A;" >Sign in</a></strong></div>
+                <div class="fleft" sec:authorize="isAuthenticated()"><span style="
+                    text-decoration: none;
+                    color: #03536A;"><span class="glyphicon glyphicon-user"></span>&nbsp;<strong  sec:authentication="name"></strong></span></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<nav class="navbar navbar-default navbar-static-top navbar2"style="background: #0186d5;">
+    <div class="container" style="margin-left: -10px;">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#main_nav" aria-expanded="false">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <!-- <a href="book-appointment.html" class="navbar-toggle visible-xs" data-toggle="modal" data-target="#appointmefnt_form_pop">Search</a> -->
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="main_nav">
+            <a href="../static/index.html" th:href="@{/index}"><img style="width:125px;height:80px;margin-left:200px ;margin-top: 2px;" src="../static/assets/wq4.png" th:src="@{/assets/wq4.png}" alt=""></a>
+            <ul  class="nav navbar-nav navbar-right">
+                <li class="active"><a href="../static/index.html" th:href="@{/index}">Home</a></li>
+
+                <li><a href="../static/aboutus.html" th:href="@{/aboutus}">About Us</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Research</a>
+                    <ul class="dropdown-menu" role="menu">
+                        <li><a href="direction/directionlist" th:href="@{/direction/directionlist}">Directions</a></li>
+                        <li><a href="paper/paperlist" th:href="@{/paper/paperlist}">Papers</a></li>
+                        <li><a href="project/projectlist" th:href="@{/project/projectlist}">Projects</a></li>
+                    </ul>
+                </li>
+                <li><a href="person/personlist" th:href="@{/person/personlist}">People</a></li>
+                <li><a href="news/newslist" th:href="@{/news/newslist}">News</a></li>
+                <li><a href="resource/resourcelist" th:href="@{/resource/resourcelist}">Resource</a></li>
 
 
-                    <li><a href="http://localhost:8080/join.html">Join Us</a></li>
-                    <!-- <li class="hidden-xs book"><a href="#" data-toggle="modal" data-target="#appointmefnt_form_pop">Search</a></li> -->
-                </ul>
-            </div><!-- /.navbar-collapse -->
-        </div><!-- /.container -->
-    </nav>
-    <div class="content">
-    <section class="row grouplist" >
+                <li><a href="../static/join.html" th:href="@{/join}">Join Us</a></li>
+                <!-- <li class="hidden-xs book"><a href="#" data-toggle="modal" data-target="#appointmefnt_form_pop">Search</a></li> -->
+            </ul>
+        </div><!-- /.navbar-collapse -->
+    </div><!-- /.container -->
+</nav>
+<div class="content">
+    <section class="row grouplist">
         <div class="container groupinfo  service_tab" id="heart_surgery">
-          <ul class="nav nav-tabs nav-justified" role="tablist"  id="service_tab"  >
-            <li role="presentation" class="active"><a href="#group1"><span></span>Knowledge Graph</a></li>
-            <li role="presentation" class="active"><a href="#group2"><span></span>Human-computer Interaction</a></li>
-            <li role="presentation" class="active"><a href="#group3"><span></span>Natural Language Processing</a></li>
-            <li role="presentation" class="active"><a href="#group4"><span></span>Computer Vision</a></li>
-              <!--<li role="presentation" class="active"><a href="#group5"><span></span>Advanced metallic materials</a></li>
-              <li role="presentation" class="active"><a href="#group6"><span></span>PaleoChemistry and PaleoEvolution of ancient life</a></li> -->
-          </ul>
+            <ul class="nav nav-tabs nav-justified" role="tablist" id="service_tab">
+                <li role="presentation" class="active"><a href="#group1"><span></span>Knowledge Graph</a></li>
+                <li role="presentation" class="active"><a href="#group2"><span></span>Human-computer Interaction</a>
+                </li>
+                <li role="presentation" class="active"><a href="#group3"><span></span>Natural Language Processing</a>
+                </li>
+                <li role="presentation" class="active"><a href="#group4"><span></span>Computer Vision</a></li>
+                <!--<li role="presentation" class="active"><a href="#group5"><span></span>Advanced metallic materials</a></li>
+                <li role="presentation" class="active"><a href="#group6"><span></span>PaleoChemistry and PaleoEvolution of ancient life</a></li> -->
+            </ul>
         </div>
     </section>
-        <!--/*@thymesVar id="directionList" type="java.util.List<com.socog.website.module.direction.entity.Direction>"*/-->
-   <div th:each="direction : ${directionList}">
-    <section class="row grouplist" id="group1"  th:if="${directionStat.index}%2==0">
-        <div class="container groupinfo" id="heart_surgery">
-            <div class="col-sm-12 col-md-4 group-img">
-                <img th:src="${direction.getPhoto()}" src="assets/pages/service/kg.png" alt="" class="img-responsive">
+    <!--/*@thymesVar id="directionList" type="java.util.List<com.socog.website.module.direction.entity.Direction>"*/-->
+    <div th:each="direction : ${directionList}">
+        <section class="row grouplist" id="group1" th:if="${directionStat.index}%2==0">
+            <div class="container groupinfo" id="heart_surgery">
+                <div class="col-sm-12 col-md-4 group-img">
+                    <img th:src="${direction.getPhoto()}" src="assets/pages/service/kg.png" alt=""
+                         class="img-responsive">
+                </div>
+                <div class="col-sm-12 col-md-8 groupintro">
+                    <h3 th:text="${direction.getName()}">Knowledge Graph</h3>
+                    <p th:text="${direction.getBrief()}">Knowledge Graph, also known as scientific knowledge map, is a
+                        series of different graphs showing the relationship between knowledge development process and
+                        structure. It uses visual technology to describe knowledge resources and their carriers, and to
+                        mine, analyze, construct, draw and display knowledge. And the interconnection between them. </p>
+                    <a href="single-service.html" class="view_all"
+                       th:href="@{/paper/paperArea(area=${direction.getName()})}">read more</a>
+                </div>
             </div>
-            <div class="col-sm-12 col-md-8 groupintro">
-                <h3 th:text="${direction.getName()}">Knowledge Graph</h3>
-                <p th:text="${direction.getBrief()}">Knowledge Graph, also known as scientific knowledge map, is a series of different graphs showing the relationship between knowledge development process and structure. It uses visual technology to describe knowledge resources and their carriers, and to mine, analyze, construct, draw and display knowledge. And the interconnection between them. </p>
-                <a href="single-service.html" class="view_all" th:href="@{http://localhost:8080/paper/paperArea(area=${direction.getName()})}">read more</a>
+        </section>
+        <section class="row grouplist" id="group2" th:if="${directionStat.index}%2!=0">
+            <div class="container groupinfo" id="heart_surgery">
+                <div class="col-sm-12 col-md-8 groupintro">
+                    <h3 th:text="${direction.getName()}">Human-computer Interaction</h3>
+                    <p th:text="${direction.getBrief()}">Human-computer interaction is a study of the interaction
+                        between the system and the user. The system can be a wide variety of machines or computerized
+                        systems and software. The human-computer interaction interface usually refers to the part that
+                        is visible to the user. The user communicates with the system through the human-computer
+                        interaction interface and operates.</p>
+                    <a href="single-service.html" class="view_all"
+                       th:href="@{/paper/paperArea(area=${direction.getName()})}">read more</a>
+                </div>
+                <div class="col-sm-12 col-md-4 group-img">
+                    <img th:src="${direction.getPhoto()}" src="assets/pages/service/HI.jpg" alt=""
+                         class="img-responsive">
+                </div>
             </div>
-        </div>
-    </section>
-    <section class="row grouplist" id="group2"  th:if="${directionStat.index}%2!=0">
-        <div class="container groupinfo" id="heart_surgery">
-            <div class="col-sm-12 col-md-8 groupintro">
-                <h3 th:text="${direction.getName()}">Human-computer Interaction</h3>
-                <p th:text="${direction.getBrief()}">Human-computer interaction is a study of the interaction between the system and the user. The system can be a wide variety of machines or computerized systems and software. The human-computer interaction interface usually refers to the part that is visible to the user. The user communicates with the system through the human-computer interaction interface and operates.</p>
-                <a href="single-service.html" class="view_all" th:href="@{http://localhost:8080/paper/paperArea(area=${direction.getName()})}">read more</a>
-            </div>
-            <div class="col-sm-12 col-md-4 group-img">
-                <img th:src="${direction.getPhoto()}" src="assets/pages/service/HI.jpg" alt="" class="img-responsive">
-            </div>
-        </div>
-    </section>
-   </div>
+        </section>
+    </div>
     <!--<section class="row grouplist" id="group3">
         <div class="container groupinfo" id="heart_surgery">
             <div class="col-sm-12 col-md-4 group-img">
@@ -159,41 +178,44 @@
             </div>
         </div>
     </section> -->
-	</div>
-    <footer class="row" style="padding-top: 30px;">
-            <div class="container">
-                    <div class="row">
-                            <div class="col-sm-8 col-md-7 col-lg-4 footer_menuList">
-                                    <div class="row menuList">
-                                            <ul class="firstOrderList nav" style="text-transform: initial">
-                                                    <li><a href="#"><img style="width:40%;height: 30%;float: left;margin-left:40px ;" src="/assets/wq4.png" alt=""></a></li>
-                                                    
-                                            </ul>
-                                    </div>
-                            </div>
-                        <div class="col-sm-4 col-md-5 col-lg-5 footer_menuList">
-                            <div class="row menuList">
-                                <ul class="firstOrderList nav" style="text-transform: initial">
-                                    <li><a href="">Jilin University</a></li>
+</div>
+<footer class="row" style="padding-top: 30px;">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-8 col-md-7 col-lg-4 footer_menuList">
+                <div class="row menuList">
+                    <ul class="firstOrderList nav" style="text-transform: initial">
+                        <li><a href="../static/index.html" th:href="@{/index}"><img style="width:40%;height: 30%;float: left;margin-left:40px ;"
+                                                                                    src="../static/assets/wq4.png" th:src="@{/assets/wq4.png}" alt=""></a></li>
 
-                                    <li><a href="">Chinese Ministry of Education</a></li>
-
-                                    <li><a href="">National Natural Science Foundation of China</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="col-sm-6 col-md-6 col-lg-3" style="text-align:center;">
-                            <div><img style="width:32%; margin-top:2px; margin-bottom: 8px;" src="/assets/erweima.png" alt=""></div>
-                            <p style="margin-top: -3px; color: #eee; text-align: center;">关注微信公众号</p>
-                        </div>
-                        <div class="fright copyright col-sm-6 col-md-6 col-lg-12" style="text-align: center;margin-top: -22px">&copy; <a href="index"> 吉林大学计算机科学与技术学院计算智能知识图谱实验室 </a></div>
-                    </div>
+                    </ul>
+                </div>
             </div>
-    </footer>
-	<script src="js/jquery-2.1.3.min.js"></script>
-	<!--Bootstrap JS-->
-	<script src="js/bootstrap.min.js"></script>
-	<!--Owl Carousel-->
-	<script src="vendors/owl.carousel/js/owl.carousel.min.js"></script>
-  </body>
+            <div class="col-sm-4 col-md-5 col-lg-5 footer_menuList">
+                <div class="row menuList">
+                    <ul class="firstOrderList nav" style="text-transform: initial">
+                        <li><a href="">Jilin University</a></li>
+
+                        <li><a href="">Chinese Ministry of Education</a></li>
+
+                        <li><a href="">National Natural Science Foundation of China</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-sm-6 col-md-6 col-lg-3" style="text-align:center;">
+                <div><img style="width:32%; margin-top:2px; margin-bottom: 8px;" src="../static/assets/erweima.png" th:src="@{/assets/erweima.png}" alt="">
+                </div>
+                <p style="margin-top: 18px; color: #eee; text-align: center;">关注微信公众号</p>
+            </div>
+            <div class="fright copyright col-sm-6 col-md-6 col-lg-12" style="text-align: center;margin-top: 1px">&copy;
+                <a href="../static/index.html" th:href="@{/index}"> 吉林大学计算机科学与技术学院计算智能知识图谱实验室 </a></div>
+        </div>
+    </div>
+</footer>
+<script src="js/jquery-2.1.3.min.js"></script>
+<!--Bootstrap JS-->
+<script src="js/bootstrap.min.js"></script>
+<!--Owl Carousel-->
+<script src="vendors/owl.carousel/js/owl.carousel.min.js"></script>
+</body>
 </html>

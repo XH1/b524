@@ -59,7 +59,7 @@ public class PaperController {
         model.addAttribute("firstThreeYearCount", firstThreeYearCount);
         model.addAttribute("restYearCount", restYearCount);
 
-        return "research_paper";
+        return "paperlist";
     }
     @ResponseBody
     @GetMapping("/paperpage")

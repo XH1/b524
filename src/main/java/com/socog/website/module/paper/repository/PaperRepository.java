@@ -11,13 +11,19 @@ import java.util.Map;
 
 public interface PaperRepository extends JpaRepository<Paper, Integer> {
     //paperlist页面所需
+
+    @Query(value = "select * from paper where year(date)=?1", nativeQuery = true)
     Page<Paper> findByYear(String year, Pageable pageable);
+
     Page<Paper> findByType(String type, Pageable pageable);
     Page<Paper> findByArea(String area, Pageable pageable);//paper_area也需要
+
     @Query(value = "select type,count(type) as counts from paper group by type", nativeQuery = true)
     List<Map<String,Object>> groupByType();
-    @Query(value = "select year,count(year) as counts from paper group by year DESC", nativeQuery = true)
+
+    @Query(value = "select year(date) as year,count(*) as counts from paper group by year(date) DESC", nativeQuery = true)
     List<Map<String,Object>> groupByYear();
+
     @Query(value = "select area,count(area) as counts from paper group by area", nativeQuery = true)
     List<Map<String,Object>> groupByArea();
 
@@ -26,7 +32,9 @@ public interface PaperRepository extends JpaRepository<Paper, Integer> {
     //***************************************************************
     //paper_area页面所需
    // Page<Paper> findByArea(String area, Pageable pageable);
+    @Query(value = "select * from paper where area=?1 and year(date)=?2", nativeQuery = true)
     Page<Paper> findByAreaAndYear(String area, String year, Pageable pageable);
-    @Query(value = "select year,count(year) as counts from paper where area=?1 group by year DESC ", nativeQuery = true)
+
+    @Query(value = "select year(date) as year,count(*) as counts from paper where area=?1 group by year(date) DESC ", nativeQuery = true)
     List<Map<String,Object>> groupByYear1(String area);
 }

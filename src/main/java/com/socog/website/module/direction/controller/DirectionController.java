@@ -18,7 +18,7 @@ import java.util.List;
  */
 
 @Controller
-@RequestMapping("/research")
+@RequestMapping("/direction")
 public class DirectionController  {
     private final
     DirectionRepository directionRepository;
@@ -26,7 +26,7 @@ public class DirectionController  {
     @Autowired
     public DirectionController(DirectionRepository directionRepository){this.directionRepository=directionRepository;}
 
-    @GetMapping("/direction")
+    @GetMapping("directionlist")
     public String getAll(Model model){
         List<Direction> directionList = new ArrayList<>();
         directionList = directionRepository.findAll();

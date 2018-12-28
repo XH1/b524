@@ -1,7 +1,9 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
     <meta charset="utf-8">
+    <base href="/socog/">
     <title>未来科学国际合作联合实验室</title>
     <link rel="stylesheet" href="../static/css/bootstrap.min.css" th:href="@{/css/bootstrap.min.css}">
     <link rel="stylesheet" href="../static/css/font-awesome.min.css" th:href="@{/css/font-awesome.min.css}">
@@ -71,19 +73,23 @@
             </div>
             <div class="fright">
 
-                <div class="fleft"><strong><a href="#">Sign up</a> | <a href="#">Sign in</a></strong></div>
+                <div class="fleft" sec:authorize="!isAuthenticated()"><strong><a href="#"  th:href="@{/user/login}" style="
+          			text-decoration: none;
+          			color: #03536A;" >Sign in</a></strong></div>
+                <div class="fleft" sec:authorize="isAuthenticated()"><span style="
+                    text-decoration: none;
+                    color: #03536A;"><span class="glyphicon glyphicon-user"></span>&nbsp;<strong  sec:authentication="name"></strong></span></div>
             </div>
         </div>
     </div>
 </section>
 
 <nav class="navbar navbar-default navbar-static-top navbar2" style="background: #0186d5;">
-    <div class="container" style="margin-left: -60px;">
+    <div class="container" style="margin-left: -10px;">
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header">
 
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#main_nav"
-                    aria-expanded="false">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#main_nav" aria-expanded="false">
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
@@ -93,25 +99,25 @@
 
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="main_nav">
-            <a   href="index.html"><img style="width:125px;height:80px;margin-left:200px ;margin-top: 2px;" src="assets/wq4.png" alt=""></a>
+            <a href="../static/index.html" th:href="@{/index}"><img style="width:125px;height:80px;margin-left:200px ;margin-top: 2px;" src="../static/assets/wq4.png" th:src="@{/assets/wq4.png}" alt=""></a>
             <ul  class="nav navbar-nav navbar-right">
-                <li class="active"><a href="http://localhost:8080/index.html">Home</a></li>
+                <li class="active"><a href="../static/index.html" th:href="@{/index}">Home</a></li>
 
-                <li><a href="http://localhost:8080/aboutus.html">About Us</a></li>
+                <li><a href="../static/aboutus.html" th:href="@{/aboutus}">About Us</a></li>
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Research</a>
                     <ul class="dropdown-menu" role="menu">
-                        <li><a href="http://localhost:8080/direction">Directions</a></li>
-                        <li><a href="http://localhost:8080/paper">Papers</a></li>
-                        <li><a href="http://localhost:8080/project">Projects</a></li>
+                        <li><a href="direction/directionlist" th:href="@{/direction/directionlist}">Directions</a></li>
+                        <li><a href="paper/paperlist" th:href="@{/paper/paperlist}">Papers</a></li>
+                        <li><a href="project/projectlist" th:href="@{/project/projectlist}">Projects</a></li>
                     </ul>
                 </li>
-                <li><a href="personlist.html">People</a></li>
-                <li><a href="http://localhost:8080/news">News</a></li>
-                <li><a href="upload.html">Resource</a></li>
+                <li><a href="person/personlist" th:href="@{/person/personlist}">People</a></li>
+                <li><a href="news/newslist" th:href="@{/news/newslist}">News</a></li>
+                <li><a href="resource/resourcelist" th:href="@{/resource/resourcelist}">Resource</a></li>
 
 
-                <li><a href="http://localhost:8080/join.html">Join Us</a></li>
+                <li><a href="../static/join.html" th:href="@{/join}">Join Us</a></li>
                 <!-- <li class="hidden-xs book"><a href="#" data-toggle="modal" data-target="#appointmefnt_form_pop">Search</a></li> -->
             </ul>
         </div><!-- /.navbar-collapse -->
@@ -237,7 +243,7 @@
                             </div>
                             <div class="panel-collapse">
                                 <div class="panel-body" style="padding-top: 17px;">
-                                    <h4 class="sub_panel_title panel_title"><a href="">教授&合作教授 </a></h4>
+                                    <h4 class="sub_panel_title panel_title"><a th:href="@{/person/personlist(degree=PROFESSOR)}" href="">教授&合作教授 </a></h4>
                                 </div>
                             </div>
                         </div>
@@ -249,11 +255,10 @@
                             </div>
                             <div class="panel-collapse">
                                 <div class="panel-body" style="padding-top: 17px;">
-                                    <h4 class="sub_panel_title panel_title"><a href="personlist_doctor.html">博士 </a>
+                                    <h4 class="sub_panel_title panel_title"><a th:href="@{/person/personlist(degree=PHD,graduate=false)}" href="../static/personlist_doctor.html">博士 </a>
                                     </h4>
-                                    <h4 class="sub_panel_title panel_title"><a href="personlist_master.html">硕士</a></h4>
-                                    <h4 class="sub_panel_title panel_title"><a
-                                            href="personlist_undergraduate.html">本科生</a></h4>
+                                    <h4 class="sub_panel_title panel_title"><a th:href="@{/person/personlist(degree=MASTER,graduate=false)}" href="../static/personlist_master.html">硕士</a></h4>
+                                    <h4 class="sub_panel_title panel_title"><a th:href="@{/person/personlist(degree=UNDERGRADUATE,graduate=false)}" href="../static/personlist_undergraduate.html">本科生</a></h4>
                                 </div>
                             </div>
                         </div>
@@ -265,9 +270,9 @@
                             </div>
                             <div class="panel-collapse">
                                 <div class="panel-body" style="padding-top: 17px;">
-                                    <h4 class="sub_panel_title panel_title"><a href="personlist_doctor0.html">博士 </a>
+                                    <h4 class="sub_panel_title panel_title"><a th:href="@{/person/personlist(degree=PHD,graduate=true)}" href="../static/personlist_doctor0.html">博士 </a>
                                     </h4>
-                                    <h4 class="sub_panel_title panel_title"><a href="personlist_master0.html">硕士</a>
+                                    <h4 class="sub_panel_title panel_title" ><a th:href="@{/person/personlist(degree=MASTER,graduate=true)}" href="../static/personlist_master0.html">硕士</a>
                                     </h4>
                                 </div>
                             </div>
@@ -295,15 +300,15 @@
                     <!--/*@thymesVar id="person" type="com.socog.website.module.person.entiy.Person"*/-->
                     <div id="person_div ">
                         <div id="person_container">
-                            <div class="media blog" th:if="${degree} eq 'professor'"
+                            <div class="media blog" th:if="${degree.toString()} eq 'PROFESSOR'"
                                  th:each="person : ${personPage.getContent()}">
                                 <div class="media-left">
-                                    <a href="#" style="padding-left: 50px;"><img th:src="${person.getPhoto()}"
+                                    <a href="#" style="padding-left: 50px;"><img src="../static/assets/img/avatar1.png" th:src="${person.getPhoto()}"
                                                                                  class="img-reponsive"></a>
                                 </div>
 
                                 <div class="media-body">
-                                    <a href="#">
+                                    <a th:href="@{/person/person(id=${person.getId()})}" href="#">
                                         <h3 th:text="${person.getName()} ">徐昊</h3></a>
                                     <div class="row m0 meta">
                                         Tel : <a href="#" th:text="${person.getTelephone()}">XXXXXX</a> Email : <a
@@ -321,14 +326,14 @@
                                 </div>
                             </div>
 
-                            <div class="media blog " th:unless="${degree} eq 'professor'"
+                            <div class="media blog " th:unless="${degree.toString()} eq 'PROFESSOR'"
                                  th:each="person : ${personPage.getContent()}">
                                 <div class="media-left">
-                                    <a href="/person" style="padding-left: 50px;"><img th:src="${person.getPhoto()}"
+                                    <a th:href="@{/person/person(id=${person.getId()})}" href="#" style="padding-left: 50px;"><img src="../static/assets/img/avatar1.png" th:src="${person.getPhoto()}"
                                                                                        class="img-reponsive"></a>
                                 </div>
                                 <div class="media-body">
-                                    <a href="#"><h3 th:text="${person.getName()}">王一博</h3></a>
+                                    <a th:href="@{/person/person(id=${person.getId()})}" href="#"><h3 th:text="${person.getName()}">王一博</h3></a>
                                     <div class="row m0 meta">
                                         电话 : <a href="#" th:text="${person.getEmail()}">XXXXXX</a> 邮箱 : <a href="#"
                                                                                                            th:text="${person.getEmail()}">@jlu.edu.cn</a>
@@ -371,8 +376,8 @@
             <div class="col-sm-8 col-md-7 col-lg-4 footer_menuList">
                 <div class="row menuList">
                     <ul class="firstOrderList nav" style="text-transform: initial">
-                        <li><a href="#"><img style="width:40%;height: 30%;float: left;margin-left:40px ;"
-                                             src="assets/wq4.png" alt=""></a></li>
+                        <li><a href="../static/index.html" th:href="@{/index}"><img style="width:40%;height: 30%;float: left;margin-left:40px ;"
+                                                                                    src="../static/assets/wq4.png" th:src="@{/assets/wq4.png}" alt=""></a></li>
 
                     </ul>
                 </div>
@@ -389,12 +394,12 @@
                 </div>
             </div>
             <div class="col-sm-6 col-md-6 col-lg-3" style="text-align:center;">
-                <div><img style="width:32%; margin-top:2px; margin-bottom: 8px;" src="./assets/erweima.png" alt="">
+                <div><img style="width:32%; margin-top:2px; margin-bottom: 8px;" src="../static/assets/erweima.png" th:src="@{/assets/erweima.png}" alt="">
                 </div>
                 <p style="margin-top: 18px; color: #eee; text-align: center;">关注微信公众号</p>
             </div>
             <div class="fright copyright col-sm-6 col-md-6 col-lg-12" style="text-align: center;margin-top: 1px">&copy;
-                <a href="index"> 吉林大学计算机科学与技术学院计算智能知识图谱实验室 </a></div>
+                <a href="../static/index.html" th:href="@{/index}"> 吉林大学计算机科学与技术学院计算智能知识图谱实验室 </a></div>
         </div>
     </div>
 </footer>
@@ -440,11 +445,6 @@
         }
     }
 </script>
-<script src="js/jquery-2.1.3.min.js"></script>
-<!--Bootstrap JS-->
-<script src="js/bootstrap.min.js"></script>
-<!--Owl Carousel-->
-<script src="vendors/owl.carousel/js/owl.carousel.min.js"></script>
 </body>
 
 <script th:inline="javascript">
@@ -466,7 +466,7 @@
         "                                                                                   class=\"img-reponsive\"></a>\n" +
         "                            </div>\n" +
         "                            <div class=\"media-body\">\n" +
-        "                                <a href=\"#\"><h3>{{name}}</h3></a>\n" +
+        "                                <a href=\"{{href}}\"><h3>{{name}}</h3></a>\n" +
         "                                <div class=\"row m0 meta\">\n" +
         "                                    Tel : <a href=\"#\">{{tel}}</a> Email : <a href=\"#\">{{email}}</a>\n" +
         "                                </div>\n" +
@@ -496,17 +496,17 @@
 
     /*查询成功后更改对应的显示内容*/
 
-    /*alert([[${degree}]]);*/
+    /*alert([[${degree.toString()}]]);*/
 
     function whenPersonQuerySuccess(pager, status) {
         console.log(pager);
         var html = "";
         var datas = pager['content'];
-        if ([[${degree}]] === "professor") {
+        if ([[${degree.toString()}]] === "PROFESSOR") {
             $.each(datas, function (i, data) {
                 var professor = {
                     photo: data['photo'],
-                    href: "person?id=" + data['id'],
+                    href: "person/person?id=" + data['id'],
                     name: data['name'],
                     tel: data['telephone'],
                     email: data['email'],
@@ -520,7 +520,7 @@
             $.each(datas, function (i, data) {
                 var student = {
                     photo: data['photo'],
-                    href: "person?id=" + data['id'],
+                    href: "person/person?id=" + data['id'],
                     name: data['name'],
                     tel: data['telephone'],
                     email: data['email'],

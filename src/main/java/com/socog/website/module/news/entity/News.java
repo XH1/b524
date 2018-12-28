@@ -27,6 +27,8 @@ public class News extends BaseEntity {
 
     private String photo;
 
+    private String participator;
+
     public String getTitle() {
         return title;
     }
@@ -65,5 +67,13 @@ public class News extends BaseEntity {
 
     public void setPhoto(String photo) {
         this.photo = photo;
+    }
+
+    public String getParticipator() {
+        return participator;
+    }
+
+    public void setParticipator(String participator) {
+        this.participator = participator;
     }
 }

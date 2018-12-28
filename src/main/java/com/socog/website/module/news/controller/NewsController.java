@@ -13,6 +13,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 /**
  * @author xinghao
@@ -32,9 +33,9 @@ public class NewsController {
         this.newsRepository = newsRepository;
     }
 
-    @GetMapping("")
-    public String getAll(@RequestParam(required = false , defaultValue = "0") int page, Model model) {
-        Pageable newsPageable = PageRequest.of(page, 3,Sort.Direction.DESC,"id");
+    @GetMapping("newslist")
+    public String getAll( Model model) {
+        Pageable newsPageable = PageRequest.of(0, 3,Sort.Direction.DESC,"id");
         Page<News> newsPage = newsRepository.findByNewsType(NewsType.NEWS,newsPageable);
 
         model.addAttribute("newsPage", newsPage);
@@ -45,12 +46,42 @@ public class NewsController {
         return "eventlist";
     }
 
+    @GetMapping("/news")
+    public String getNews(@RequestParam int id,Model model) {
+        Optional<News> newsOptional = newsRepository.findById(id);
+        if (!newsOptional.isPresent()) {
+            return "error";
+        }
+        News news = newsOptional.get();
+        model.addAttribute("news", news);
+        return "news";
+    }
+
+    @GetMapping("/notification")
+    public String getNot(@RequestParam int id,Model model) {
+        Optional<News> notOptional = newsRepository.findById(id);
+        if (!notOptional.isPresent()) {
+            return "error";
+        }
+        News notification = notOptional.get();
+        model.addAttribute("notification", notification);
+        return "notice";
+    }
+
     @ResponseBody
     @GetMapping("/newspage")
     public Page<News> getNewsPage(@RequestParam(required = false , defaultValue = "0") int newsPageNow) {
         Pageable newsPageable = PageRequest.of(newsPageNow, 3,Sort.Direction.DESC,"id");
         Page<News> newsPage = newsRepository.findByNewsType(NewsType.NEWS,newsPageable);
         return newsPage;
+    }
+
+    @ResponseBody
+    @GetMapping("/notpage")
+    public Page<News> getNotPage(@RequestParam(required = false , defaultValue = "0") int notPageNow) {
+        Pageable notPageable = PageRequest.of(notPageNow, 3,Sort.Direction.DESC,"id");
+        Page<News> notPage = newsRepository.findByNewsType(NewsType.NOTIFICATION,notPageable);
+        return notPage;
     }
 
 }

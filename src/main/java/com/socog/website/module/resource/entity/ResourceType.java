@@ -6,5 +6,5 @@ package com.socog.website.module.resource.entity;
  * @date 2018/12/19
  */
 public enum ResourceType {
-    SHARE,ASSET
+    SHARE,MATERIAL,OTHERS
 }
