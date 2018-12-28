@@ -163,7 +163,7 @@
             <li data-target="#carousel-example-generic" data-slide-to="1"></li>
             <li data-target="#carousel-example-generic" data-slide-to="2"></li>-->
 
-            <li data-target="#carousel-example-generic" th:each="i : ${#numbers.sequence(0,5)}" th:class="${i==0}?'active':''" th:data-slide-to="${i}"></li>
+            <li data-target="#carousel-example-generic" th:each="news : ${newsList}" th:class="${newsStat.index==0}?'active':''" th:data-slide-to="${newsStat.index}"></li>
             <!--<li data-target="#carousel-example-generic" data-slide="next"></li>-->
 
         </ol>
@@ -202,26 +202,26 @@
                 </div>
             </div>-->
             <!--/*@thymesVar id="newsList" type="java.util.List<com.socog.website.module.news.entity.News>"*/-->
-            <div class="item row" th:each="i : ${#numbers.sequence(0,5)}" th:class="${i==0}?'item active row':'item row'" >
+            <div class="item row" th:each="news : ${newsList}" th:class="${newsStat.index==0}?'item active row':'item row'" >
                 <div class="col-md-6 achievement-left">
                     <div class="col-sm-6">
                         <div class="row m0">
-                            <h3 style="color:#838a98 "><b th:text="${newsList.get(i).getTitle()}">Industry's standard dummy text</b></h3>
+                            <h3 style="color:#838a98 "><b th:text="${news.getTitle()}">Industry's standard dummy text</b></h3>
                             <div class="blue-line"></div>
-                            <p th:text="${newsList.get(i).getContent()}">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum
+                            <p th:text="${news.getContent()}">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum
                                 has been the industry's standard dummy text ever since the 1500s, when an unknown
                                 printer took a galley. Lorem Ipsum has been the industry's standard dummy text ever
                                 since the 1500s, when an unknown printer took a galley </p>
                             <br>
-                            <a href="news.html" th:href="@{/news/news(id=${newsList.get(i).getId()})}" class="view_all">read more</a>
+                            <a href="news.html" th:href="@{/news/news(id=${news.getId()})}" class="view_all">read more</a>
                         </div>
                     </div>
                 </div>
                 <div class="col-md-6 achievement-right">
                     <img src="assets/img/big-achievement.png" alt="...">
                     <div class="achievement-date">
-                        <h2 th:text="${newsList.get(i).getDate().getDate()}">07</h2>
-                        <p th:text="${#dates.format(newsList.get(i).getDate(),'MM/yyyy')}">/04/2018</p>
+                        <h2 th:text="${news.getDate().getDate()}">07</h2>
+                        <p th:text="${#dates.format(news.getDate(),'MM/yyyy')}">/04/2018</p>
                     </div>
                     <div class="department">
 
