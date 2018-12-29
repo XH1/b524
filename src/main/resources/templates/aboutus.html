@@ -72,7 +72,7 @@
         height: auto;
         padding-top: 0;
         margin-bottom: 0;
-        margin-top: -10px;
+
     }
 
     /* .img-media {
@@ -118,7 +118,7 @@
     <div class="" style="margin-left: 62px;margin-right:60px;margin-top: 10px;">
 
         <div class="row">
-            <div class="fleft phone" style="padding-bottom: 10px;">
+            <div class="fleft phone">
                 <p><a href="#" style="
     text-decoration: none;
     color: #03536A;
@@ -153,13 +153,14 @@
 
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="main_nav">
-            <a href="../static/index.html" th:href="@{/index}"><img style="width:125px;height:80px;margin-left:200px ;margin-top: 2px;" src="../static/assets/wq4.png" th:src="@{/assets/wq4.png}" alt=""></a>
+            <a href="../static/index.html" th:href="@{/index.html}">
+                <img style="width:225px;height:70px;margin-left:200px ;margin-top: 9px;" src="../static/assets/wq6.png" th:src="@{/assets/wq6.png}" alt=""></a>
             <ul  class="nav navbar-nav navbar-right">
                 <li class="active"><a href="../static/index.html" th:href="@{/index}">Home</a></li>
 
                 <li><a href="../static/aboutus.html" th:href="@{/aboutus}">About Us</a></li>
                 <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Research</a>
+                    <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Research</a>
                     <ul class="dropdown-menu" role="menu">
                         <li><a href="direction/directionlist" th:href="@{/direction/directionlist}">Directions</a></li>
                         <li><a href="paper/paperlist" th:href="@{/paper/paperlist}">Papers</a></li>
@@ -417,14 +418,14 @@
                 <div class="col-sm-6 col-md-6 col-lg-3" style="text-align:center;">
                     <div><img style="width:32%; margin-top:2px; margin-bottom: 8px;" src="../static/assets/erweima.png" th:src="@{/assets/erweima.png}" alt="">
                     </div>
-                    <p style="margin-top: 18px; color: #eee; text-align: center;">关注微信公众号</p>
+                    <p style="margin-top: 2px; color: #eee; text-align: center;">关注微信公众号</p>
                 </div>
-                <div class="fright copyright col-sm-6 col-md-6 col-lg-12" style="text-align: center;margin-top: 1px">&copy;
-                    <a href="../static/index.html" th:href="@{/index}"> 吉林大学计算机科学与技术学院计算智能知识图谱实验室 </a></div>
+                <div class="fright copyright col-sm-6 col-md-6 col-lg-12" style="text-align: center;margin-top: -28px">&copy;
+                     <a href="../static/index.html" th:href="@{/index}"> 吉林大学计算机科学与技术学院计算智能知识图谱实验室 </a></div>
             </div>
         </div>
     </footer>
-    <a href="#top">
+    <a href="#top" >
         <button type="button" class="btn btn-primary btn-lg go-top">
             <span class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span>
         </button>
@@ -456,5 +457,10 @@
             }
         }
     </script>
+    <script src="../static/js/jquery-2.1.3.min.js" th:src="@{/js/jquery-2.1.3.min.js}"></script>
+    <!--Bootstrap JS-->
+    <script src="js/bootstrap.min.js"></script>
+    <!--Owl Carousel-->
+    <script src="vendors/owl.carousel/js/owl.carousel.min.js"></script>
 </body>
 </html>

@@ -1,6 +1,7 @@
 package com.socog.website.module.common.controller;
 
 import com.socog.website.module.news.entity.News;
+import com.socog.website.module.news.entity.NewsType;
 import com.socog.website.module.news.repository.NewsRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
@@ -32,7 +33,7 @@ public class CommonController {
     @GetMapping(value = {"/index",""})
     public String index(Model model){
         Pageable pageable = PageRequest.of(0, 6);
-        List<News> newsList = newsRepository.findAllByOrderByDateDesc(pageable);
+        List<News> newsList = newsRepository.findByNewsTypeOrderByDateDesc(NewsType.NEWS,pageable);
         model.addAttribute("newsList",newsList);
         return "index";
     }

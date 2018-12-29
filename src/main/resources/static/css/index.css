@@ -175,7 +175,7 @@ footer.row {
   width: 100%;
 }
 .default .navbar.navbar2 #main_nav .nav li.dropdown:hover a {
-  color: #404d5f;
+  color: white;
   background: none;
 }
 .default .navbar.navbar2 #main_nav .nav li.book {
@@ -405,3 +405,10 @@ footer .footer_bottom ul li a:hover {
 .domain-search-holder :-moz-placeholder {color: #d6dae4;}
 .domain-search-holder ::-moz-placeholder {color: #d6dae4;}
 .domain-search-holder :-ms-input-placeholder {color: #d6dae4;}
+
+
+
+
+
+
+
