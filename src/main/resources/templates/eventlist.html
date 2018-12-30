@@ -3,31 +3,42 @@
       xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
     <meta charset="utf-8">
-    <base th:href="@{/socog}">
+    <base th:href="@{/}">
     <title>未来科学国际合作联合实验室</title>
     <link rel="stylesheet" href="../static/css/bootstrap.min.css" th:href="@{/css/bootstrap.min.css}">
     <link rel="stylesheet" href="../static/css/font-awesome.min.css" th:href="@{/css/font-awesome.min.css}">
     <link rel="stylesheet" href="../static/css/index.css" th:href="@{/css/index.css}">
     <link rel="stylesheet" href="../static/css/event-list.css" th:href="@{/css/event-list.css}">
-<style>
-    .pagination button:hover{
-        background: #0186d5;
-        color: white;
-    }
-    .pagination button{
-        border:0  ;
-        background: #e5f0fb;
-        color: #404d5f;
-        width: 30px;
-        height: 25px;
-    }
-</style>
+    <style>
+
+        .go-top {
+            position: fixed;
+            bottom: 10px;
+            right: 10px;
+
+            cursor: pointer;
+        }
+    </style>
+    <style>
+        .pagination button:hover {
+            background: #0186d5;
+            color: white;
+        }
+
+        .pagination button {
+            border: 0;
+            background: #e5f0fb;
+            color: #404d5f;
+            width: 30px;
+            height: 25px;
+        }
+    </style>
 
 </head>
 <body class="default">
 <section class="row top_bar">
     <div class="" style="margin-left: 62px;margin-right:60px;margin-top: 10px;">
-        <div class="row" >
+        <div class="row">
             <div class="fleft phone">
                 <p><a href="#" style="
     text-decoration: none;
@@ -37,12 +48,14 @@
             </div>
             <div class="fright">
 
-                <div class="fleft" sec:authorize="!isAuthenticated()"><strong><a href="#" th:href="@{/user/login}" style="
+                <div class="fleft" sec:authorize="!isAuthenticated()"><strong><a href="#" th:href="@{/user/login}"
+                                                                                 style="
           			text-decoration: none;
-          			color: #03536A;" >Sign in</a></strong></div>
+          			color: #03536A;">Sign in</a></strong></div>
                 <div class="fleft" sec:authorize="isAuthenticated()"><span style="
                     text-decoration: none;
-                    color: #03536A;"><span class="glyphicon glyphicon-user"></span>&nbsp;<strong  sec:authentication="name"></strong></span></div>
+                    color: #03536A;"><span class="glyphicon glyphicon-user"></span>&nbsp;<strong
+                        sec:authentication="name"></strong></span></div>
             </div>
         </div>
     </div>
@@ -53,7 +66,8 @@
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header">
 
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#main_nav" aria-expanded="false">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#main_nav"
+                    aria-expanded="false">
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
@@ -64,8 +78,9 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="main_nav">
             <a href="../static/index.html" th:href="@{/index.html}">
-                <img style="width:225px;height:70px;margin-left:200px ;margin-top: 9px;" src="../static/assets/wq6.png" th:src="@{/assets/wq6.png}" alt=""></a>
-            <ul  class="nav navbar-nav navbar-right">
+                <img style="width:225px;height:70px;margin-left:200px ;margin-top: 9px;" src="../static/assets/wq6.png"
+                     th:src="@{/assets/wq6.png}" alt=""></a>
+            <ul class="nav navbar-nav navbar-right">
                 <li class="active"><a href="../static/index.html" th:href="@{/index}">Home</a></li>
 
                 <li><a href="../static/aboutus.html" th:href="@{/aboutus}">About Us</a></li>
@@ -107,12 +122,14 @@
                         <div class="media blog" th:each="news : ${newsPage.getContent()}">
 
                             <div class="media-left">
-                                <a th:href="@{/news/news(id=${news.getId()})}" href="../static/news.html"><img th:src="${news.getPhoto()}" src="../static/assets/blog/blog/1.jpg"
-                                                          alt=""
-                                                          class="img-reponsive"></a>
+                                <a th:href="@{/news/news(id=${news.getId()})}" href="../static/news.html"><img
+                                        th:src="${news.getPhoto()}" src="../static/assets/blog/blog/1.jpg"
+                                        alt=""
+                                        class="img-reponsive"></a>
                             </div>
                             <div class="media-body">
-                                <a th:href="@{/news/news(id=${news.getId()})}" href="../static/news.html"><h4 th:text="${news.getTitle()}">title</h4></a>
+                                <a th:href="@{/news/news(id=${news.getId()})}" href="../static/news.html"><h4
+                                        th:text="${news.getTitle()}">title</h4></a>
                                 <div class="row m0 meta">
                                     <span class="glyphicon glyphicon-calendar" aria-hidden="true"></span><a href="#"
                                                                                                             th:text="${news.getDate()}">2017
@@ -174,7 +191,6 @@
                     </div>
 
 
-
                     <div class="row paginationRow" style="clear: both">
                         <div class="pagination">
                             <button type="button" id="not_first"><span
@@ -202,8 +218,9 @@
             <div class="col-sm-8 col-md-7 col-lg-4 footer_menuList">
                 <div class="row menuList">
                     <ul class="firstOrderList nav" style="text-transform: initial">
-                        <li><a href="../static/index.html" th:href="@{/index}"><img style="width:40%;height: 30%;float: left;margin-left:40px ;"
-                                             src="../static/assets/wq4.png" th:src="@{/assets/wq4.png}" alt=""></a></li>
+                        <li><a href="../static/index.html" th:href="@{/index}"><img
+                                style="width:40%;height: 30%;float: left;margin-left:40px ;"
+                                src="../static/assets/wq4.png" th:src="@{/assets/wq4.png}" alt=""></a></li>
 
                     </ul>
                 </div>
@@ -220,16 +237,22 @@
                 </div>
             </div>
             <div class="col-sm-6 col-md-6 col-lg-3" style="text-align:center;">
-                <div><img style="width:32%; margin-top:2px; margin-bottom: 8px;" src="../static/assets/erweima.png" th:src="@{/assets/erweima.png}" alt="">
+                <div><img style="width:32%; margin-top:2px; margin-bottom: 8px;" src="../static/assets/erweima.png"
+                          th:src="@{/assets/erweima.png}" alt="">
                 </div>
                 <p style="margin-top: 2px; color: #eee; text-align: center;">关注微信公众号</p>
             </div>
-            <div class="fright copyright col-sm-6 col-md-6 col-lg-12" style="text-align: center;margin-top: -28px">&copy;
-                 <a href="../static/index.html" th:href="@{/index}"> 吉林大学计算机科学与技术学院计算智能知识图谱实验室 </a></div>
+            <div class="fright copyright col-sm-6 col-md-6 col-lg-12" style="text-align: center;margin-top: -28px">
+                &copy;
+                <a href="../static/index.html" th:href="@{/index}"> 吉林大学计算机科学与技术学院计算智能知识图谱实验室 </a></div>
         </div>
     </div>
 </footer>
-
+<a href="javascript:void(0)" onclick="location.hash='#top';location.replace(location.href)">
+    <button type="button" class="btn btn-primary btn-lg go-top">
+        <span class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span>
+    </button>
+</a>
 <form hidden="hidden" id="newsPageForm">
     <!--/*@thymesVar id="newsPage" type="org.springframework.data.domain.Page<com.socog.website.module.news.entity.News>"*/-->
     <input type="hidden" name="newsPageNow" id="newsPageNow" th:value="${newsPage.getNumber()}">
@@ -309,7 +332,7 @@
             console.log(date);
             var news = {
                 day: date.getDate(),
-                month: date.getMonth()+1,
+                month: date.getMonth() + 1,
                 title: data['title'],
                 content: data['content'],
                 href: "news/notification?id=" + data['id']
@@ -318,7 +341,6 @@
         })
         $("#not_container").html(html);
     }
-
 
 
     $(function () {
@@ -356,7 +378,7 @@
             )
         });
         $("#news_next").click(function () {
-            if (newsPageNowElem.val() >= $("#newsTotalPages").val()-1) {
+            if (newsPageNowElem.val() >= $("#newsTotalPages").val() - 1) {
                 layer.msg("There is no next page.");
                 return;
             }
@@ -371,12 +393,12 @@
             )
         });
         $("#news_last").click(function () {
-            if (newsPageNowElem.val() >= $("#newsTotalPages").val()-1) {
+            if (newsPageNowElem.val() >= $("#newsTotalPages").val() - 1) {
                 layer.msg("It's already the last page.");
                 return;
             }
 
-            newsPageNowElem.val(parseInt($("#newsTotalPages").val()-1));
+            newsPageNowElem.val(parseInt($("#newsTotalPages").val() - 1));
 
             $.get("news/newspage",
                 $("#newsPageForm").serialize(),
@@ -422,7 +444,7 @@
             )
         });
         $("#not_next").click(function () {
-            if (notPageNowElem.val() >= $("#notTotalPages").val()-1) {
+            if (notPageNowElem.val() >= $("#notTotalPages").val() - 1) {
                 layer.msg("There is no next page.");
                 return;
             }
@@ -437,12 +459,12 @@
             )
         });
         $("#not_last").click(function () {
-            if (notPageNowElem.val() >= $("#notTotalPages").val()-1) {
+            if (notPageNowElem.val() >= $("#notTotalPages").val() - 1) {
                 layer.msg("It's already the last page.");
                 return;
             }
 
-            notPageNowElem.val(parseInt($("#notTotalPages").val()-1));
+            notPageNowElem.val(parseInt($("#notTotalPages").val() - 1));
 
             $.get("news/notpage",
                 $("#notPageForm").serialize(),

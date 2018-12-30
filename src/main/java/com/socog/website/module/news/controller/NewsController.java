@@ -35,7 +35,7 @@ public class NewsController {
 
     @GetMapping("newslist")
     public String getAll( Model model) {
-        Pageable newsPageable = PageRequest.of(0, 3,Sort.Direction.DESC,"id");
+        Pageable newsPageable = PageRequest.of(0, 6,Sort.Direction.DESC,"id");
         Page<News> newsPage = newsRepository.findByNewsType(NewsType.NEWS,newsPageable);
 
         model.addAttribute("newsPage", newsPage);
@@ -71,7 +71,7 @@ public class NewsController {
     @ResponseBody
     @GetMapping("/newspage")
     public Page<News> getNewsPage(@RequestParam(required = false , defaultValue = "0") int newsPageNow) {
-        Pageable newsPageable = PageRequest.of(newsPageNow, 3,Sort.Direction.DESC,"id");
+        Pageable newsPageable = PageRequest.of(newsPageNow, 6,Sort.Direction.DESC,"id");
         Page<News> newsPage = newsRepository.findByNewsType(NewsType.NEWS,newsPageable);
         return newsPage;
     }
@@ -79,7 +79,7 @@ public class NewsController {
     @ResponseBody
     @GetMapping("/notpage")
     public Page<News> getNotPage(@RequestParam(required = false , defaultValue = "0") int notPageNow) {
-        Pageable notPageable = PageRequest.of(notPageNow, 3,Sort.Direction.DESC,"id");
+        Pageable notPageable = PageRequest.of(notPageNow, 6,Sort.Direction.DESC,"id");
         Page<News> notPage = newsRepository.findByNewsType(NewsType.NOTIFICATION,notPageable);
         return notPage;
     }
