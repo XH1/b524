@@ -10,9 +10,10 @@
     <link rel="stylesheet" href="../static/css/aboutus.css" th:href="@{/css/aboutus.css}">
     <link rel="stylesheet" href="../static/css/paper.css" th:href="@{/css/paper.css}">
     <link rel="stylesheet" href="../static/css/paperlist.css" th:href="@{/css/paperlist.css}">
+    <link rel="stylesheet" href="../static/css/style.css" th:href="@{/css/style.css}">
     <script src="../static/js/jquery-2.1.3.min.js" th:src="@{/js/jquery-2.1.3.min.js}"></script>
     <script src="../static/js/layer/layer.min.js" th:src="@{/js/layer/layer.min.js}"></script>
-
+    <script src="../static/js/xpagination.js" th:src="@{/js/xpagination.js}"></script>
 </head>
 <style>
 
@@ -132,9 +133,9 @@
         <div class="row ">
             <div class="fleft phone">
                 <p><a href="#" style="
-          		text-decoration: none;
-          		color: #03536A;
-          ">Computational Intelligence Knowledge Mapping Laboratory, School of Computer Science and Technology, Jilin
+       text-decoration: none;
+       color: #03536A;
+   ">Computational Intelligence Laboratory, College of Computer Science and Technology, Jilin
                     University</a></p>
             </div>
             <div class="fright">
@@ -170,21 +171,23 @@
             <ul  class="nav navbar-nav navbar-right">
                 <li class="active"><a href="../static/index.html" th:href="@{/index}">Home</a></li>
 
-                <li><a href="../static/aboutus.html" th:href="@{/aboutus}">About Us</a></li>
-                <li class="dropdown">
-                    <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Research</a>
-                    <ul class="dropdown-menu" role="menu">
-                        <li><a href="direction/directionlist" th:href="@{/direction/directionlist}">Directions</a></li>
-                        <li><a href="paper/paperlist" th:href="@{/paper/paperlist}">Papers</a></li>
-                        <li><a href="project/projectlist" th:href="@{/project/projectlist}">Projects</a></li>
-                    </ul>
-                </li>
+
+                <!-- <li class="dropdown">
+                     <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Research</a>
+                     <ul class="dropdown-menu" role="menu">
+                         <li><a href="direction/directionlist" th:href="@{/direction/directionlist}">Directions</a></li>
+                         <li><a href="paper/paperlist" th:href="@{/paper/paperlist}">Papers</a></li>
+                         <li><a href="project/projectlist" th:href="@{/project/projectlist}">Projects</a></li>
+                     </ul>
+                 </li>-->
+                <li><a href="direction/directionlist" th:href="@{/direction/directionlist}">Research</a></li>
                 <li><a href="person/personlist" th:href="@{/person/personlist}">People</a></li>
                 <li><a href="news/newslist" th:href="@{/news/newslist}">News</a></li>
-                <li><a href="resource/resourcelist" th:href="@{/resource/resourcelist}">Resource</a></li>
+                <li><a href="../static/aboutus.html" th:href="@{/aboutus}">About Us</a></li>
+                <li><a href="resource/resourcelist" th:href="@{/resource/resourcelist}">Document</a></li>
 
 
-                <li><a href="../static/join.html" th:href="@{/join}">Join Us</a></li>
+                <!--<li><a href="../static/join.html" th:href="@{/join}">Join Us</a></li>-->
                 <!-- <li class="hidden-xs book"><a href="#" data-toggle="modal" data-target="#appointmefnt_form_pop">Search</a></li> -->
             </ul>
         </div><!-- /.navbar-collapse -->
@@ -203,15 +206,17 @@
                         <div class="panel panel-default">
                             <div class="panel-heading">
                                 <h4 class="panel-title">
-                                    <a style="font-size:16px;text-transform: initial;"> Resource</a>
+                                    <a style="font-size:16px;text-transform: capitalize;text-decoration: none;"> Resource</a>
                                 </h4>
                             </div>
                             <div class="panel-collapse">
                                 <div class="panel-body" style="padding-top: 5px;">
                                     <div class="panel-body" style="padding-left: -16px;">
                                         <ul class="nav " role="tablist">
-                                            <li role="presentation" class="active"><a th:href="@{/resource/resourcelist(type=SHARE)}">Academic sharing</a></li>
-                                            <li role="presentation"><a th:href="@{/resource/resourcelist(type=MATERIAL)}" >Learning materials </a></li>
+                                            <li role="presentation" class="active"><a th:href="@{/resource/resourcelist(type=SHARE)}">Academic Discussion </a></li>
+                                            <li role="presentation"><a th:href="@{/resource/resourcelist(type=MATERIAL)}" > Project Document</a></li>
+                                            <li role="presentation"><a th:href="@{/resource/resourcelist(type=MATERIAL)}" > Technology Report</a></li>
+                                            <li role="presentation"><a th:href="@{/resource/resourcelist(type=MATERIAL)}" >Learning Materials </a></li>
                                             <li role="presentation"><a th:href="@{/resource/resourcelist(type=OTHERS)}">Others</a></li>
 
                                         </ul>
@@ -246,14 +251,14 @@
                                                 <!--/*@thymesVar id="resource" type="com.socog.website.module.resource.entity.Resource"*/-->
                                                 <div id="res_container">
                                                     <div class="paper-item " th:each="resource : ${page.getContent()}">
-                                                        <a th:href="@{${resource.getResourceURL()}}"><h4
+                                                        <a style="text-decoration: none;" th:href="@{${resource.getResourceURL()}}"><h4
                                                                 th:text="${resource.getTitle()}">Paper heading title
                                                             heading
                                                             title here</h4></a>
                                                         <p class="col-md-5 col-sm-6"><b>Date&nbsp;:</b>&nbsp;&nbsp;<span
                                                                 th:text="${#dates.format(resource.getDate(),'yyyy-MM-dd')}">(2017/09/12)</span>
                                                         </p>
-                                                        <p class="col-md-3 col-sm-6 pull-right"><a
+                                                        <p class="col-md-3 col-sm-6 pull-right"><a style="text-decoration: none;"
                                                                 th:href="@{${resource.getResourceURL()}}"
                                                                 download=""><span
                                                                 class="glyphicon glyphicon-download-alt"
@@ -288,8 +293,26 @@
                           $('#photoCover').val($(this).val());
                           });
                           </script> -->
+                    <div style="margin-top: 30px;margin-left: 50px;" id="pagediv"></div>
+                    <script>
+                        var pagediv = document.getElementById('pagediv');
+                        var pagenav = xPagination(pagediv, {
+                            max:6,
+                            curr:2,
+                            size:30,
+                            pages:22,
+                            jump:true,
 
-                    <div class="row paginationRow" style="clear: both">
+                            onpagination: function  (page, size) {
+                                console.log('pagediv', page, size)
+                            }
+                        })
+
+
+
+                    </script>
+
+                 <!--   <div class="row paginationRow" style="clear: both">
                         <div class="pagination">
                             <button type="button" id="res_first"><span
                                     class="glyphicon glyphicon-fast-backward" aria-hidden="true"></span>
@@ -304,8 +327,10 @@
                                     class="glyphicon glyphicon-fast-forward" aria-hidden="true"></span>
                             </button>
                         </div>
-                    </div>
+                    </div>-->
                 </div>
+
+
             </div>
         </div>
     </section>

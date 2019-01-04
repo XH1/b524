@@ -16,7 +16,7 @@
     			margin-top: -10px;
     	}
     </style>
-		<style>
+	 <style>
         a {
             text-decoration: none;
         }
@@ -29,6 +29,75 @@
         right: 10px;
         display: none;
         cursor: pointer;
+      }
+      .left_title{
+        background:#c5c5c7;
+      }
+      .left_title:hover{
+        background:#337ab7;
+      }
+
+      .author-info {
+        border-top: 1px #ddd solid;
+        box-shadow: 0 -6px 6px #ddd;
+      }
+
+      .title-row {
+        padding: 20px 0 0 0;
+      }
+      .author-info .title-row{
+        padding-top: 50px;
+      }
+      .author-info .title-row h4 {
+       font-family:helvetica ;
+          font-weight: 500;
+          font-size: 18px;
+          margin-bottom: 30px;
+          color: #404d5f;
+      }
+      .author-info .title-row h4:after {
+        content: '';
+          width: 60px;
+          height: 2px;
+          background: #0186d5;
+          display: block;
+          margin: 13px 0 0;
+      } 
+      .author-info .author-card .pic>img{
+        border: 1px solid white;
+        width: 140px;
+        height: 100%;
+        margin-top: 36px;
+        margin-left: 6px;
+     }
+      
+      .author-info .author-card {
+        padding-left: 0px;
+        padding-right: 0px;
+        padding-top: 0px;
+        padding-left: 0px;
+        padding-bottom: 10px;
+        border: 1px #f1e8e8 solid;
+        border-radius: 4px;
+        margin-bottom: 26px;
+       
+     }
+      .author-card p {
+        margin-bottom: 0; 
+        color: #666;
+        margin-left: 20px;
+
+      }
+      .author-name p {
+        line-height: 18px;
+      }
+      .author-info .author-card .pic{
+        padding: 0px;
+        margin-top: 0px;
+       }
+       .author-info>div>a{  
+        text-decoration: none;
+        float: right;
       }
     </style>
 <script src="https://cdn.bootcss.com/jquery/1.10.2/jquery.min.js">
@@ -110,235 +179,401 @@ $(document).ready(function(){
                     <ul  class="nav navbar-nav navbar-right">
                         <li class="active"><a href="http://localhost:8080/index.html">Home</a></li>
 
-                        <li><a href="http://localhost:8080/aboutus.html">About Us</a></li>
-                        <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Research</a>
-                            <ul class="dropdown-menu" role="menu">
-                                <li><a href="http://localhost:8080/direction">Directions</a></li>
-                                <li><a href="http://localhost:8080/paper">Papers</a></li>
-                                <li><a href="http://localhost:8080/project">Projects</a></li>
-                            </ul>
+                        <li><a href="research_direction.1.html">Research</a>
+                          <!-- <ul class="dropdown-menu" role="menu">
+                            <li><a href="http://localhost:8080/direction">Directions</a></li>
+                            <li><a href="http://localhost:8080/paper">Papers</a></li>
+                            <li><a href="http://localhost:8080/project">Projects</a></li>
+                          </ul> -->
                         </li>
                         <li><a href="personlist.html">People</a></li>
                         <li><a href="http://localhost:8080/news">News</a></li>
-                        <li><a href="upload.html">Resource</a></li>
-
-
-                        <li><a href="http://localhost:8080/join.html">Join Us</a></li>
+                        <li><a href="http://localhost:8080/aboutus.html">About Us</a></li>
+                        <li><a href="upload.html">Document</a></li>
                         <!-- <li class="hidden-xs book"><a href="#" data-toggle="modal" data-target="#appointmefnt_form_pop">Search</a></li> -->
                     </ul>
                 </div><!-- /.navbar-collapse -->
             </div><!-- /.container -->
         </nav>
     <div class="content"style="min-height: 720px;">
-		<!--<section class="row team">
-            <div class="container">
-             <div class="col-md-6 col-sm-12 col-xs-12">
-                <form action="#" class="row m0 search_form widget">
-                    <div class="input-group">
-                       <input type="search" class="form-control" placeholder="Search here">
-                       <span class="input-group-addon"><button type="submit"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button></span>
-                    </div>
-               </form>
-             </div>
-         </div>
-      </section>
-    <hr>
-    <section class="filter">
-        <div class="team sub-filter container">
-            <div class="col-md-1 filter-name">
-                <p><b>Research Team:</b></p>
-            </div>
-            <div class="col-md-11 filter-content">
-                <a href="">Advanced energy and environmental materials</a>&nbsp;&nbsp;&nbsp;
-                <a href="">High-pressure science and technology</a>&nbsp;&nbsp;&nbsp;
-                <a href="">Translational immunology</a>&nbsp;&nbsp;&nbsp;
-                <a href="">Millimeter microwave technology and applications</a>&nbsp;&nbsp;&nbsp;
-                <a href="">Advanced metallic materials</a>&nbsp;&nbsp;&nbsp;
-                <a href="">PaleoChemistry and PaleoEvolution of ancient life</a>&nbsp;&nbsp;&nbsp;
-            </div>
-        </div>
-        <hr>
-        <div class="Area sub-filter container">
-            <div class="col-md-1 filter-name">
-                <p><b>Area:</b></p>
-            </div>
-            <div class="col-md-11 filter-content">
-                <a href="">High-efficiency functional materials</a>&nbsp;&nbsp;&nbsp;
-                <a href="">Structural search and experimental preparation for the materials within the earth interior</a>&nbsp;&nbsp;&nbsp;
-                <a href="">Autoimmunity;Structural Biology;Tumor Immunology;Epigenetic Medicine</a>&nbsp;&nbsp;&nbsp;
-                <a href="">Millimeter microwave technology</a>&nbsp;&nbsp;&nbsp;
-                <a href="">Developing powder sintering and near net shape forming technology</a>&nbsp;&nbsp;&nbsp;
-                <a href="">Origin and the evolution of Tetrapods</a>&nbsp;&nbsp;&nbsp;
-            </div>
-        </div>
-        <hr>
-        <div class="title sub-filter container">
-            <div class="col-md-1 filter-name">
-                <p><b>Title:</b></p>
-            </div>
-            <div class="col-md-11 filter-content">
-                <a href="">professer</a>&nbsp;&nbsp;&nbsp;
-                <a href="">associate professor</a>&nbsp;&nbsp;&nbsp;
-                <a href="">Academicain</a>&nbsp;&nbsp;&nbsp;
-            </div>
-        </div>
-        <hr>
-    </section>-->
-    <section class="row content_section">
-        <div class="container"style="min-height: 590px;">
-            <div class="row">
-                <div class="col-sm-12 col-md-3 sidebar">
-                    <div class="panel-group accordion white_bg sidefilter" id="accordion" role="tablist" aria-multiselectable="true" style="margin-top: 35px;">
-                         <div class="panel panel-default">
-                            <!--<div class="panel-heading">
-                                <h4 class="panel-title">
-                                    <a><b>Country / Area</b></a>
-                                </h4>
-                            </div>
-                            <div class="panel-collapse">
-                                <div class="panel-body" style="padding-top: 17px; text-transform: initial;">                                
-                                    <h4 class="sub_panel_title panel_title"><a href="#">China (12)</a></h4>
-                                    <h4 class="sub_panel_title panel_title"><a href="#">England (12)</a></h4>
-                                    <h4 class="sub_panel_title panel_title"><a href="#">America (12)</a></h4>
-                                    <h4 class="sub_panel_title panel_title"><a href="#">Japan (12)</a></h4>
-                                    <h4 class="sub_panel_title panel_title"><a href="#">Keara (12)</a></h4>
-                                    <h4 class="sub_panel_title panel_title"><a href="#">Canada (12)</a></h4>
-                                    <h4 class="sub_panel_title panel_title"><a href="#">Germany (12)</a></h4>
-                                    <h4 class="sub_panel_title panel_title"><a href="#">HongKong (China) (12)</a></h4>
-                                    <h4 class="sub_panel_title panel_title"><a href="#">Taiwan (China) (12)</a></h4>
-                                 </div>
-                            </div>-->
-                            <!-- <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
-                                 <div class="panel-body">                                
-                                    <h4 class="sub_panel_title panel_title"><a href="">India (12)</a></h4>
-                                    <h4 class="sub_panel_title panel_title"><a href="">India (31)</a></h4>
-                                    <h4 class="sub_panel_title panel_title"><a href="">India (22)</a></h4>
-                                    <h4 class="sub_panel_title panel_title"><a href="">India (12)</a></h4>
-                                 </div>
-                             </div>
-                             <div class="panel-heading" role="tab" id="headingOne">
-                                 <h4 class="panel-title" style="">
-                                     <a style="background-color: #A2ADC2; color: #fff;" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
-                                         <b>View All / Hide</b>
-                                         <span class="sign" style="background-color: #828FA8; color: #fff;"></span>
-                                     </a>
-                                 </h4>
-                             </div> -->
-                         </div> <!--Panel-->
-                         <div class="panel panel-default">
-                            <!--<div class="panel-heading">
-                                <h4 class="panel-title">
-                                    <a><b>Talent Title</b></a>
-                                </h4>
-                            </div>
-                            <div class="panel-collapse">
-                                <div class="panel-body" style="padding-top: 17px;">                                
-                                    <h4 class="sub_panel_title panel_title"><a href="">Chinese Academy of Sciences (12)</a></h4>
-                                    <h4 class="sub_panel_title panel_title"><a href="">Changjiang Scholar (23)</a></h4>
-                                    <h4 class="sub_panel_title panel_title"><a href="">Thousand Talents program (23)</a></h4>
-                                    <h4 class="sub_panel_title panel_title"><a href="">Assistant Professor (23)</a></h4>
-                                 </div>
-                            </div>-->
-                        </div>
-                        <div class="panel panel-default">
-                            <div class="panel-heading">
-                                <h4 class="panel-title">
-                                    <a><b>教授</b></a>
-                                </h4>
-                            </div>
-                            <div class="panel-collapse">
-                                <div class="panel-body" style="padding-top: 17px;">    
-                                    <h4 class="sub_panel_title panel_title"><a href="">教授&合作教授 </a></h4>
-                                 </div>
-                            </div>
-                        </div>
-                        <div class="panel panel-default">
-                            <div class="panel-heading">
-                                <h4 class="panel-title">
-                                    <a><b>在读</b></a>
-                                </h4>
-                            </div>
-                            <div class="panel-collapse">
-                                <div class="panel-body" style="padding-top: 17px;">    
-                                    <h4 class="sub_panel_title panel_title"><a href="personlist_doctor.html">博士 </a></h4>
-                                    <h4 class="sub_panel_title panel_title"><a href="personlist_master.html">硕士</a></h4>
-                                    <h4 class="sub_panel_title panel_title"><a href="personlist_undergraduate.html">本科生</a></h4>
-                                 </div>
-                            </div>
-                        </div>
-                        <div class="panel panel-default">
-                            <div class="panel-heading">
-                                <h4 class="panel-title">
-                                    <a><b>已毕业</b></a>
-                                </h4>
-                            </div>
-                            <div class="panel-collapse">
-                                <div class="panel-body" style="padding-top: 17px;">    
-                                    <h4 class="sub_panel_title panel_title"><a href="personlist_doctor0.html">博士 </a></h4>
-                                    <h4 class="sub_panel_title panel_title"><a href="personlist_master0.html">硕士</a></h4>
-                                 </div>
-                            </div>
-                        </div>
-                        <!-- <div class="panel panel-default">
-                            <div class="panel-heading">
-                                <h4 class="panel-title">
-                                    <a><b>Staff</b></a>
-                                </h4>
-                            </div>
-                            <div class="panel-collapse">
-                                <div class="panel-body" style="padding-top: 17px;">                                
-                                    <h4 class="sub_panel_title panel_title"><a href="">Researcher（23）</a></h4>
-                                    <h4 class="sub_panel_title panel_title"><a href="">Senior Engineer (23)</a></h4>
-                                    <h4 class="sub_panel_title panel_title"><a href="">Engineer (23)</a></h4>
-                                    <h4 class="sub_panel_title panel_title"><a href="">Assistant Engineer (23)</a></h4>
-                                 </div>
-                            </div>
-                         </div>  --><!--Panel-->  
-                    </div>
-                </div>
-                <div class="col-sm-12 col-md-9 blog_list">
-                   <div id="person_div">
-                    <div class="media blog">
-                        <div class="media-left">
-                            <a href="/person" style="padding-left: 50px;"><img src="./pictures/pro1.jpg" class="img-reponsive"></a>
-                        </div>
-                        <div class="media-body">
-                            <a href="person.html"><h3 style:"text-transform:="" initial;"="">徐昊</h3></a>
-                            <div class="row m0 meta">
-                                Tel : <a href="#">XXXXXX</a> Email : <a href="#">xuhao@jlu.edu.cn</a>
-                            </div>
-                            <p><span class="glyphicon glyphicon-home" aria-hidden="true"></span>&nbsp;&nbsp;&nbsp;Unit(s)：JiLin University</p>
-                            <p><span class="glyphicon glyphicon-briefcase" aria-hidden="true"></span>&nbsp;&nbsp;&nbsp;Title(s)：Associate professor</p>
-                            <p><span class="glyphicon glyphicon-book" aria-hidden="true"></span>&nbsp;&nbsp;&nbsp;Rearch Field(s)：Knowledge Graph 、Human-computer Interaction 、Computer Vision</p>
+		
+   <!-- <section class="row content_section" style="float: left;  margin-top:16px;">
+                       
+                       <div  class="left_title" style="width: 86px; height: 280px; padding-top: 120px;text-align: center;">
+                               <h4 class="panel-title">
+                                   <a href="personlist.html"style="text-decoration: none;"><b>Professor</b></a>
+                               </h4>
+                       </div> 
+                      
+                     
+                        <div class="left_title" style="width: 86px; height: 280px; margin-top:6px; padding-top: 120px;text-align: center;">
+                               <h4 class="panel-title">
+                                   <a href="personlist2.html"style="text-decoration: none;"><b>Student</b></a>
+                               </h4>
+                       </div>
+                       
+    </section> -->
+                <!-- <section class="row content_section" style="float: left;">
+                     <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">
+                                <a><b>教授</b></a>
+                            </h4>
                         </div>
                     </div>
+                </section> -->
+                <section class="author-info row" style="margin-left: 5px; margin-top: 6px;">
+                      <div class="title-row container">
+                      <h4 class="container"><b>Professor</b><span style="background-color: #0186d5; color: #fff;margin-left: 100px;font-size: 16px;padding: 5px 5px 5px 5px; margin-top: 10px;" 
+                                          data-toggle="collapse" data-parent="#author-info" href="#collapseOne2" aria-expanded="false" aria-controls="collapseOne">more&nbsp;+</span></h4>
+                      
 
-                    <!-- 
-                        <div class="media blog">                        
-                        <div class="media-left">
-                            <a href="/person" style="padding-left: 50px;"><img src="./assets/img/avatar.png" alt="" class="img-reponsive"></a>
-                        </div>
-                        <div class="media-body">
-                            <a href="/person"><h3>Jihong Yu</h3></a>
-                            <div class="row m0 meta">Publications : <a href="#">198</a> Projects : <a href="#">115</a> Patents: <a href="/person" >25</a></div>
-                            <p><span class="glyphicon glyphicon-home" aria-hidden="true"></span>&nbsp;&nbsp;&nbsp;College of Chemistry</p>
-                            <p><span class="glyphicon glyphicon-briefcase" aria-hidden="true"></span>&nbsp;&nbsp;&nbsp;Professor</p>
-                            <p><span class="glyphicon glyphicon-book" aria-hidden="true"></span>&nbsp;&nbsp;&nbsp;Chemistry</p>
-                        </div>
-                        </div> -->
-                   </div>       
-                    <div class="row paginationRow">
-                        <ul class="pagination">
-                            <li class="active"><a href="#">1</a></li>
-                            <li><a href="#">2</a></li>
-                            <li><a href="#">3</a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+                      <div class="col-md-3 col-sm-6 col-xs-12" style="width:390px;">
+                               <div class="author-card col-md-12 col-sm-12 col-xs-12">
+                                   <div class="col-md-4 col-sm-4 col-xs-4 pic" style="margin-top: -18px;">
+                                       <img src="./pictures/pro1.jpg" class="img-circle" alt="Responsive image"> 
+                                   </div>
+                                   <div class="author-name col-md-8 col-sm-8 col-xs-8" style="margin-top: 16px; padding-left: 30px; font-size: 12px;" >
+                                        <a href="#" style="text-decoration: none;"><h3 style="padding-left: 18px; margin-top: 2px;">徐昊</h3></a>
+                                         <p><span class="glyphicon glyphicon-home" aria-hidden="true"></span>&nbsp;&nbsp;Unit(s)：JiLin University</p>
+                                         <p><span class="glyphicon glyphicon-briefcase" aria-hidden="true"></span>&nbsp;&nbsp;Title(s)：Associate Professor</p>
+                                         <p><span class="glyphicon glyphicon-book" aria-hidden="true"></span>&nbsp;&nbsp;Rearch Field(s)：Knowledge Graph 、Human-computer Interaction 、Computer Vision</p>
+                                         <p><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>&nbsp;&nbsp;xuhao@jlu.edu.cn</p> 
+                                   </div>
+                               </div>
+                      </div>
+                      <div class="col-md-3 col-sm-6 col-xs-12" style="width:390px;">
+                               <div class="author-card col-md-12 col-sm-12 col-xs-12">
+                                   <div class="col-md-4 col-sm-4 col-xs-4 pic" style="margin-top: -18px;">
+                                       <img src="./pictures/pro1.jpg" class="img-circle" alt="Responsive image"> 
+                                   </div>
+                                   <div class="author-name col-md-8 col-sm-8 col-xs-8" style="margin-top: 16px; padding-left: 30px; font-size: 12px;" >
+                                        <a href="#" style="text-decoration: none;"><h3 style="padding-left: 18px; margin-top: 2px;">徐昊</h3></a>
+                                         <p><span class="glyphicon glyphicon-home" aria-hidden="true"></span>&nbsp;&nbsp;Unit(s)：JiLin University</p>
+                                         <p><span class="glyphicon glyphicon-briefcase" aria-hidden="true"></span>&nbsp;&nbsp;Title(s)：Associate Professor</p>
+                                         <p><span class="glyphicon glyphicon-book" aria-hidden="true"></span>&nbsp;&nbsp;Rearch Field(s)：Knowledge Graph 、Human-computer Interaction 、Computer Vision</p>
+                                         <p><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>&nbsp;&nbsp;xuhao@jlu.edu.cn</p> 
+                                   </div>
+                               </div>
+                      </div>
+                      <div class="col-md-3 col-sm-6 col-xs-12" style="width:390px;">
+                               <div class="author-card col-md-12 col-sm-12 col-xs-12">
+                                   <div class="col-md-4 col-sm-4 col-xs-4 pic" style="margin-top: -18px;" >
+                                       <img src="./pictures/pro1.jpg" class="img-circle" alt="Responsive image"> 
+                                   </div>
+                                   <div class="author-name col-md-8 col-sm-8 col-xs-8" style="margin-top: 16px;padding-left: 30px;  font-size: 12px;" >
+                                        <a href="#" style="text-decoration: none;"><h3 style="padding-left: 18px; margin-top: 2px;">徐昊</h3></a>
+                                         <p><span class="glyphicon glyphicon-home" aria-hidden="true"></span>&nbsp;&nbsp;Unit(s)：JiLin University</p>
+                                         <p><span class="glyphicon glyphicon-briefcase" aria-hidden="true"></span>&nbsp;&nbsp;Title(s)：Associate Professor</p>
+                                         <p><span class="glyphicon glyphicon-book" aria-hidden="true"></span>&nbsp;&nbsp;Rearch Field(s)：Knowledge Graph 、Human-computer Interaction 、Computer Vision</p>
+                                         <p><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>&nbsp;&nbsp;xuhao@jlu.edu.cn</p> 
+                                   </div>
+                               </div>
+                      </div>
+                      <div id="collapseOne2" class="pannel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+                      <div class="col-md-3 col-sm-6 col-xs-12"  style="width:390px;">
+                               <div class="author-card col-md-12 col-sm-12 col-xs-12">
+                                   <div class="col-md-4 col-sm-4 col-xs-4 pic" style="margin-top: -18px;">
+                                       <img src="./pictures/pro1.jpg" class="img-circle" alt="Responsive image"> 
+                                   </div>
+                                   <div class="author-name col-md-8 col-sm-8 col-xs-8" style="margin-top: 16px;padding-left: 30px;  font-size: 12px;" >
+                                        <a href="#" style="text-decoration: none;"><h3 style="padding-left: 18px; margin-top: 2px;">徐昊</h3></a>
+                                         <p><span class="glyphicon glyphicon-home" aria-hidden="true"></span>&nbsp;&nbsp;Unit(s)：JiLin University</p>
+                                         <p><span class="glyphicon glyphicon-briefcase" aria-hidden="true"></span>&nbsp;&nbsp;Title(s)：Associate Professor</p>
+                                         <p><span class="glyphicon glyphicon-book" aria-hidden="true"></span>&nbsp;&nbsp;Rearch Field(s)：Knowledge Graph 、Human-computer Interaction 、Computer Vision</p>
+                                         <p><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>&nbsp;&nbsp;xuhao@jlu.edu.cn</p> 
+                                   </div>
+                               </div>
+                      </div >
+                      <div class="col-md-3 col-sm-6 col-xs-12"  style="width:390px;">
+                               <div class="author-card col-md-12 col-sm-12 col-xs-12">
+                                   <div class="col-md-4 col-sm-4 col-xs-4 pic" style="margin-top: -18px;">
+                                       <img src="./pictures/pro1.jpg" class="img-circle" alt="Responsive image"> 
+                                   </div>
+                                   <div class="author-name col-md-8 col-sm-8 col-xs-8" style="margin-top: 16px; padding-left: 30px; font-size: 12px;" >
+                                        <a href="#" style="text-decoration: none;"><h3 style="padding-left: 18px; margin-top: 2px;">徐昊</h3></a>
+                                         <p><span class="glyphicon glyphicon-home" aria-hidden="true"></span>&nbsp;&nbsp;Unit(s)：JiLin University</p>
+                                         <p><span class="glyphicon glyphicon-briefcase" aria-hidden="true"></span>&nbsp;&nbsp;Title(s)：Associate Professor</p>
+                                         <p><span class="glyphicon glyphicon-book" aria-hidden="true"></span>&nbsp;&nbsp;Rearch Field(s)：Knowledge Graph 、Human-computer Interaction 、Computer Vision</p>
+                                         <p><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>&nbsp;&nbsp;xuhao@jlu.edu.cn</p> 
+                                   </div>
+                               </div>
+                      </div>
+                      <div class="col-md-3 col-sm-6 col-xs-12"style="width:390px;">
+                               <div class="author-card col-md-12 col-sm-12 col-xs-12">
+                                   <div class="col-md-4 col-sm-4 col-xs-4 pic" style="margin-top: -18px;">
+                                       <img src="./pictures/pro1.jpg" class="img-circle" alt="Responsive image"> 
+                                   </div>
+                                   <div class="author-name col-md-8 col-sm-8 col-xs-8" style="margin-top: 16px;padding-left: 30px;  font-size: 12px;" >
+                                        <a href="#" style="text-decoration: none;"><h3 style="padding-left: 18px; margin-top: 2px;">徐昊</h3></a>
+                                         <p><span class="glyphicon glyphicon-home" aria-hidden="true"></span>&nbsp;&nbsp;Unit(s)：JiLin University</p>
+                                         <p><span class="glyphicon glyphicon-briefcase" aria-hidden="true"></span>&nbsp;&nbsp;Title(s)：Associate Professor</p>
+                                         <p><span class="glyphicon glyphicon-book" aria-hidden="true"></span>&nbsp;&nbsp;Rearch Field(s)：Knowledge Graph 、Human-computer Interaction 、Computer Vision</p>
+                                         <p><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>&nbsp;&nbsp;xuhao@jlu.edu.cn</p> 
+                                   </div>
+                               </div>
+                      </div>
+                      </div>
+
+                      </div>
+                      <div class="title-row container">
+                            <h4 class="container"><b>College Student</b><span style="background-color: #0186d5; color: #fff;margin-left: 50px;font-size: 16px;padding: 5px 5px 5px 5px; margin-top: 10px;" 
+                                          data-toggle="collapse" data-parent="#author-info" href="#collapseOne3" aria-expanded="false" aria-controls="collapseOne">more&nbsp;+</span></h4>
+                            <div class="author col-md-3 col-sm-6 col-xs-12" style="width:390px;">
+                                <div class="author-card col-md-12 col-sm-12 col-xs-12">
+                                    <div class="col-md-4 col-sm-4 col-xs-4 pic" style="margin-top: -18px;">
+                                        <img src="./pictures/master1.jpg" class="img-circle" alt="Responsive image"> 
+                                    </div>
+                                    <div class="author-name col-md-8 col-sm-8 col-xs-8" style="margin-top: 16px; padding-left: 30px; font-size: 12px;" >
+                                          <a href="#" style="text-decoration: none;"><h3 style="padding-left: 16px; margin-top: 2px;">王一博</h3></a>
+                                        <p><span class="glyphicon glyphicon-education" aria-hidden="true"></span>&nbsp;&nbsp;Class：2017</p>
+                                          <p><span class="glyphicon glyphicon-home" aria-hidden="true"></span>&nbsp;&nbsp;Degree：master </p>
+                                          <p><span class="glyphicon glyphicon-briefcase" aria-hidden="true"></span>&nbsp;&nbsp;Major：Computer application technolog</p>
+                                          <p><span class="glyphicon glyphicon-book" aria-hidden="true"></span>&nbsp;&nbsp;Rearch Field(s)：Ontology</p>
+                                          <p><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>&nbsp;&nbsp;@jlu.edu.cn</p> 
+                                          <p>&nbsp;</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3 col-sm-6 col-xs-12" style="width:390px;">
+                                <div class="author-card col-md-12 col-sm-12 col-xs-12">
+                                    <div class="col-md-4 col-sm-4 col-xs-4 pic" style="margin-top: -16px;">
+                                        <img src="./pictures/master2.jpg" class="img-circle" alt="Responsive image"> 
+                                    </div>
+                                    <div class="author-name col-md-8 col-sm-8 col-xs-8" style="margin-top: 16px;padding-left: 30px;  font-size: 12px;" >
+                                      <a href="#" style="text-decoration: none;"><h3 style="padding-left: 16px; margin-top: 2px;">祁晓慧</h3></a>
+                                        <p><span class="glyphicon glyphicon-education" aria-hidden="true"></span>&nbsp;&nbsp;Class：2017</p>
+                                          <p><span class="glyphicon glyphicon-home" aria-hidden="true"></span>&nbsp;&nbsp;Degree：master</p>
+                                          <p><span class="glyphicon glyphicon-briefcase" aria-hidden="true"></span>&nbsp;&nbsp;Major：Computer application technology</p>
+                                          <p><span class="glyphicon glyphicon-book" aria-hidden="true"></span>&nbsp;&nbsp;Rearch Field(s)：Knowledge Graph</p>
+                                          <p><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>&nbsp;&nbsp;@jlu.edu.cn</p> 
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3 col-sm-6 col-xs-12" style="width:390px;">
+                                <div class="author-card col-md-12 col-sm-12 col-xs-12" >
+                                    <div class="col-md-4 col-sm-4 col-xs-4 pic" style="margin-top: -18px;">
+                                        <img src="./pictures/master3.jpg" class="img-circle" alt="Responsive image"> 
+                                    </div>
+                                    <div class="author-name col-md-8 col-sm-8 col-xs-8" style="margin-top: 16px;padding-left: 30px;  font-size: 12px;" >
+                                          <a href="#" style="text-decoration: none;"><h3 style="padding-left: 16px; margin-top: 2px;">申强</h3></a>
+                                        <p><span class="glyphicon glyphicon-education" aria-hidden="true"></span>&nbsp;&nbsp;Class：2017</p>
+                                          <p><span class="glyphicon glyphicon-home" aria-hidden="true"></span>&nbsp;&nbsp;Degree：master</p>
+                                          <p><span class="glyphicon glyphicon-briefcase" aria-hidden="true"></span>&nbsp;&nbsp;Major：Software Engineering</p>
+                                          <p><span class="glyphicon glyphicon-book" aria-hidden="true"></span>&nbsp;&nbsp;Rearch Field(s)：Competency</p>
+                                          <p><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>&nbsp;&nbsp;@jlu.edu.cn</p> 
+                                          
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="author2 col-md-3 col-sm-6 col-xs-12" style="width:390px;">
+                                <div class="author-card col-md-12 col-sm-12 col-xs-12">
+                                    <div class="col-md-4 col-sm-4 col-xs-4 pic" style="margin-top: -18px;">
+                                        <img src="./pictures/master1.jpg" class="img-circle" alt="Responsive image"> 
+                                    </div>
+                                    <div class="author-name col-md-8 col-sm-8 col-xs-8" style="margin-top: 16px;padding-left: 30px;  font-size: 12px;" >
+                                          <a href="#" style="text-decoration: none;"><h3 style="padding-left: 16px; margin-top: 2px;">王一博</h3></a>
+                                        <p><span class="glyphicon glyphicon-education" aria-hidden="true"></span>&nbsp;&nbsp;Class：2017</p>
+                                          <p><span class="glyphicon glyphicon-home" aria-hidden="true"></span>&nbsp;&nbsp;Degree：master</p>
+                                          <p><span class="glyphicon glyphicon-briefcase" aria-hidden="true"></span>&nbsp;&nbsp;Major：Computer application technolog</p>
+                                          <p><span class="glyphicon glyphicon-book" aria-hidden="true"></span>&nbsp;&nbsp;Rearch Field(s)：Ontology</p>
+                                          <p><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>&nbsp;&nbsp;@jlu.edu.cn</p> 
+                                          <p>&nbsp;</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="author2 col-md-3 col-sm-6 col-xs-12" style="width:390px;">
+                                <div class="author-card col-md-12 col-sm-12 col-xs-12">
+                                    <div class="col-md-4 col-sm-4 col-xs-4 pic" style="margin-top: -16px;">
+                                        <img src="./pictures/master2.jpg" class="img-circle" alt="Responsive image"> 
+                                    </div>
+                                    <div class="author-name col-md-8 col-sm-8 col-xs-8" style="margin-top: 16px;padding-left: 30px;  font-size: 12px;" >
+                                      <a href="#" style="text-decoration: none;"><h3 style="padding-left: 16px; margin-top: 2px;">祁晓慧</h3></a>
+                                        <p><span class="glyphicon glyphicon-education" aria-hidden="true"></span>&nbsp;&nbsp;Class：2017</p>
+                                          <p><span class="glyphicon glyphicon-home" aria-hidden="true"></span>&nbsp;&nbsp;Degree：master</p>
+                                          <p><span class="glyphicon glyphicon-briefcase" aria-hidden="true"></span>&nbsp;&nbsp;Major：Computer application technology</p>
+                                          <p><span class="glyphicon glyphicon-book" aria-hidden="true"></span>&nbsp;&nbsp;Rearch Field(s)：Knowledge Graph</p>
+                                          <p><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>&nbsp;&nbsp;@jlu.edu.cn</p> 
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="author2 col-md-3 col-sm-6 col-xs-12" style="width:390px;">
+                                <div class="author-card col-md-12 col-sm-12 col-xs-12" >
+                                    <div class="col-md-4 col-sm-4 col-xs-4 pic" style="margin-top: -18px;">
+                                        <img src="./pictures/master3.jpg" class="img-circle" alt="Responsive image"> 
+                                    </div>
+                                    <div class="author-name col-md-8 col-sm-8 col-xs-8" style="margin-top: 16px;padding-left: 30px;  font-size: 12px;" >
+                                          <a href="#" style="text-decoration: none;"><h3 style="padding-left: 16px; margin-top: 2px;">申强</h3></a>
+                                        <p><span class="glyphicon glyphicon-education" aria-hidden="true"></span>&nbsp;&nbsp;Class：2017</p>
+                                          <p><span class="glyphicon glyphicon-home" aria-hidden="true"></span>&nbsp;&nbsp;Degree：master</p>
+                                          <p><span class="glyphicon glyphicon-briefcase" aria-hidden="true"></span>&nbsp;&nbsp;Major：Software Engineering</p>
+                                          <p><span class="glyphicon glyphicon-book" aria-hidden="true"></span>&nbsp;&nbsp;Rearch Field(s)：Competency</p>
+                                          <p><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>&nbsp;&nbsp;@jlu.edu.cn</p> 
+                                          
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="collapseOne3" class="pannel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+                                <div class="author2 col-md-3 col-sm-6 col-xs-12" style="width:390px;">
+                                <div class="author-card col-md-12 col-sm-12 col-xs-12">
+                                    <div class="col-md-4 col-sm-4 col-xs-4 pic" style="margin-top: -18px;">
+                                        <img src="./pictures/master1.jpg" class="img-circle" alt="Responsive image"> 
+                                    </div>
+                                    <div class="author-name col-md-8 col-sm-8 col-xs-8" style="margin-top: 16px;padding-left: 30px;  font-size: 12px;" >
+                                          <a href="#" style="text-decoration: none;"><h3 style="padding-left: 16px; margin-top: 2px;">王一博</h3></a>
+                                        <p><span class="glyphicon glyphicon-education" aria-hidden="true"></span>&nbsp;&nbsp;Class：2017</p>
+                                          <p><span class="glyphicon glyphicon-home" aria-hidden="true"></span>&nbsp;&nbsp;Degree：master</p>
+                                          <p><span class="glyphicon glyphicon-briefcase" aria-hidden="true"></span>&nbsp;&nbsp;Major：Computer application technolog</p>
+                                          <p><span class="glyphicon glyphicon-book" aria-hidden="true"></span>&nbsp;&nbsp;Rearch Field(s)：Ontology</p>
+                                          <p><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>&nbsp;&nbsp;@jlu.edu.cn</p> 
+                                          <p>&nbsp;</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="author2 col-md-3 col-sm-6 col-xs-12" style="width:390px;">
+                                <div class="author-card col-md-12 col-sm-12 col-xs-12">
+                                    <div class="col-md-4 col-sm-4 col-xs-4 pic" style="margin-top: -16px;">
+                                        <img src="./pictures/master2.jpg" class="img-circle" alt="Responsive image"> 
+                                    </div>
+                                    <div class="author-name col-md-8 col-sm-8 col-xs-8" style="margin-top: 16px; padding-left: 30px; font-size: 12px;" >
+                                      <a href="#" style="text-decoration: none;"><h3 style="padding-left: 16px; margin-top: 2px;">祁晓慧</h3></a>
+                                        <p><span class="glyphicon glyphicon-education" aria-hidden="true"></span>&nbsp;&nbsp;Class：2017</p>
+                                          <p><span class="glyphicon glyphicon-home" aria-hidden="true"></span>&nbsp;&nbsp;Degree：master</p>
+                                          <p><span class="glyphicon glyphicon-briefcase" aria-hidden="true"></span>&nbsp;&nbsp;Major：Computer application technology</p>
+                                          <p><span class="glyphicon glyphicon-book" aria-hidden="true"></span>&nbsp;&nbsp;Rearch Field(s)：Knowledge Graph</p>
+                                          <p><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>&nbsp;&nbsp;@jlu.edu.cn</p> 
+                                    </div>
+                                </div>
+                            </div>
+                                <div class="author2 col-md-3 col-sm-6 col-xs-12" style="width:390px;">
+                                <div class="author-card col-md-12 col-sm-12 col-xs-12" >
+                                    <div class="col-md-4 col-sm-4 col-xs-4 pic" style="margin-top: -18px;">
+                                        <img src="./pictures/master3.jpg" class="img-circle" alt="Responsive image"> 
+                                    </div>
+                                    <div class="author-name col-md-8 col-sm-8 col-xs-8" style="margin-top: 16px; padding-left: 30px; font-size: 12px;" >
+                                          <a href="#" style="text-decoration: none;"><h3 style="padding-left: 16px; margin-top: 2px;">申强</h3></a>
+                                        <p><span class="glyphicon glyphicon-education" aria-hidden="true"></span>&nbsp;&nbsp;Class：2017</p>
+                                          <p><span class="glyphicon glyphicon-home" aria-hidden="true"></span>&nbsp;&nbsp;Degree：master</p>
+                                          <p><span class="glyphicon glyphicon-briefcase" aria-hidden="true"></span>&nbsp;&nbsp;Major：Software Engineering</p>
+                                          <p><span class="glyphicon glyphicon-book" aria-hidden="true"></span>&nbsp;&nbsp;Rearch Field(s)：Competency</p>
+                                          <p><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>&nbsp;&nbsp;@jlu.edu.cn</p> 
+                                          
+                                    </div>
+                                </div>
+                            </div>
+                            </div>
+                      </div>
+                     <!--  <div class="container">
+                         <a href="author">Show More&nbsp;&nbsp;<span class="glyphicon glyphicon-chevron-down" aria-hidden="true"></span></a>
+                     </div> -->
+
+                      <div class="title-row container">
+                            <h4 class="container"><b>Graduate</b><span style="background-color: #0186d5; color: #fff;margin-left: 100px;font-size: 16px;padding: 5px 5px 5px 5px; margin-top: 10px;" 
+                                          data-toggle="collapse" data-parent="#author-info" href="#collapseOne4" aria-expanded="false" aria-controls="collapseOne">more&nbsp;+</span></h4>
+                            <div class="col-md-3 col-sm-6 col-xs-12" style="width:380px;">
+                                <div class="author-card col-md-12 col-sm-12 col-xs-12">
+                                    <div class="col-md-4 col-sm-4 col-xs-4 pic" style="margin-top: -18px;">
+                                        <img src="./pictures/master1.jpg" class="img-circle" alt="Responsive image"> 
+                                    </div>
+                                    <div class="author-name col-md-8 col-sm-8 col-xs-8" style="margin-top: 16px;padding-left: 30px;  font-size: 12px;" >
+                                          <a href="#" style="text-decoration: none;"><h3 style="padding-left: 16px; margin-top: 2px;">王一博</h3></a>
+                                        <p><span class="glyphicon glyphicon-education" aria-hidden="true"></span>&nbsp;&nbsp;Class：2017</p>
+                                          <p><span class="glyphicon glyphicon-home" aria-hidden="true"></span>&nbsp;&nbsp;Degree：master</p>
+                                          <p><span class="glyphicon glyphicon-briefcase" aria-hidden="true"></span>&nbsp;&nbsp;Major：Computer application technolog</p>
+                                          <p><span class="glyphicon glyphicon-book" aria-hidden="true"></span>&nbsp;&nbsp;Rearch Field(s)：Ontology</p>
+                                          <p><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>&nbsp;&nbsp;@jlu.edu.cn</p> 
+                                          <p>&nbsp;</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3 col-sm-6 col-xs-12" style="width:380px;">
+                                <div class="author-card col-md-12 col-sm-12 col-xs-12">
+                                    <div class="col-md-4 col-sm-4 col-xs-4 pic" style="margin-top: -16px;">
+                                        <img src="./pictures/master2.jpg" class="img-circle" alt="Responsive image"> 
+                                    </div>
+                                    <div class="author-name col-md-8 col-sm-8 col-xs-8" style="margin-top: 16px; padding-left: 30px; font-size: 12px;" >
+                                      <a href="#" style="text-decoration: none;"><h3 style="padding-left: 16px; margin-top: 2px;">祁晓慧</h3></a>
+                                        <p><span class="glyphicon glyphicon-education" aria-hidden="true"></span>&nbsp;&nbsp;Class：2017</p>
+                                          <p><span class="glyphicon glyphicon-home" aria-hidden="true"></span>&nbsp;&nbsp;Degree：master</p>
+                                          <p><span class="glyphicon glyphicon-briefcase" aria-hidden="true"></span>&nbsp;&nbsp;Major：Computer application technology</p>
+                                          <p><span class="glyphicon glyphicon-book" aria-hidden="true"></span>&nbsp;&nbsp;Rearch Field(s)：Knowledge Graph</p>
+                                          <p><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>&nbsp;&nbsp;@jlu.edu.cn</p> 
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3 col-sm-6 col-xs-12" style="width:380px;">
+                                <div class="author-card col-md-12 col-sm-12 col-xs-12">
+                                    <div class="col-md-4 col-sm-4 col-xs-4 pic" style="margin-top: -18px;">
+                                        <img src="./pictures/master3.jpg" class="img-circle" alt="Responsive image"> 
+                                    </div>
+                                    <div class="author-name col-md-8 col-sm-8 col-xs-8" style="margin-top: 16px; padding-left: 30px; font-size: 12px;" >
+                                          <a href="#" style="text-decoration: none;"><h3 style="padding-left: 16px; margin-top: 2px;">申强</h3></a>
+                                        <p><span class="glyphicon glyphicon-education" aria-hidden="true"></span>&nbsp;&nbsp;Class：2017</p>
+                                          <p><span class="glyphicon glyphicon-home" aria-hidden="true"></span>&nbsp;&nbsp;Degree：master</p>
+                                          <p><span class="glyphicon glyphicon-briefcase" aria-hidden="true"></span>&nbsp;&nbsp;Major：Software Engineering</p>
+                                          <p><span class="glyphicon glyphicon-book" aria-hidden="true"></span>&nbsp;&nbsp;Rearch Field(s)：Competency</p>
+                                          <p><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>&nbsp;&nbsp;@jlu.edu.cn</p> 
+                                          
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="collapseOne4" class="pannel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+                              <div class="col-md-3 col-sm-6 col-xs-12" style="width:380px;">
+                                <div class="author-card col-md-12 col-sm-12 col-xs-12">
+                                    <div class="col-md-4 col-sm-4 col-xs-4 pic" style="margin-top: -18px;">
+                                        <img src="./pictures/master1.jpg" class="img-circle" alt="Responsive image"> 
+                                    </div>
+                                    <div class="author-name col-md-8 col-sm-8 col-xs-8" style="margin-top: 16px;padding-left: 30px;  font-size: 12px;" >
+                                          <a href="#" style="text-decoration: none;"><h3 style="padding-left: 16px; margin-top: 2px;">王一博</h3></a>
+                                        <p><span class="glyphicon glyphicon-education" aria-hidden="true"></span>&nbsp;&nbsp;Class：2017</p>
+                                          <p><span class="glyphicon glyphicon-home" aria-hidden="true"></span>&nbsp;&nbsp;Degree：master</p>
+                                          <p><span class="glyphicon glyphicon-briefcase" aria-hidden="true"></span>&nbsp;&nbsp;Major：Computer application technolog</p>
+                                          <p><span class="glyphicon glyphicon-book" aria-hidden="true"></span>&nbsp;&nbsp;Rearch Field(s)：Ontology</p>
+                                          <p><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>&nbsp;&nbsp;@jlu.edu.cn</p> 
+                                          <p>&nbsp;</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3 col-sm-6 col-xs-12" style="width:380px;">
+                                <div class="author-card col-md-12 col-sm-12 col-xs-12">
+                                    <div class="col-md-4 col-sm-4 col-xs-4 pic" style="margin-top: -16px;">
+                                        <img src="./pictures/master2.jpg" class="img-circle" alt="Responsive image"> 
+                                    </div>
+                                    <div class="author-name col-md-8 col-sm-8 col-xs-8" style="margin-top: 16px;padding-left: 30px;  font-size: 12px;" >
+                                      <a href="#" style="text-decoration: none;"><h3 style="padding-left: 16px; margin-top: 2px;">祁晓慧</h3></a>
+                                        <p><span class="glyphicon glyphicon-education" aria-hidden="true"></span>&nbsp;&nbsp;Class：2017</p>
+                                          <p><span class="glyphicon glyphicon-home" aria-hidden="true"></span>&nbsp;&nbsp;Degree：master</p>
+                                          <p><span class="glyphicon glyphicon-briefcase" aria-hidden="true"></span>&nbsp;&nbsp;Major：Computer application technology</p>
+                                          <p><span class="glyphicon glyphicon-book" aria-hidden="true"></span>&nbsp;&nbsp;Rearch Field(s)：Knowledge Graph</p>
+                                          <p><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>&nbsp;&nbsp;@jlu.edu.cn</p> 
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3 col-sm-6 col-xs-12" style="width:380px;">
+                                <div class="author-card col-md-12 col-sm-12 col-xs-12">
+                                    <div class="col-md-4 col-sm-4 col-xs-4 pic" style="margin-top: -18px;">
+                                        <img src="./pictures/master3.jpg" class="img-circle" alt="Responsive image"> 
+                                    </div>
+                                    <div class="author-name col-md-8 col-sm-8 col-xs-8" style="margin-top: 16px;padding-left: 30px;  font-size: 12px;" >
+                                          <a href="#" style="text-decoration: none;"><h3 style="padding-left: 16px; margin-top: 2px;">申强</h3></a>
+                                        <p><span class="glyphicon glyphicon-education" aria-hidden="true"></span>&nbsp;&nbsp;Class：2017</p>
+                                          <p><span class="glyphicon glyphicon-home" aria-hidden="true"></span>&nbsp;&nbsp;Degree：master</p>
+                                          <p><span class="glyphicon glyphicon-briefcase" aria-hidden="true"></span>&nbsp;&nbsp;Major：Software Engineering</p>
+                                          <p><span class="glyphicon glyphicon-book" aria-hidden="true"></span>&nbsp;&nbsp;Rearch Field(s)：Competency</p>
+                                          <p><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>&nbsp;&nbsp;@jlu.edu.cn</p> 
+                                          
+                                          
+                                    </div>
+                                </div>
+                            </div>
+                            </div>
+                      </div>
+                      <!-- <div class="container">
+                          <a href="#">Show More&nbsp;&nbsp;<span class="glyphicon glyphicon-chevron-down" aria-hidden="true"></span></a>
+                      </div> -->
+                     
+                  </section>
+                
 	</div>
     <footer class="row" style="padding-top: 30px;">
             <div class="container">

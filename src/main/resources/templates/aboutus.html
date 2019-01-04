@@ -17,65 +17,60 @@
         position: fixed;
         bottom: 10px;
         right: 10px;
-
+        display: none;
         cursor: pointer;
     }
 </style>
 <style>
 
+    .team, .news, .missions {
+        margin-top: 30px;
+        margin-bottom: 30px;
+    }
     .group-banner {
         background: url(assets/shan.jpg);
         margin: 0;
 
     }
-
     .jumbotron {
         height: 450px;
         width: 100%;
     }
-
     .group-banner .container {
         margin: 55px auto;
         background: rgba(3, 28, 62, 0.8);
         padding: 35px 40px;
         color: #fff;
     }
-
-    .details p {
+    .details p{
         text-align: justify;
         text-justify: inter-ideograph;
         line-height: 20px;
         font-size: 14px;
     }
-
     .group-img img {
         width: 400px;
         height: 200px;
         margin: 0 auto;
     }
-
     .groupintro {
         padding: 40px 50px;
     }
-
     .group-img {
         padding: 50px 22px;
     }
-
     .tubiao {
         width: 45px;
         height: 45px;
         margin-top: -30px;
     }
-
     .default .navbar.navbar2 {
         background: #fff;
         height: auto;
         padding-top: 0;
         margin-bottom: 0;
-
+        margin-top: -10px;
     }
-
     /* .img-media {
 
     width: 500px;
@@ -114,6 +109,7 @@
     } */
 </style>
 
+
 <body class="default">
 <section class="row top_bar">
     <div class="" style="margin-left: 62px;margin-right:60px;margin-top: 10px;">
@@ -121,9 +117,9 @@
         <div class="row">
             <div class="fleft phone">
                 <p><a href="#" style="
-    text-decoration: none;
-    color: #03536A;
-">Computational Intelligence Knowledge Mapping Laboratory, School of Computer Science and Technology, Jilin
+       text-decoration: none;
+       color: #03536A;
+   ">Computational Intelligence Laboratory, College of Computer Science and Technology, Jilin
                     University</a></p>
             </div>
             <div class="fright">
@@ -158,26 +154,27 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="main_nav">
             <a href="../static/index.html" th:href="@{/index.html}">
-                <img style="width:225px;height:70px;margin-left:200px ;margin-top: 9px;" src="../static/assets/wq6.png"
-                     th:src="@{/assets/wq6.png}" alt=""></a>
-            <ul class="nav navbar-nav navbar-right">
+                <img style="width:225px;height:70px;margin-left:200px ;margin-top: 9px;" src="../static/assets/wq6.png" th:src="@{/assets/wq6.png}" alt=""></a>
+            <ul  class="nav navbar-nav navbar-right">
                 <li class="active"><a href="../static/index.html" th:href="@{/index}">Home</a></li>
 
-                <li><a href="../static/aboutus.html" th:href="@{/aboutus}">About Us</a></li>
-                <li class="dropdown">
-                    <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Research</a>
-                    <ul class="dropdown-menu" role="menu">
-                        <li><a href="direction/directionlist" th:href="@{/direction/directionlist}">Directions</a></li>
-                        <li><a href="paper/paperlist" th:href="@{/paper/paperlist}">Papers</a></li>
-                        <li><a href="project/projectlist" th:href="@{/project/projectlist}">Projects</a></li>
-                    </ul>
-                </li>
+
+                <!-- <li class="dropdown">
+                     <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Research</a>
+                     <ul class="dropdown-menu" role="menu">
+                         <li><a href="direction/directionlist" th:href="@{/direction/directionlist}">Directions</a></li>
+                         <li><a href="paper/paperlist" th:href="@{/paper/paperlist}">Papers</a></li>
+                         <li><a href="project/projectlist" th:href="@{/project/projectlist}">Projects</a></li>
+                     </ul>
+                 </li>-->
+                <li><a href="direction/directionlist" th:href="@{/direction/directionlist}">Research</a></li>
                 <li><a href="person/personlist" th:href="@{/person/personlist}">People</a></li>
                 <li><a href="news/newslist" th:href="@{/news/newslist}">News</a></li>
-                <li><a href="resource/resourcelist" th:href="@{/resource/resourcelist}">Resource</a></li>
+                <li><a href="../static/aboutus.html" th:href="@{/aboutus}">About Us</a></li>
+                <li><a href="resource/resourcelist" th:href="@{/resource/resourcelist}">Document</a></li>
 
 
-                <li><a href="../static/join.html" th:href="@{/join}">Join Us</a></li>
+                <!--<li><a href="../static/join.html" th:href="@{/join}">Join Us</a></li>-->
                 <!-- <li class="hidden-xs book"><a href="#" data-toggle="modal" data-target="#appointmefnt_form_pop">Search</a></li> -->
             </ul>
         </div><!-- /.navbar-collapse -->
@@ -230,173 +227,165 @@
            </div>
        </div>-->
 
-        <div class="missions" style="margin-top: 30px;;">
+        <div class="missions"style="margin-top: 30px;">
             <p>Our laboratory</p>
             <div class="missions-intro">
-                <p>communication and coordination ability of precision communication and coordination ability there is a
-                    wealth of precision communication and coordination ability there is a wealth of precision
-                    measurement Rewards and organizational</p>
+                <p style="margin-left: -58px;">communication and coordination ability of precision communication and coordination ability there is a wealth of precision communication and coordination ability there is a wealth of precision measurement Rewards and organizational</p>
             </div>
             <div style="margin-left: 70px;">
-                <section class="row grouplist" id="group1">
-                    <div class="container groupinfo" id="heart_surgery">
+                <!-- <section class="row grouplist" id="group1">
+                        <div class="container groupinfo" id="heart_surgery" >
 
-                        <div class="col-sm-12 col-md-4 group-img">
-                            <img src="assets/media1.jpg" alt="" class="img-responsive">
-                        </div>
-                        <div class="col-sm-12 col-md-7 groupintro">
 
-                            <h4><img src="assets/tubiao2.jpg" class="tubiao" alt="Responsive image"></h4>
-                            <p style=" margin: 0 0 10px;text-justify: inter-ideograph;
-			text-align: justify;"> Currently, it has undertaken one national natural science foundation project, one
-                                China postdoctoral fund project,
-                                and one Changchun international science and technology cooperation project.To establish
-                                an international cooperative
-                                research organization on Knowledge diversity with TrentoRISE research center of the
-                                European Union, Harvard University
-                                of the United States, national institute of statistics of India and other institutions,
-                                and carry out international
-                                cooperative projects such as Universal Knowledge Core.Published more than 30 SCI and EI
-                                retrieval papers and 2 English
-                                works.Participated in hosting ukc-2014.</p>
+                                <div class="col-sm-12 col-md-7 groupintro" style="float: none; width: 90%">
+
+                                        <h4><img src="assets/tubiao2.jpg" class="tubiao" alt="Responsive image"></h4>
+                                                                    <p style=" margin: 0 0 10px;text-justify: inter-ideograph;
+                            text-align: justify;"> Currently, it has undertaken one national natural science foundation project, one China postdoctoral fund project,
+                                                                    and one Changchun international science and technology cooperation project.To establish an international cooperative
+                                                                        research organization on Knowledge diversity with TrentoRISE research center of the European Union, Harvard University
+                                                                        of the United States, national institute of statistics of India and other institutions, and carry out international
+                                                                        cooperative projects such as Universal Knowledge Core.Published more than 30 SCI and EI retrieval papers and 2 English
+                                                                        works.Participated in hosting ukc-2014.</p>
+
+                                </div>
 
                         </div>
+
+                </section> -->
+                <section class="container" id="group2" >
+                    <div class="col-sm-12 col-md-4 group-img" style="margin-left: 68px; margin-top: -40px; width: 300px;">
+                        <img src="assets/media1.jpg" alt="" class="img-responsive">
                     </div>
-                </section>
-                <section class="row grouplist" id="group2">
-                    <div class="container groupinfo" id="heart_surgery">
-                        <div class="col-sm-12 col-md-7 groupintro">
-
-                            <h4><img src="assets/tubiao1.jpg" class="tubiao" style="margin-left: 520px;"
-                                     alt="Responsive image"></h4>
-                            <p style=" margin: 0 0 10px;text-justify: inter-ideograph;
-			text-align: justify;">the first IWOST and other meetings.It has long-term projects and exchanges and
-                                cooperation with Japan’s kochi university
-                                of engineering, the university of Missouri in the United States and the university of
-                                Trento in Italy.</p>
-
-                        </div>
-                        <div class="col-sm-12 col-md-4 group-img">
-                            <img src="assets/media2.jpg" alt="" class="img-responsive">
-                        </div>
+                    <div class="col-sm-12 col-md-4 group-img" style="margin-left: 30px; margin-top: -40px; width: 300px;">
+                        <img src="assets/media1.jpg" alt="" class="img-responsive">
                     </div>
+                    <div class="col-sm-12 col-md-4 group-img" style="margin-left: 30px; margin-top: -40px; width: 300px;">
+                        <img src="assets/media1.jpg" alt="" class="img-responsive">
+                    </div>
+                    <div class="col-sm-12 col-md-4 group-img" style="margin-left: 68px; margin-top: -40px; width: 300px;">
+                        <img src="assets/media1.jpg" alt="" class="img-responsive">
+                    </div>
+                    <div class="col-sm-12 col-md-4 group-img" style="margin-left: 30px; margin-top: -40px; width: 300px;">
+                        <img src="assets/media1.jpg" alt="" class="img-responsive">
+                    </div>
+                    <div class="col-sm-12 col-md-4 group-img" style="margin-left: 30px; margin-top: -40px; width: 300px;">
+                        <img src="assets/media1.jpg" alt="" class="img-responsive">
+                    </div>
+
                 </section>
             </div>
         </div>
-        <div class="team" style="margin-top: -20px;">
-            <p>Our team</p>
-            <div class="team-picture row">
-                <div class="col-sm-12 col-lg-4 col-md-4">
-                    <img src="pictures/pro1.jpg" class="img-responsive" alt="Responsive image">
-                    <div class="caption">
-                        <h3>徐昊 – Xu Hao</h3>
-                        <h4>副教授– Associate professor</h4>
-                    </div>
+        <div class="missions"style="min-height:580px;">
+            <p>Join us</p>
+            <div class="missions-intro">
+                <p>If you are interested in our lab or are interested in joining us, please contact us as soon as possible and we look forward to your joining.</p>
+            </div>
+            <div class="container groupinfo" id="heart_surgery" style=" padding-left: 230px; margin: auto;margin-top: 20px;">
+                <div class="col-sm-12 col-md-4 group-img">
+                    <img src="assets/media1.jpg" alt="" class="img-responsive" style="width: 450px;height: 260px;">
                 </div>
-                <div class="col-sm-12 col-lg-4 col-md-4">
-                    <img src="pictures/pro1.jpg" class="img-responsive" alt="Responsive image">
-                    <div class="caption">
-                        <h2>Heading 2</h2>
-                        <h4>Heading 2</h4>
-                    </div>
-                </div>
-                <div class="col-sm-12 col-lg-4 col-md-4">
-                    <img src="pictures/pro1.jpg" class="img-responsive" alt="Responsive image">
-                    <div class="caption">
-                        <h2>Heading 3</h2>
-                        <h4>Heading 3</h4>
-                    </div>
+                <div class="col-sm-12 col-md-8 groupintro" style="padding-left: 40px;">
+                    <h3>Contact us:</h3>
+                    <ul class="list1 firstOrderList nav" style="text-transform: initial; margin-top: 60px; line-height: 33px;">
+                        <li><span class="glyphicon glyphicon-phone-alt" aria-hidden="true" style="font-size: 20px;
+						color:#0186d5 ;"></span>&nbsp;&nbsp;&nbsp; Tel: 123 7890 456</li>
+                        <li><span class="glyphicon glyphicon-envelope" aria-hidden="true" style="font-size: 20px;
+						color:#0186d5 ;"></span>&nbsp;&nbsp;&nbsp;E-mail: icfs@jlu.edu.cn</li>
+                        <li><span class="glyphicon glyphicon-map-marker" aria-hidden="true" style="font-size: 20px;
+						color:#0186d5 ;"></span>&nbsp;&nbsp;&nbsp;Address: No.2699 Qianjin Street, Changchun City, Jilin Province</li>
+                    </ul>
+
                 </div>
             </div>
-        </div>
-        <!-- <div class="missions">
-                        <p>Our laboratory</p>
-                        <div class="missions-intro">
-                                <p>Computational Intelligence Knowledge Mapping Laboratory, School of Computer Science and Technology, Jilin University</p>
+            <!-- <div class="missions">
+                            <p>Our laboratory</p>
+                            <div class="missions-intro">
+                                    <p>Computational Intelligence Knowledge Mapping Laboratory, School of Computer Science and Technology, Jilin University</p>
+                            </div>
+                            <div class="media" style="margin-left: 150px;">
+                                    <div class="shang row" style="">
+                                            <div class="col-md-5 " style="margin-left: 150px;">
+                                                    <img src="assets/media1.jpg" style="margin-left: 134px;" class="img-media" alt="Responsive image">
+                                            </div>
+                                            <div  class="col-md-5 left-intro" style="margin-left: 50px;" >
+                                                    <img src="assets/tubiao2.jpg" class="tubiao" alt="Responsive image">
+                                                    <p> Currently, it has undertaken one national natural science foundation project, one China postdoctoral fund project,
+                                                     and one Changchun international science and technology cooperation project.To establish an international cooperative
+                                                        research organization on Knowledge diversity with TrentoRISE research center of the European Union, Harvard University
+                                                         of the United States, national institute of statistics of India and other institutions, and carry out international
+                                                         cooperative projects such as Universal Knowledge Core.Published more than 30 SCI and EI retrieval papers and 2 English
+                                                         works.Participated in hosting ukc-2014.</p>
+                                            </div>
+                                    </div>
+
+                                    <div class="xia row">
+                                            <div class="col-md-5 right-intro"style="margin-left: -30px;">
+                                                    <img src="assets/tubiao1.jpg" class="tubiao" alt="Responsive image">
+                                                    <p>the first IWOST and other meetings.It has long-term projects and exchanges and cooperation with Japan’s kochi university
+                                                    of engineering, the university of Missouri in the United States and the university of Trento in Italy.</p>
+                                            </div>
+                                            <div class="col-md-7 right" >
+                                                    <img src="assets/media2.jpg" class="img-media" style="margin-left: 60px;" alt="Responsive image">
+                                            </div>
+                                    </div>
+                            </div>
+                </div> 	 -->
+
+
+            <!-- <div class="news">
+                    <p>our news</p>
+                    <div class="news-details row">
+                        <div class="col-md-5 col-lg-5 col-sm-5 num">
+                            <p>150<span class="sub">媒体报道</span><span class="super">次</span></p>
+                            <p class="secondp">150<span class="sub">媒体报道</span><span class="super">次</span></p>
                         </div>
-                        <div class="media" style="margin-left: 150px;">
-                                <div class="shang row" style="">
-                                        <div class="col-md-5 " style="margin-left: 150px;">
-                                                <img src="assets/media1.jpg" style="margin-left: 134px;" class="img-media" alt="Responsive image">
+                        <div class="col-md-7 col-lg-7 col-sm-7 change">
+                            <img src="assets/shang.jpg" class="img-yinhaos" alt="Responsive image">
+                            <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+
+                                <ol class="carousel-indicators">
+                                    <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+                                    <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+                                    <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+                                    <div>
+                                        <img src="assets/xia.jpg" class="img-yinhaox" alt="Responsive image">
+                                    </div>
+                                </ol>
+
+                                    <div class="carousel-inner" role="listbox">
+                                        <div class="item active">
+                                            <p>Rewards and organizational performance in Japan and the Rewards and Rewards and organizational performance in Japan and the United States Rewards and organizational performance in Japan and Rewards and organizational Rewards and organizational performance in Japan and the United States performance in Japan and the United States the in
+                                                <br>
+                                                <br>
+                                                <p>李元元</p>
+                                                <p>吉林大学校长</p>
+                                            </p>
                                         </div>
-                                        <div  class="col-md-5 left-intro" style="margin-left: 50px;" >
-                                                <img src="assets/tubiao2.jpg" class="tubiao" alt="Responsive image">
-                                                <p> Currently, it has undertaken one national natural science foundation project, one China postdoctoral fund project,
-                                                 and one Changchun international science and technology cooperation project.To establish an international cooperative
-                                                    research organization on Knowledge diversity with TrentoRISE research center of the European Union, Harvard University
-                                                     of the United States, national institute of statistics of India and other institutions, and carry out international
-                                                     cooperative projects such as Universal Knowledge Core.Published more than 30 SCI and EI retrieval papers and 2 English
-                                                     works.Participated in hosting ukc-2014.</p>
+                                        <div class="item">
+                                            <p>Rewards and organizational performance in Japan and the Rewards and Rewards and organizational performance in Japan and the United States Rewards and organizational performance in Japan and Rewards and organizational Rewards and organizational performance in Japan and the United States performance in Japan and the United States the in
+                                                <br>
+                                                <br>
+                                                <p>李元元</p>
+                                                <p>吉林大学校长</p>
+                                            </p>
                                         </div>
-                                </div>
-
-                                <div class="xia row">
-                                        <div class="col-md-5 right-intro"style="margin-left: -30px;">
-                                                <img src="assets/tubiao1.jpg" class="tubiao" alt="Responsive image">
-                                                <p>the first IWOST and other meetings.It has long-term projects and exchanges and cooperation with Japan’s kochi university
-                                                of engineering, the university of Missouri in the United States and the university of Trento in Italy.</p>
-                                        </div>
-                                        <div class="col-md-7 right" >
-                                                <img src="assets/media2.jpg" class="img-media" style="margin-left: 60px;" alt="Responsive image">
-                                        </div>
-                                </div>
-                        </div>
-            </div> 	 -->
-
-
-        <!-- <div class="news">
-                <p>our news</p>
-                <div class="news-details row">
-                    <div class="col-md-5 col-lg-5 col-sm-5 num">
-                        <p>150<span class="sub">媒体报道</span><span class="super">次</span></p>
-                        <p class="secondp">150<span class="sub">媒体报道</span><span class="super">次</span></p>
-                    </div>
-                    <div class="col-md-7 col-lg-7 col-sm-7 change">
-                        <img src="assets/shang.jpg" class="img-yinhaos" alt="Responsive image">
-                        <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
-
-                            <ol class="carousel-indicators">
-                                <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-                                <li data-target="#carousel-example-generic" data-slide-to="1"></li>
-                                <li data-target="#carousel-example-generic" data-slide-to="2"></li>
-                                <div>
-                                    <img src="assets/xia.jpg" class="img-yinhaox" alt="Responsive image">
-                                </div>
-                            </ol>
-
-                                <div class="carousel-inner" role="listbox">
-                                    <div class="item active">
-                                        <p>Rewards and organizational performance in Japan and the Rewards and Rewards and organizational performance in Japan and the United States Rewards and organizational performance in Japan and Rewards and organizational Rewards and organizational performance in Japan and the United States performance in Japan and the United States the in
+                                        <div class="item">
+                                            <p>Rewards and organizational performance in Japan and the Rewards and Rewards and organizational performance in Japan and the United States Rewards and organizational performance in Japan and Rewards and organizational Rewards and organizational performance in Japan and the United States performance in Japan and the United States the in
                                             <br>
                                             <br>
                                             <p>李元元</p>
                                             <p>吉林大学校长</p>
-                                        </p>
-                                    </div>
-                                    <div class="item">
-                                        <p>Rewards and organizational performance in Japan and the Rewards and Rewards and organizational performance in Japan and the United States Rewards and organizational performance in Japan and Rewards and organizational Rewards and organizational performance in Japan and the United States performance in Japan and the United States the in
-                                            <br>
-                                            <br>
-                                            <p>李元元</p>
-                                            <p>吉林大学校长</p>
-                                        </p>
-                                    </div>
-                                    <div class="item">
-                                        <p>Rewards and organizational performance in Japan and the Rewards and Rewards and organizational performance in Japan and the United States Rewards and organizational performance in Japan and Rewards and organizational Rewards and organizational performance in Japan and the United States performance in Japan and the United States the in
-                                        <br>
-                                        <br>
-                                        <p>李元元</p>
-                                        <p>吉林大学校长</p>
-                                        </p>
+                                            </p>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                </div>
-        </div>
-     -->
+                    </div>
+            </div>
+         -->
 
-    </div>
+        </div>
     <footer class="row" style="padding-top: 30px;">
         <div class="container">
             <div class="row">

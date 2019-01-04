@@ -1,626 +1,661 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org"
       xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
-<head>
-    <meta charset="utf-8">
-    <base th:href="@{/}">
-    <title>未来科学国际合作联合实验室</title>
-    <link rel="stylesheet" href="../static/css/bootstrap.min.css" th:href="@{/css/bootstrap.min.css}">
-    <link rel="stylesheet" href="../static/css/font-awesome.min.css" th:href="@{/css/font-awesome.min.css}">
-    <link rel="stylesheet" href="../static/css/index.css" th:href="@{/css/index.css}">
-    <link rel="stylesheet" href="../static/css/person-list.css" th:href="@{/css/person-list.css}">
+  <head>
+      <meta charset="utf-8">
+      <base th:href="@{/}">
+      <title>未来科学国际合作联合实验室</title>
+      <link rel="stylesheet" href="../static/css/bootstrap.min.css" th:href="@{/css/bootstrap.min.css}">
+      <link rel="stylesheet" href="../static/css/font-awesome.min.css" th:href="@{/css/font-awesome.min.css}">
+      <link rel="stylesheet" href="../static/css/index.css" th:href="@{/css/index.css}">
+      <link rel="stylesheet" href="../static/css/person-list.css" th:href="@{/css/person-list.css}">
     <style>
+    	.default .navbar.navbar2 {
+    			background: #fff;
+    			height: auto;
+    			padding-top: 0;
+    			margin-bottom: 0;
+    			margin-top: -10px;
+    	}
+    </style>
+	 <style>
         a {
             text-decoration: none;
         }
     </style>
     <style>
-        .go-top {
-            position: fixed;
-            bottom: 10px;
-            right: 10px;
+			
+      .go-top {
+        position: fixed;
+        bottom: 10px;
+        right: 10px;
+        display: none;
+        cursor: pointer;
+      }
+      .left_title{
+        background:#c5c5c7;
+      }
+      .left_title:hover{
+        background:#337ab7;
+      }
 
-            cursor: pointer;
-        }
+      .author-info {
+        border-top: 1px #ddd solid;
+        box-shadow: 0 -6px 6px #ddd;
+      }
+
+      .title-row {
+        padding: 20px 0 0 0;
+      }
+      .author-info .title-row{
+        padding-top: 50px;
+      }
+      .author-info .title-row h4 {
+       font-family:helvetica ;
+          font-weight: 500;
+          font-size: 18px;
+          margin-bottom: 30px;
+          color: #404d5f;
+      }
+      .author-info .title-row h4:after {
+        content: '';
+          width: 60px;
+          height: 2px;
+          background: #0186d5;
+          display: block;
+          margin: 13px 0 0;
+      } 
+      .author-info .author-card .pic>img{
+        border: 1px solid white;
+        width: 140px;
+        height: 100%;
+        margin-top: 36px;
+        margin-left: 6px;
+     }
+      
+      .author-info .author-card {
+        padding-left: 0px;
+        padding-right: 0px;
+        padding-top: 0px;
+        padding-left: 0px;
+        padding-bottom: 10px;
+        border: 1px #f1e8e8 solid;
+        border-radius: 4px;
+        margin-bottom: 26px;
+       
+     }
+      .author-card p {
+        margin-bottom: 0; 
+        color: #666;
+        margin-left: 20px;
+
+      }
+      .author-name p {
+        line-height: 18px;
+      }
+      .author-info .author-card .pic{
+        padding: 0px;
+        margin-top: 0px;
+       }
+       .author-info>div>a{  
+        text-decoration: none;
+        float: right;
+      }
     </style>
-    <style>
-        .pagination button:hover{
-            background: #0186d5;
-            color: white;
+<script src="https://cdn.bootcss.com/jquery/1.10.2/jquery.min.js" th:src="@{/js/jquery-2.1.3.min.js}">
+</script>
+<!-- <script type="text/javascript">
+$(document).ready(function(){
+    var text = $("#hiddenp").text()
+    persons = JSON.parse(text)
+    len = persons.length
+    var persons_div = $("#person_div")
+    //根据长度动态生成person列表
+    for(var i=0;i<len;i++){
+        innerDiv = "<div class=\"media blog\">"
+        innerDiv += "<div class=\"media-left\">"                     
+        innerDiv += "<a href=\"/person\" style=\"padding-left: 50px;\"><img src="+'./pictures/'+(i+1)+'.jpg'+" class=\"img-reponsive\"></a>"
+        innerDiv += "</div>"  
+        innerDiv += "<div class=\"media-body\">"
+        innerDiv += "<a href=\"#\"><h3 style:\"text-transform: initial;\">"+persons[i]["Family Name(EN)"]+" "+persons[i]["First Name(EN)"]+"</h3></a>"            
+        innerDiv += "<div class=\"row m0 meta\">Publications : <a href=\"#\">"+persons[i]["Publications"].length+"</a> Projects : <a href=\"#\">115</a> Patents: <a href=\"\" >"+persons[i]["Patents"].length+"</a></div>"
+        innerDiv += "<p><span class=\"glyphicon glyphicon-home\" aria-hidden=\"true\"></span>&nbsp;&nbsp;&nbsp;"+persons[i]["AffiliationA/角色1所属单位"]+persons[i]["AffiliationA.1/子单位"]+"</p>"               
+        innerDiv += "<p><span class=\"glyphicon glyphicon-briefcase\" aria-hidden=\"true\"></span>&nbsp;&nbsp;&nbsp;"+persons[i]["Talent Title人才称号"]+"</p>"
+        if(persons[i]["Scientific Sector(EN)"]!=''){
+            innerDiv += "<p><span class=\"glyphicon glyphicon-book\" aria-hidden=\"true\"></span>&nbsp;&nbsp;&nbsp;"+persons[i]["Scientific Sector(EN)"]+"</p>"
+        }else{
+             innerDiv += "<p><span class=\"glyphicon glyphicon-book\" aria-hidden=\"true\"></span>&nbsp;&nbsp;&nbsp;"+persons[i]["Scientific Sector(ZH)研究方向"]+"</p>"
         }
-        .pagination button{
-            border:0px  ;
-            background: #e5f0fb;
-            color: #404d5f;
-            width: 30px;
-            height: 25px;
-        }
-    </style>
-    <script src="../static/js/jquery-2.1.3.min.js" th:src="@{/js/jquery-2.1.3.min.js}"></script>
-    <script src="../static/js/layer/layer.min.js" th:src="@{/js/layer/layer.min.js}"></script>
-    <!-- <script type="text/javascript">
-    $(document).ready(function(){
-        var text = $("#hiddenp").text()
-        persons = JSON.parse(text)
-        len = persons.length
-        var persons_div = $("#person_div")
-        //根据长度动态生成person列表
-        for(var i=0;i<len;i++){
-            innerDiv = "<div class=\"media blog\">"
-            innerDiv += "<div class=\"media-left\">"
-            innerDiv += "<a href=\"/person\" style=\"padding-left: 50px;\"><img src="+'./pictures/'+(i+1)+'.jpg'+" class=\"img-reponsive\"></a>"
-            innerDiv += "</div>"
-            innerDiv += "<div class=\"media-body\">"
-            innerDiv += "<a href=\"#\"><h3 style:\"text-transform: initial;\">"+persons[i]["Family Name(EN)"]+" "+persons[i]["First Name(EN)"]+"</h3></a>"
-            innerDiv += "<div class=\"row m0 meta\">Publications : <a href=\"#\">"+persons[i]["Publications"].length+"</a> Projects : <a href=\"#\">115</a> Patents: <a href=\"\" >"+persons[i]["Patents"].length+"</a></div>"
-            innerDiv += "<p><span class=\"glyphicon glyphicon-home\" aria-hidden=\"true\"></span>&nbsp;&nbsp;&nbsp;"+persons[i]["AffiliationA/角色1所属单位"]+persons[i]["AffiliationA.1/子单位"]+"</p>"
-            innerDiv += "<p><span class=\"glyphicon glyphicon-briefcase\" aria-hidden=\"true\"></span>&nbsp;&nbsp;&nbsp;"+persons[i]["Talent Title人才称号"]+"</p>"
-            if(persons[i]["Scientific Sector(EN)"]!=''){
-                innerDiv += "<p><span class=\"glyphicon glyphicon-book\" aria-hidden=\"true\"></span>&nbsp;&nbsp;&nbsp;"+persons[i]["Scientific Sector(EN)"]+"</p>"
-            }else{
-                 innerDiv += "<p><span class=\"glyphicon glyphicon-book\" aria-hidden=\"true\"></span>&nbsp;&nbsp;&nbsp;"+persons[i]["Scientific Sector(ZH)研究方向"]+"</p>"
+        innerDiv += "</div></div>"   
+        persons_div.append(innerDiv)               
+    }
+    divs = document.getElementsByClassName("media-body")
+    for(var i=0;i<len;i++){
+        (function(i){
+            name_link = divs[i].children[0].children[0]
+            name_link.onclick=function(){
+                id = i + 1
+                window.location.href='./person.html?id=' + id
             }
-            innerDiv += "</div></div>"
-            persons_div.append(innerDiv)
-        }
-        divs = document.getElementsByClassName("media-body")
-        for(var i=0;i<len;i++){
-            (function(i){
-                name_link = divs[i].children[0].children[0]
-                name_link.onclick=function(){
-                    id = i + 1
-                    window.location.href='./person.html?id=' + id
-                }
-            })(i)
-        }
-    })
-    </script> -->
-</head>
-<body class="default">
-<section class="row top_bar">
-    <div class="" style="margin-left: 62px;margin-right:60px;margin-top: 10px;">
-        <div class="row">
-            <div class="fleft phone">
-                <p><a href="#" style="
-    text-decoration: none;
-    color: #404d5f;
-">Computational Intelligence Knowledge Mapping Laboratory, School of Computer Science and
-                    Technology, Jilin University</a></p>
-            </div>
-            <div class="fright">
+        })(i)
+    }
+})
+</script> -->
+  </head>
+  <body class="default">
+  <section id="top" class="row top_bar">
+      <div class="" style="margin-left: 60px;margin-right:60px;margin-top: 10px;">
+          <div class="row ">
+              <div class="fleft phone" style="padding-bottom: 10px;">
+                  <p><a href="#" style="
+       text-decoration: none;
+       color: #03536A;
+   ">Computational Intelligence Laboratory, College of Computer Science and Technology, Jilin
+                      University</a></p>
+              </div>
+              <div class="fright">
 
-                <div class="fleft" sec:authorize="!isAuthenticated()"><strong><a href="#"  th:href="@{/user/login}" style="
+                  <div class="fleft" sec:authorize="!isAuthenticated()"><strong><a href="#" th:href="@{/user/login}" style="
           			text-decoration: none;
-          			color: #404d5f;" >Sign in</a></strong></div>
-                <div class="fleft" sec:authorize="isAuthenticated()"><span style="
+          			color: #03536A;" >Sign in</a></strong></div>
+                  <div class="fleft" sec:authorize="isAuthenticated()"><span style="
                     text-decoration: none;
-                    color: #404d5f;"><span class="glyphicon glyphicon-user"></span>&nbsp;<strong  sec:authentication="name"></strong></span></div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<nav class="navbar navbar-default navbar-static-top navbar2" style="background: #0186d5;">
-    <div class="container" style="margin-left: -10px;">
-        <!-- Brand and toggle get grouped for better mobile display -->
-        <div class="navbar-header">
-
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#main_nav" aria-expanded="false">
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <!-- <a href="book-appointment.html" class="navbar-toggle visible-xs" data-toggle="modal" data-target="#appointmefnt_form_pop">Search</a> -->
-        </div>
-
-        <!-- Collect the nav links, forms, and other content for toggling -->
-        <div class="collapse navbar-collapse" id="main_nav">
-            <a href="../static/index.html" th:href="@{/index.html}">
-                <img style="width:225px;height:70px;margin-left:200px ;margin-top: 9px;" src="../static/assets/wq6.png" th:src="@{/assets/wq6.png}" alt=""></a>
-            <ul  class="nav navbar-nav navbar-right">
-                <li class="active"><a href="../static/index.html" th:href="@{/index}">Home</a></li>
-
-                <li><a href="../static/aboutus.html" th:href="@{/aboutus}">About Us</a></li>
-                <li class="dropdown">
-                    <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Research</a>
-                    <ul class="dropdown-menu" role="menu">
-                        <li><a href="direction/directionlist" th:href="@{/direction/directionlist}">Directions</a></li>
-                        <li><a href="paper/paperlist" th:href="@{/paper/paperlist}">Papers</a></li>
-                        <li><a href="project/projectlist" th:href="@{/project/projectlist}">Projects</a></li>
-                    </ul>
-                </li>
-                <li><a href="person/personlist" th:href="@{/person/personlist}">People</a></li>
-                <li><a href="news/newslist" th:href="@{/news/newslist}">News</a></li>
-                <li><a href="resource/resourcelist" th:href="@{/resource/resourcelist}">Resource</a></li>
-
-
-                <li><a href="../static/join.html" th:href="@{/join}">Join Us</a></li>
-                <!-- <li class="hidden-xs book"><a href="#" data-toggle="modal" data-target="#appointmefnt_form_pop">Search</a></li> -->
-            </ul>
-        </div><!-- /.navbar-collapse -->
-    </div><!-- /.container -->
-</nav>
-<div class="content">
-    <!--<section class="row team">
-        <div class="container">
-         <div class="col-md-6 col-sm-12 col-xs-12">
-            <form action="#" class="row m0 search_form widget">
-                <div class="input-group">
-                   <input type="search" class="form-control" placeholder="Search here">
-                   <span class="input-group-addon"><button type="submit"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button></span>
-                </div>
-           </form>
-         </div>
-     </div>
+                    color: #03536A;"><span class="glyphicon glyphicon-user"></span>&nbsp;<strong  sec:authentication="name"></strong></span></div>
+              </div>
+          </div>
+      </div>
   </section>
-<hr>
-<section class="filter">
-    <div class="team sub-filter container">
-        <div class="col-md-1 filter-name">
-            <p><b>Research Team:</b></p>
-        </div>
-        <div class="col-md-11 filter-content">
-            <a href="">Advanced energy and environmental materials</a>&nbsp;&nbsp;&nbsp;
-            <a href="">High-pressure science and technology</a>&nbsp;&nbsp;&nbsp;
-            <a href="">Translational immunology</a>&nbsp;&nbsp;&nbsp;
-            <a href="">Millimeter microwave technology and applications</a>&nbsp;&nbsp;&nbsp;
-            <a href="">Advanced metallic materials</a>&nbsp;&nbsp;&nbsp;
-            <a href="">PaleoChemistry and PaleoEvolution of ancient life</a>&nbsp;&nbsp;&nbsp;
-        </div>
-    </div>
-    <hr>
-    <div class="Area sub-filter container">
-        <div class="col-md-1 filter-name">
-            <p><b>Area:</b></p>
-        </div>
-        <div class="col-md-11 filter-content">
-            <a href="">High-efficiency functional materials</a>&nbsp;&nbsp;&nbsp;
-            <a href="">Structural search and experimental preparation for the materials within the earth interior</a>&nbsp;&nbsp;&nbsp;
-            <a href="">Autoimmunity;Structural Biology;Tumor Immunology;Epigenetic Medicine</a>&nbsp;&nbsp;&nbsp;
-            <a href="">Millimeter microwave technology</a>&nbsp;&nbsp;&nbsp;
-            <a href="">Developing powder sintering and near net shape forming technology</a>&nbsp;&nbsp;&nbsp;
-            <a href="">Origin and the evolution of Tetrapods</a>&nbsp;&nbsp;&nbsp;
-        </div>
-    </div>
-    <hr>
-    <div class="title sub-filter container">
-        <div class="col-md-1 filter-name">
-            <p><b>Title:</b></p>
-        </div>
-        <div class="col-md-11 filter-content">
-            <a href="">professer</a>&nbsp;&nbsp;&nbsp;
-            <a href="">associate professor</a>&nbsp;&nbsp;&nbsp;
-            <a href="">Academicain</a>&nbsp;&nbsp;&nbsp;
-        </div>
-    </div>
-    <hr>
-</section>-->
-    <section class="row content_section">
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-12 col-md-3 sidebar">
-                    <div class="panel-group accordion white_bg sidefilter" id="accordion" role="tablist"
-                         aria-multiselectable="true" style="margin-top: 35px;">
-                        <div class="panel panel-default">
-                            <!--<div class="panel-heading">
-                                <h4 class="panel-title">
-                                    <a><b>Country / Area</b></a>
-                                </h4>
-                            </div>
-                            <div class="panel-collapse">
-                                <div class="panel-body" style="padding-top: 17px; text-transform: initial;">                                
-                                    <h4 class="sub_panel_title panel_title"><a href="#">China (12)</a></h4>
-                                    <h4 class="sub_panel_title panel_title"><a href="#">England (12)</a></h4>
-                                    <h4 class="sub_panel_title panel_title"><a href="#">America (12)</a></h4>
-                                    <h4 class="sub_panel_title panel_title"><a href="#">Japan (12)</a></h4>
-                                    <h4 class="sub_panel_title panel_title"><a href="#">Keara (12)</a></h4>
-                                    <h4 class="sub_panel_title panel_title"><a href="#">Canada (12)</a></h4>
-                                    <h4 class="sub_panel_title panel_title"><a href="#">Germany (12)</a></h4>
-                                    <h4 class="sub_panel_title panel_title"><a href="#">HongKong (China) (12)</a></h4>
-                                    <h4 class="sub_panel_title panel_title"><a href="#">Taiwan (China) (12)</a></h4>
-                                 </div>
-                            </div>-->
-                            <!-- <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
-                                 <div class="panel-body">                                
-                                    <h4 class="sub_panel_title panel_title"><a href="">India (12)</a></h4>
-                                    <h4 class="sub_panel_title panel_title"><a href="">India (31)</a></h4>
-                                    <h4 class="sub_panel_title panel_title"><a href="">India (22)</a></h4>
-                                    <h4 class="sub_panel_title panel_title"><a href="">India (12)</a></h4>
-                                 </div>
-                             </div>
-                             <div class="panel-heading" role="tab" id="headingOne">
-                                 <h4 class="panel-title" style="">
-                                     <a style="background-color: #A2ADC2; color: #fff;" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
-                                         <b>View All / Hide</b>
-                                         <span class="sign" style="background-color: #828FA8; color: #fff;"></span>
-                                     </a>
-                                 </h4>
-                             </div> -->
-                        </div> <!--Panel-->
-                        <div class="panel panel-default">
-                            <!--<div class="panel-heading">
-                                <h4 class="panel-title">
-                                    <a><b>Talent Title</b></a>
-                                </h4>
-                            </div>
-                            <div class="panel-collapse">
-                                <div class="panel-body" style="padding-top: 17px;">                                
-                                    <h4 class="sub_panel_title panel_title"><a href="">Chinese Academy of Sciences (12)</a></h4>
-                                    <h4 class="sub_panel_title panel_title"><a href="">Changjiang Scholar (23)</a></h4>
-                                    <h4 class="sub_panel_title panel_title"><a href="">Thousand Talents program (23)</a></h4>
-                                    <h4 class="sub_panel_title panel_title"><a href="">Assistant Professor (23)</a></h4>
-                                 </div>
-                            </div>-->
-                        </div>
-                        <div class="panel panel-default">
-                            <div class="panel-heading">
-                                <h4 class="panel-title">
-                                    <a><b>教授</b></a>
-                                </h4>
-                            </div>
-                            <div class="panel-collapse">
-                                <div class="panel-body" style="padding-top: 17px;">
-                                    <h4 class="sub_panel_title panel_title"><a th:href="@{/person/personlist(degree=PROFESSOR)}" href="">教授&合作教授 </a></h4>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="panel panel-default">
-                            <div class="panel-heading">
-                                <h4 class="panel-title">
-                                    <a><b>在读</b></a>
-                                </h4>
-                            </div>
-                            <div class="panel-collapse">
-                                <div class="panel-body" style="padding-top: 17px;">
-                                    <h4 class="sub_panel_title panel_title"><a th:href="@{/person/personlist(degree=PHD,graduate=false)}" href="../static/personlist_doctor.html">博士 </a>
-                                    </h4>
-                                    <h4 class="sub_panel_title panel_title"><a th:href="@{/person/personlist(degree=MASTER,graduate=false)}" href="../static/personlist_master.html">硕士</a></h4>
-                                    <h4 class="sub_panel_title panel_title"><a th:href="@{/person/personlist(degree=UNDERGRADUATE,graduate=false)}" href="../static/personlist_undergraduate.html">本科生</a></h4>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="panel panel-default">
-                            <div class="panel-heading">
-                                <h4 class="panel-title">
-                                    <a><b>已毕业</b></a>
-                                </h4>
-                            </div>
-                            <div class="panel-collapse">
-                                <div class="panel-body" style="padding-top: 17px;">
-                                    <h4 class="sub_panel_title panel_title"><a th:href="@{/person/personlist(degree=PHD,graduate=true)}" href="../static/personlist_doctor0.html">博士 </a>
-                                    </h4>
-                                    <h4 class="sub_panel_title panel_title" ><a th:href="@{/person/personlist(degree=MASTER,graduate=true)}" href="../static/personlist_master0.html">硕士</a>
-                                    </h4>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- <div class="panel panel-default">
-                            <div class="panel-heading">
-                                <h4 class="panel-title">
-                                    <a><b>Staff</b></a>
-                                </h4>
-                            </div>
-                            <div class="panel-collapse">
-                                <div class="panel-body" style="padding-top: 17px;">                                
-                                    <h4 class="sub_panel_title panel_title"><a href="">Researcher（23）</a></h4>
-                                    <h4 class="sub_panel_title panel_title"><a href="">Senior Engineer (23)</a></h4>
-                                    <h4 class="sub_panel_title panel_title"><a href="">Engineer (23)</a></h4>
-                                    <h4 class="sub_panel_title panel_title"><a href="">Assistant Engineer (23)</a></h4>
-                                 </div>
-                            </div>
-                         </div>  --><!--Panel-->
-                    </div>
+        
+        <nav class="navbar navbar-default navbar-static-top navbar2"style="background: #0186d5;">
+            <div class="container" style="margin-left: -10px;">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+    							
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#main_nav" aria-expanded="false">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <!-- <a href="book-appointment.html" class="navbar-toggle visible-xs" data-toggle="modal" data-target="#appointmefnt_form_pop">Search</a> -->
                 </div>
-                <div class="col-sm-12 col-md-9 blog_list">
-                    <!--/*@thymesVar id="degree" type="com.socog.website.module.person.entiy.Degree"*/-->
-                    <!--/*@thymesVar id="personPage" type="org.springframework.data.domain.Page<com.socog.website.module.person.entiy.Person>"*/-->
-                    <!--/*@thymesVar id="person" type="com.socog.website.module.person.entiy.Person"*/-->
-                    <div id="person_div ">
-                        <div id="person_container">
-                            <div class="media blog" th:if="${degree.toString()} eq 'PROFESSOR'"
-                                 th:each="person : ${personPage.getContent()}">
-                                <div class="media-left">
-                                    <a href="#" style="padding-left: 50px;"><img src="../static/assets/img/avatar1.png" th:src="${person.getPhoto()}"
-                                                                                 class="img-reponsive"></a>
-                                </div>
+                
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="main_nav">
+                    <a href="../static/index.html" th:href="@{/index.html}">
+                        <img style="width:225px;height:70px;margin-left:200px ;margin-top: 9px;" src="../static/assets/wq6.png" th:src="@{/assets/wq6.png}" alt=""></a>
+                    <ul  class="nav navbar-nav navbar-right">
+                        <li class="active"><a href="../static/index.html" th:href="@{/index}">Home</a></li>
 
-                                <div class="media-body">
-                                    <a th:href="@{/person/person(id=${person.getId()})}" href="#">
-                                        <h3 th:text="${person.getName()} ">徐昊</h3></a>
-                                    <div class="row m0 meta">
-                                        Tel : <a href="#" th:text="${person.getTelephone()}">XXXXXX</a> Email : <a
-                                            href="#"
-                                            th:text="${person.getEmail()}">xuhao@jlu.edu.cn</a>
-                                    </div>
-                                    <p><span class="glyphicon glyphicon-home" aria-hidden="true"></span>&nbsp;&nbsp;&nbsp;单位
-                                        – Unit(s)：<span th:text="${person.getUnit()}">吉林大学 – JiLin University</span></p>
-                                    <p><span class="glyphicon glyphicon-briefcase" aria-hidden="true"></span>&nbsp;&nbsp;&nbsp;职称
-                                        – Title(s)：<span th:text="${person.getTitle()}">副教授– Associate professor</span>
-                                    </p>
-                                    <p><span class="glyphicon glyphicon-book" aria-hidden="true"></span>&nbsp;&nbsp;&nbsp;研究方向
-                                        – Rearch Field(s)：<span th:text="${person.getField()}">知识图谱 、人机交互 、计算机视觉</span>
-                                    </p>
-                                </div>
-                            </div>
 
-                            <div class="media blog " th:unless="${degree.toString()} eq 'PROFESSOR'"
-                                 th:each="person : ${personPage.getContent()}">
-                                <div class="media-left">
-                                    <a th:href="@{/person/person(id=${person.getId()})}" href="#" style="padding-left: 50px;"><img src="../static/assets/img/avatar1.png" th:src="${person.getPhoto()}"
-                                                                                       class="img-reponsive"></a>
-                                </div>
-                                <div class="media-body">
-                                    <a th:href="@{/person/person(id=${person.getId()})}" href="#"><h3 th:text="${person.getName()}">王一博</h3></a>
-                                    <div class="row m0 meta">
-                                        电话 : <a href="#" th:text="${person.getEmail()}">XXXXXX</a> 邮箱 : <a href="#"
-                                                                                                           th:text="${person.getEmail()}">@jlu.edu.cn</a>
-                                        年级 : <a
-                                            href="" th:text="${person.getGrade()}">2017级</a> <a href=""></a>
-                                    </div>
-                                    <p><span class="glyphicon glyphicon-home" aria-hidden="true"></span>&nbsp;&nbsp;&nbsp;单位
-                                        – Unit(s)：<span th:text="${person.getUnit()}">吉林大学 – JiLin University</span></p>
-                                    <p><span class="glyphicon glyphicon-book" aria-hidden="true"></span>&nbsp;&nbsp;&nbsp;研究方向
-                                        – Rearch Field(s)：<span th:text="${person.getField()}">本体</span></p>
-                                </div>
-                            </div>
+                        <!-- <li class="dropdown">
+                             <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Research</a>
+                             <ul class="dropdown-menu" role="menu">
+                                 <li><a href="direction/directionlist" th:href="@{/direction/directionlist}">Directions</a></li>
+                                 <li><a href="paper/paperlist" th:href="@{/paper/paperlist}">Papers</a></li>
+                                 <li><a href="project/projectlist" th:href="@{/project/projectlist}">Projects</a></li>
+                             </ul>
+                         </li>-->
+                        <li><a href="direction/directionlist" th:href="@{/direction/directionlist}">Research</a></li>
+                        <li><a href="person/personlist" th:href="@{/person/personlist}">People</a></li>
+                        <li><a href="news/newslist" th:href="@{/news/newslist}">News</a></li>
+                        <li><a href="../static/aboutus.html" th:href="@{/aboutus}">About Us</a></li>
+                        <li><a href="resource/resourcelist" th:href="@{/resource/resourcelist}">Document</a></li>
 
-                        </div>
-                    </div>
-                    <div class="row paginationRow" style="clear: both">
-                        <div class="pagination">
-                            <button type="button" id="person_first"><span
-                                    class="glyphicon glyphicon-fast-backward" aria-hidden="true"></span>
-                            </button>
-                            <button type="button" id="person_prev"><span
-                                    class="glyphicon glyphicon-triangle-left" aria-hidden="true"></span>
-                            </button>
-                            <button type="button" id="person_next"><span
-                                    class="glyphicon glyphicon-triangle-right"
-                                    aria-hidden="true"></span></button>
-                            <button type="button" id="person_last"><span
-                                    class="glyphicon glyphicon-fast-forward" aria-hidden="true"></span>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-</div>
-<footer class="row" style="padding-top: 30px;">
-    <div class="container">
-        <div class="row">
-            <div class="col-sm-8 col-md-7 col-lg-4 footer_menuList">
-                <div class="row menuList">
-                    <ul class="firstOrderList nav" style="text-transform: initial">
-                        <li><a href="../static/index.html" th:href="@{/index}"><img style="width:40%;height: 30%;float: left;margin-left:40px ;"
-                                                                                    src="../static/assets/wq4.png" th:src="@{/assets/wq4.png}" alt=""></a></li>
 
+                        <!--<li><a href="../static/join.html" th:href="@{/join}">Join Us</a></li>-->
+                        <!-- <li class="hidden-xs book"><a href="#" data-toggle="modal" data-target="#appointmefnt_form_pop">Search</a></li> -->
                     </ul>
-                </div>
-            </div>
-            <div class="col-sm-4 col-md-5 col-lg-5 footer_menuList">
-                <div class="row menuList">
-                    <ul class="firstOrderList nav" style="text-transform: initial">
-                        <li><a href="">Jilin University</a></li>
+                </div><!-- /.navbar-collapse -->
+            </div><!-- /.container -->
+        </nav>
+    <div class="content"style="min-height: 720px;">
+		
+   <!-- <section class="row content_section" style="float: left;  margin-top:16px;">
+                       
+                       <div  class="left_title" style="width: 86px; height: 280px; padding-top: 120px;text-align: center;">
+                               <h4 class="panel-title">
+                                   <a href="personlist.html"style="text-decoration: none;"><b>Professor</b></a>
+                               </h4>
+                       </div> 
+                      
+                     
+                        <div class="left_title" style="width: 86px; height: 280px; margin-top:6px; padding-top: 120px;text-align: center;">
+                               <h4 class="panel-title">
+                                   <a href="personlist2.html"style="text-decoration: none;"><b>Student</b></a>
+                               </h4>
+                       </div>
+                       
+    </section> -->
+                <!-- <section class="row content_section" style="float: left;">
+                     <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">
+                                <a><b>教授</b></a>
+                            </h4>
+                        </div>
+                    </div>
+                </section> -->
+                <section class="author-info row" style="margin-left: 5px; margin-top: 6px;">
+                      <div class="title-row container">
+                      <h4 class="container"><b>Professor</b><span style="background-color: #0186d5; color: #fff;margin-left: 100px;font-size: 16px;padding: 5px 5px 5px 5px; margin-top: 10px;" 
+                                          data-toggle="collapse" data-parent="#author-info" href="#collapseOne2" aria-expanded="false" aria-controls="collapseOne">more&nbsp;+</span></h4>
+                      
 
-                        <li><a href="">Chinese Ministry of Education</a></li>
+                      <div class="col-md-3 col-sm-6 col-xs-12" style="width:390px;">
+                               <div class="author-card col-md-12 col-sm-12 col-xs-12">
+                                   <div class="col-md-4 col-sm-4 col-xs-4 pic" style="margin-top: -18px;">
+                                       <img src="./pictures/pro1.jpg" class="img-circle" alt="Responsive image"> 
+                                   </div>
+                                   <div class="author-name col-md-8 col-sm-8 col-xs-8" style="margin-top: 16px; padding-left: 30px; font-size: 12px;" >
+                                        <a href="#" style="text-decoration: none;"><h3 style="padding-left: 18px; margin-top: 2px;">徐昊</h3></a>
+                                         <p><span class="glyphicon glyphicon-home" aria-hidden="true"></span>&nbsp;&nbsp;Unit(s)：JiLin University</p>
+                                         <p><span class="glyphicon glyphicon-briefcase" aria-hidden="true"></span>&nbsp;&nbsp;Title(s)：Associate Professor</p>
+                                         <p><span class="glyphicon glyphicon-book" aria-hidden="true"></span>&nbsp;&nbsp;Rearch Field(s)：Knowledge Graph 、Human-computer Interaction 、Computer Vision</p>
+                                         <p><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>&nbsp;&nbsp;xuhao@jlu.edu.cn</p> 
+                                   </div>
+                               </div>
+                      </div>
+                      <div class="col-md-3 col-sm-6 col-xs-12" style="width:390px;">
+                               <div class="author-card col-md-12 col-sm-12 col-xs-12">
+                                   <div class="col-md-4 col-sm-4 col-xs-4 pic" style="margin-top: -18px;">
+                                       <img src="./pictures/pro1.jpg" class="img-circle" alt="Responsive image"> 
+                                   </div>
+                                   <div class="author-name col-md-8 col-sm-8 col-xs-8" style="margin-top: 16px; padding-left: 30px; font-size: 12px;" >
+                                        <a href="#" style="text-decoration: none;"><h3 style="padding-left: 18px; margin-top: 2px;">徐昊</h3></a>
+                                         <p><span class="glyphicon glyphicon-home" aria-hidden="true"></span>&nbsp;&nbsp;Unit(s)：JiLin University</p>
+                                         <p><span class="glyphicon glyphicon-briefcase" aria-hidden="true"></span>&nbsp;&nbsp;Title(s)：Associate Professor</p>
+                                         <p><span class="glyphicon glyphicon-book" aria-hidden="true"></span>&nbsp;&nbsp;Rearch Field(s)：Knowledge Graph 、Human-computer Interaction 、Computer Vision</p>
+                                         <p><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>&nbsp;&nbsp;xuhao@jlu.edu.cn</p> 
+                                   </div>
+                               </div>
+                      </div>
+                      <div class="col-md-3 col-sm-6 col-xs-12" style="width:390px;">
+                               <div class="author-card col-md-12 col-sm-12 col-xs-12">
+                                   <div class="col-md-4 col-sm-4 col-xs-4 pic" style="margin-top: -18px;" >
+                                       <img src="./pictures/pro1.jpg" class="img-circle" alt="Responsive image"> 
+                                   </div>
+                                   <div class="author-name col-md-8 col-sm-8 col-xs-8" style="margin-top: 16px;padding-left: 30px;  font-size: 12px;" >
+                                        <a href="#" style="text-decoration: none;"><h3 style="padding-left: 18px; margin-top: 2px;">徐昊</h3></a>
+                                         <p><span class="glyphicon glyphicon-home" aria-hidden="true"></span>&nbsp;&nbsp;Unit(s)：JiLin University</p>
+                                         <p><span class="glyphicon glyphicon-briefcase" aria-hidden="true"></span>&nbsp;&nbsp;Title(s)：Associate Professor</p>
+                                         <p><span class="glyphicon glyphicon-book" aria-hidden="true"></span>&nbsp;&nbsp;Rearch Field(s)：Knowledge Graph 、Human-computer Interaction 、Computer Vision</p>
+                                         <p><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>&nbsp;&nbsp;xuhao@jlu.edu.cn</p> 
+                                   </div>
+                               </div>
+                      </div>
+                      <div id="collapseOne2" class="pannel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+                      <div class="col-md-3 col-sm-6 col-xs-12"  style="width:390px;">
+                               <div class="author-card col-md-12 col-sm-12 col-xs-12">
+                                   <div class="col-md-4 col-sm-4 col-xs-4 pic" style="margin-top: -18px;">
+                                       <img src="./pictures/pro1.jpg" class="img-circle" alt="Responsive image"> 
+                                   </div>
+                                   <div class="author-name col-md-8 col-sm-8 col-xs-8" style="margin-top: 16px;padding-left: 30px;  font-size: 12px;" >
+                                        <a href="#" style="text-decoration: none;"><h3 style="padding-left: 18px; margin-top: 2px;">徐昊</h3></a>
+                                         <p><span class="glyphicon glyphicon-home" aria-hidden="true"></span>&nbsp;&nbsp;Unit(s)：JiLin University</p>
+                                         <p><span class="glyphicon glyphicon-briefcase" aria-hidden="true"></span>&nbsp;&nbsp;Title(s)：Associate Professor</p>
+                                         <p><span class="glyphicon glyphicon-book" aria-hidden="true"></span>&nbsp;&nbsp;Rearch Field(s)：Knowledge Graph 、Human-computer Interaction 、Computer Vision</p>
+                                         <p><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>&nbsp;&nbsp;xuhao@jlu.edu.cn</p> 
+                                   </div>
+                               </div>
+                      </div >
+                      <div class="col-md-3 col-sm-6 col-xs-12"  style="width:390px;">
+                               <div class="author-card col-md-12 col-sm-12 col-xs-12">
+                                   <div class="col-md-4 col-sm-4 col-xs-4 pic" style="margin-top: -18px;">
+                                       <img src="./pictures/pro1.jpg" class="img-circle" alt="Responsive image"> 
+                                   </div>
+                                   <div class="author-name col-md-8 col-sm-8 col-xs-8" style="margin-top: 16px; padding-left: 30px; font-size: 12px;" >
+                                        <a href="#" style="text-decoration: none;"><h3 style="padding-left: 18px; margin-top: 2px;">徐昊</h3></a>
+                                         <p><span class="glyphicon glyphicon-home" aria-hidden="true"></span>&nbsp;&nbsp;Unit(s)：JiLin University</p>
+                                         <p><span class="glyphicon glyphicon-briefcase" aria-hidden="true"></span>&nbsp;&nbsp;Title(s)：Associate Professor</p>
+                                         <p><span class="glyphicon glyphicon-book" aria-hidden="true"></span>&nbsp;&nbsp;Rearch Field(s)：Knowledge Graph 、Human-computer Interaction 、Computer Vision</p>
+                                         <p><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>&nbsp;&nbsp;xuhao@jlu.edu.cn</p> 
+                                   </div>
+                               </div>
+                      </div>
+                      <div class="col-md-3 col-sm-6 col-xs-12"style="width:390px;">
+                               <div class="author-card col-md-12 col-sm-12 col-xs-12">
+                                   <div class="col-md-4 col-sm-4 col-xs-4 pic" style="margin-top: -18px;">
+                                       <img src="./pictures/pro1.jpg" class="img-circle" alt="Responsive image"> 
+                                   </div>
+                                   <div class="author-name col-md-8 col-sm-8 col-xs-8" style="margin-top: 16px;padding-left: 30px;  font-size: 12px;" >
+                                        <a href="#" style="text-decoration: none;"><h3 style="padding-left: 18px; margin-top: 2px;">徐昊</h3></a>
+                                         <p><span class="glyphicon glyphicon-home" aria-hidden="true"></span>&nbsp;&nbsp;Unit(s)：JiLin University</p>
+                                         <p><span class="glyphicon glyphicon-briefcase" aria-hidden="true"></span>&nbsp;&nbsp;Title(s)：Associate Professor</p>
+                                         <p><span class="glyphicon glyphicon-book" aria-hidden="true"></span>&nbsp;&nbsp;Rearch Field(s)：Knowledge Graph 、Human-computer Interaction 、Computer Vision</p>
+                                         <p><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>&nbsp;&nbsp;xuhao@jlu.edu.cn</p> 
+                                   </div>
+                               </div>
+                      </div>
+                      </div>
 
-                        <li><a href="">National Natural Science Foundation of China</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="col-sm-6 col-md-6 col-lg-3" style="text-align:center;">
-                <div><img style="width:32%; margin-top:2px; margin-bottom: 8px;" src="../static/assets/erweima.png" th:src="@{/assets/erweima.png}" alt="">
-                </div>
-                <p style="margin-top: 2px; color: #eee; text-align: center;">关注微信公众号</p>
-            </div>
-            <div class="fright copyright col-sm-6 col-md-6 col-lg-12" style="text-align: center;margin-top: -28px">&copy;
-                 <a href="../static/index.html" th:href="@{/index}"> 吉林大学计算机科学与技术学院计算智能知识图谱实验室 </a></div>
-        </div>
-    </div>
-</footer>
-<a href="javascript:void(0)" onclick="location.hash='#top';location.replace(location.href)">
+                      </div>
+                      <div class="title-row container">
+                            <h4 class="container"><b>College Student</b><span style="background-color: #0186d5; color: #fff;margin-left: 50px;font-size: 16px;padding: 5px 5px 5px 5px; margin-top: 10px;" 
+                                          data-toggle="collapse" data-parent="#author-info" href="#collapseOne3" aria-expanded="false" aria-controls="collapseOne">more&nbsp;+</span></h4>
+                            <div class="author col-md-3 col-sm-6 col-xs-12" style="width:390px;">
+                                <div class="author-card col-md-12 col-sm-12 col-xs-12">
+                                    <div class="col-md-4 col-sm-4 col-xs-4 pic" style="margin-top: -18px;">
+                                        <img src="./pictures/master1.jpg" class="img-circle" alt="Responsive image"> 
+                                    </div>
+                                    <div class="author-name col-md-8 col-sm-8 col-xs-8" style="margin-top: 16px; padding-left: 30px; font-size: 12px;" >
+                                          <a href="#" style="text-decoration: none;"><h3 style="padding-left: 16px; margin-top: 2px;">王一博</h3></a>
+                                        <p><span class="glyphicon glyphicon-education" aria-hidden="true"></span>&nbsp;&nbsp;Class：2017</p>
+                                          <p><span class="glyphicon glyphicon-home" aria-hidden="true"></span>&nbsp;&nbsp;Degree：master </p>
+                                          <p><span class="glyphicon glyphicon-briefcase" aria-hidden="true"></span>&nbsp;&nbsp;Major：Computer application technolog</p>
+                                          <p><span class="glyphicon glyphicon-book" aria-hidden="true"></span>&nbsp;&nbsp;Rearch Field(s)：Ontology</p>
+                                          <p><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>&nbsp;&nbsp;@jlu.edu.cn</p> 
+                                          <p>&nbsp;</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3 col-sm-6 col-xs-12" style="width:390px;">
+                                <div class="author-card col-md-12 col-sm-12 col-xs-12">
+                                    <div class="col-md-4 col-sm-4 col-xs-4 pic" style="margin-top: -16px;">
+                                        <img src="./pictures/master2.jpg" class="img-circle" alt="Responsive image"> 
+                                    </div>
+                                    <div class="author-name col-md-8 col-sm-8 col-xs-8" style="margin-top: 16px;padding-left: 30px;  font-size: 12px;" >
+                                      <a href="#" style="text-decoration: none;"><h3 style="padding-left: 16px; margin-top: 2px;">祁晓慧</h3></a>
+                                        <p><span class="glyphicon glyphicon-education" aria-hidden="true"></span>&nbsp;&nbsp;Class：2017</p>
+                                          <p><span class="glyphicon glyphicon-home" aria-hidden="true"></span>&nbsp;&nbsp;Degree：master</p>
+                                          <p><span class="glyphicon glyphicon-briefcase" aria-hidden="true"></span>&nbsp;&nbsp;Major：Computer application technology</p>
+                                          <p><span class="glyphicon glyphicon-book" aria-hidden="true"></span>&nbsp;&nbsp;Rearch Field(s)：Knowledge Graph</p>
+                                          <p><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>&nbsp;&nbsp;@jlu.edu.cn</p> 
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3 col-sm-6 col-xs-12" style="width:390px;">
+                                <div class="author-card col-md-12 col-sm-12 col-xs-12" >
+                                    <div class="col-md-4 col-sm-4 col-xs-4 pic" style="margin-top: -18px;">
+                                        <img src="./pictures/master3.jpg" class="img-circle" alt="Responsive image"> 
+                                    </div>
+                                    <div class="author-name col-md-8 col-sm-8 col-xs-8" style="margin-top: 16px;padding-left: 30px;  font-size: 12px;" >
+                                          <a href="#" style="text-decoration: none;"><h3 style="padding-left: 16px; margin-top: 2px;">申强</h3></a>
+                                        <p><span class="glyphicon glyphicon-education" aria-hidden="true"></span>&nbsp;&nbsp;Class：2017</p>
+                                          <p><span class="glyphicon glyphicon-home" aria-hidden="true"></span>&nbsp;&nbsp;Degree：master</p>
+                                          <p><span class="glyphicon glyphicon-briefcase" aria-hidden="true"></span>&nbsp;&nbsp;Major：Software Engineering</p>
+                                          <p><span class="glyphicon glyphicon-book" aria-hidden="true"></span>&nbsp;&nbsp;Rearch Field(s)：Competency</p>
+                                          <p><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>&nbsp;&nbsp;@jlu.edu.cn</p> 
+                                          
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="author2 col-md-3 col-sm-6 col-xs-12" style="width:390px;">
+                                <div class="author-card col-md-12 col-sm-12 col-xs-12">
+                                    <div class="col-md-4 col-sm-4 col-xs-4 pic" style="margin-top: -18px;">
+                                        <img src="./pictures/master1.jpg" class="img-circle" alt="Responsive image"> 
+                                    </div>
+                                    <div class="author-name col-md-8 col-sm-8 col-xs-8" style="margin-top: 16px;padding-left: 30px;  font-size: 12px;" >
+                                          <a href="#" style="text-decoration: none;"><h3 style="padding-left: 16px; margin-top: 2px;">王一博</h3></a>
+                                        <p><span class="glyphicon glyphicon-education" aria-hidden="true"></span>&nbsp;&nbsp;Class：2017</p>
+                                          <p><span class="glyphicon glyphicon-home" aria-hidden="true"></span>&nbsp;&nbsp;Degree：master</p>
+                                          <p><span class="glyphicon glyphicon-briefcase" aria-hidden="true"></span>&nbsp;&nbsp;Major：Computer application technolog</p>
+                                          <p><span class="glyphicon glyphicon-book" aria-hidden="true"></span>&nbsp;&nbsp;Rearch Field(s)：Ontology</p>
+                                          <p><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>&nbsp;&nbsp;@jlu.edu.cn</p> 
+                                          <p>&nbsp;</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="author2 col-md-3 col-sm-6 col-xs-12" style="width:390px;">
+                                <div class="author-card col-md-12 col-sm-12 col-xs-12">
+                                    <div class="col-md-4 col-sm-4 col-xs-4 pic" style="margin-top: -16px;">
+                                        <img src="./pictures/master2.jpg" class="img-circle" alt="Responsive image"> 
+                                    </div>
+                                    <div class="author-name col-md-8 col-sm-8 col-xs-8" style="margin-top: 16px;padding-left: 30px;  font-size: 12px;" >
+                                      <a href="#" style="text-decoration: none;"><h3 style="padding-left: 16px; margin-top: 2px;">祁晓慧</h3></a>
+                                        <p><span class="glyphicon glyphicon-education" aria-hidden="true"></span>&nbsp;&nbsp;Class：2017</p>
+                                          <p><span class="glyphicon glyphicon-home" aria-hidden="true"></span>&nbsp;&nbsp;Degree：master</p>
+                                          <p><span class="glyphicon glyphicon-briefcase" aria-hidden="true"></span>&nbsp;&nbsp;Major：Computer application technology</p>
+                                          <p><span class="glyphicon glyphicon-book" aria-hidden="true"></span>&nbsp;&nbsp;Rearch Field(s)：Knowledge Graph</p>
+                                          <p><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>&nbsp;&nbsp;@jlu.edu.cn</p> 
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="author2 col-md-3 col-sm-6 col-xs-12" style="width:390px;">
+                                <div class="author-card col-md-12 col-sm-12 col-xs-12" >
+                                    <div class="col-md-4 col-sm-4 col-xs-4 pic" style="margin-top: -18px;">
+                                        <img src="./pictures/master3.jpg" class="img-circle" alt="Responsive image"> 
+                                    </div>
+                                    <div class="author-name col-md-8 col-sm-8 col-xs-8" style="margin-top: 16px;padding-left: 30px;  font-size: 12px;" >
+                                          <a href="#" style="text-decoration: none;"><h3 style="padding-left: 16px; margin-top: 2px;">申强</h3></a>
+                                        <p><span class="glyphicon glyphicon-education" aria-hidden="true"></span>&nbsp;&nbsp;Class：2017</p>
+                                          <p><span class="glyphicon glyphicon-home" aria-hidden="true"></span>&nbsp;&nbsp;Degree：master</p>
+                                          <p><span class="glyphicon glyphicon-briefcase" aria-hidden="true"></span>&nbsp;&nbsp;Major：Software Engineering</p>
+                                          <p><span class="glyphicon glyphicon-book" aria-hidden="true"></span>&nbsp;&nbsp;Rearch Field(s)：Competency</p>
+                                          <p><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>&nbsp;&nbsp;@jlu.edu.cn</p> 
+                                          
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="collapseOne3" class="pannel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+                                <div class="author2 col-md-3 col-sm-6 col-xs-12" style="width:390px;">
+                                <div class="author-card col-md-12 col-sm-12 col-xs-12">
+                                    <div class="col-md-4 col-sm-4 col-xs-4 pic" style="margin-top: -18px;">
+                                        <img src="./pictures/master1.jpg" class="img-circle" alt="Responsive image"> 
+                                    </div>
+                                    <div class="author-name col-md-8 col-sm-8 col-xs-8" style="margin-top: 16px;padding-left: 30px;  font-size: 12px;" >
+                                          <a href="#" style="text-decoration: none;"><h3 style="padding-left: 16px; margin-top: 2px;">王一博</h3></a>
+                                        <p><span class="glyphicon glyphicon-education" aria-hidden="true"></span>&nbsp;&nbsp;Class：2017</p>
+                                          <p><span class="glyphicon glyphicon-home" aria-hidden="true"></span>&nbsp;&nbsp;Degree：master</p>
+                                          <p><span class="glyphicon glyphicon-briefcase" aria-hidden="true"></span>&nbsp;&nbsp;Major：Computer application technolog</p>
+                                          <p><span class="glyphicon glyphicon-book" aria-hidden="true"></span>&nbsp;&nbsp;Rearch Field(s)：Ontology</p>
+                                          <p><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>&nbsp;&nbsp;@jlu.edu.cn</p> 
+                                          <p>&nbsp;</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="author2 col-md-3 col-sm-6 col-xs-12" style="width:390px;">
+                                <div class="author-card col-md-12 col-sm-12 col-xs-12">
+                                    <div class="col-md-4 col-sm-4 col-xs-4 pic" style="margin-top: -16px;">
+                                        <img src="./pictures/master2.jpg" class="img-circle" alt="Responsive image"> 
+                                    </div>
+                                    <div class="author-name col-md-8 col-sm-8 col-xs-8" style="margin-top: 16px; padding-left: 30px; font-size: 12px;" >
+                                      <a href="#" style="text-decoration: none;"><h3 style="padding-left: 16px; margin-top: 2px;">祁晓慧</h3></a>
+                                        <p><span class="glyphicon glyphicon-education" aria-hidden="true"></span>&nbsp;&nbsp;Class：2017</p>
+                                          <p><span class="glyphicon glyphicon-home" aria-hidden="true"></span>&nbsp;&nbsp;Degree：master</p>
+                                          <p><span class="glyphicon glyphicon-briefcase" aria-hidden="true"></span>&nbsp;&nbsp;Major：Computer application technology</p>
+                                          <p><span class="glyphicon glyphicon-book" aria-hidden="true"></span>&nbsp;&nbsp;Rearch Field(s)：Knowledge Graph</p>
+                                          <p><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>&nbsp;&nbsp;@jlu.edu.cn</p> 
+                                    </div>
+                                </div>
+                            </div>
+                                <div class="author2 col-md-3 col-sm-6 col-xs-12" style="width:390px;">
+                                <div class="author-card col-md-12 col-sm-12 col-xs-12" >
+                                    <div class="col-md-4 col-sm-4 col-xs-4 pic" style="margin-top: -18px;">
+                                        <img src="./pictures/master3.jpg" class="img-circle" alt="Responsive image"> 
+                                    </div>
+                                    <div class="author-name col-md-8 col-sm-8 col-xs-8" style="margin-top: 16px; padding-left: 30px; font-size: 12px;" >
+                                          <a href="#" style="text-decoration: none;"><h3 style="padding-left: 16px; margin-top: 2px;">申强</h3></a>
+                                        <p><span class="glyphicon glyphicon-education" aria-hidden="true"></span>&nbsp;&nbsp;Class：2017</p>
+                                          <p><span class="glyphicon glyphicon-home" aria-hidden="true"></span>&nbsp;&nbsp;Degree：master</p>
+                                          <p><span class="glyphicon glyphicon-briefcase" aria-hidden="true"></span>&nbsp;&nbsp;Major：Software Engineering</p>
+                                          <p><span class="glyphicon glyphicon-book" aria-hidden="true"></span>&nbsp;&nbsp;Rearch Field(s)：Competency</p>
+                                          <p><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>&nbsp;&nbsp;@jlu.edu.cn</p> 
+                                          
+                                    </div>
+                                </div>
+                            </div>
+                            </div>
+                      </div>
+                     <!--  <div class="container">
+                         <a href="author">Show More&nbsp;&nbsp;<span class="glyphicon glyphicon-chevron-down" aria-hidden="true"></span></a>
+                     </div> -->
+
+                      <div class="title-row container">
+                            <h4 class="container"><b>Graduated Student</b><span style="background-color: #0186d5; color: #fff;margin-left: 100px;font-size: 16px;padding: 5px 5px 5px 5px; margin-top: 10px;"
+                                          data-toggle="collapse" data-parent="#author-info" href="#collapseOne4" aria-expanded="false" aria-controls="collapseOne">more&nbsp;+</span></h4>
+                            <div class="col-md-3 col-sm-6 col-xs-12" style="width:380px;">
+                                <div class="author-card col-md-12 col-sm-12 col-xs-12">
+                                    <div class="col-md-4 col-sm-4 col-xs-4 pic" style="margin-top: -18px;">
+                                        <img src="./pictures/master1.jpg" class="img-circle" alt="Responsive image"> 
+                                    </div>
+                                    <div class="author-name col-md-8 col-sm-8 col-xs-8" style="margin-top: 16px;padding-left: 30px;  font-size: 12px;" >
+                                          <a href="#" style="text-decoration: none;"><h3 style="padding-left: 16px; margin-top: 2px;">王一博</h3></a>
+                                        <p><span class="glyphicon glyphicon-education" aria-hidden="true"></span>&nbsp;&nbsp;Class：2017</p>
+                                          <p><span class="glyphicon glyphicon-home" aria-hidden="true"></span>&nbsp;&nbsp;Degree：master</p>
+                                          <p><span class="glyphicon glyphicon-briefcase" aria-hidden="true"></span>&nbsp;&nbsp;Major：Computer application technolog</p>
+                                          <p><span class="glyphicon glyphicon-book" aria-hidden="true"></span>&nbsp;&nbsp;Rearch Field(s)：Ontology</p>
+                                          <p><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>&nbsp;&nbsp;@jlu.edu.cn</p> 
+                                          <p>&nbsp;</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3 col-sm-6 col-xs-12" style="width:380px;">
+                                <div class="author-card col-md-12 col-sm-12 col-xs-12">
+                                    <div class="col-md-4 col-sm-4 col-xs-4 pic" style="margin-top: -16px;">
+                                        <img src="./pictures/master2.jpg" class="img-circle" alt="Responsive image"> 
+                                    </div>
+                                    <div class="author-name col-md-8 col-sm-8 col-xs-8" style="margin-top: 16px; padding-left: 30px; font-size: 12px;" >
+                                      <a href="#" style="text-decoration: none;"><h3 style="padding-left: 16px; margin-top: 2px;">祁晓慧</h3></a>
+                                        <p><span class="glyphicon glyphicon-education" aria-hidden="true"></span>&nbsp;&nbsp;Class：2017</p>
+                                          <p><span class="glyphicon glyphicon-home" aria-hidden="true"></span>&nbsp;&nbsp;Degree：master</p>
+                                          <p><span class="glyphicon glyphicon-briefcase" aria-hidden="true"></span>&nbsp;&nbsp;Major：Computer application technology</p>
+                                          <p><span class="glyphicon glyphicon-book" aria-hidden="true"></span>&nbsp;&nbsp;Rearch Field(s)：Knowledge Graph</p>
+                                          <p><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>&nbsp;&nbsp;@jlu.edu.cn</p> 
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3 col-sm-6 col-xs-12" style="width:380px;">
+                                <div class="author-card col-md-12 col-sm-12 col-xs-12">
+                                    <div class="col-md-4 col-sm-4 col-xs-4 pic" style="margin-top: -18px;">
+                                        <img src="./pictures/master3.jpg" class="img-circle" alt="Responsive image"> 
+                                    </div>
+                                    <div class="author-name col-md-8 col-sm-8 col-xs-8" style="margin-top: 16px; padding-left: 30px; font-size: 12px;" >
+                                          <a href="#" style="text-decoration: none;"><h3 style="padding-left: 16px; margin-top: 2px;">申强</h3></a>
+                                        <p><span class="glyphicon glyphicon-education" aria-hidden="true"></span>&nbsp;&nbsp;Class：2017</p>
+                                          <p><span class="glyphicon glyphicon-home" aria-hidden="true"></span>&nbsp;&nbsp;Degree：master</p>
+                                          <p><span class="glyphicon glyphicon-briefcase" aria-hidden="true"></span>&nbsp;&nbsp;Major：Software Engineering</p>
+                                          <p><span class="glyphicon glyphicon-book" aria-hidden="true"></span>&nbsp;&nbsp;Rearch Field(s)：Competency</p>
+                                          <p><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>&nbsp;&nbsp;@jlu.edu.cn</p> 
+                                          
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="collapseOne4" class="pannel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+                              <div class="col-md-3 col-sm-6 col-xs-12" style="width:380px;">
+                                <div class="author-card col-md-12 col-sm-12 col-xs-12">
+                                    <div class="col-md-4 col-sm-4 col-xs-4 pic" style="margin-top: -18px;">
+                                        <img src="./pictures/master1.jpg" class="img-circle" alt="Responsive image"> 
+                                    </div>
+                                    <div class="author-name col-md-8 col-sm-8 col-xs-8" style="margin-top: 16px;padding-left: 30px;  font-size: 12px;" >
+                                          <a href="#" style="text-decoration: none;"><h3 style="padding-left: 16px; margin-top: 2px;">王一博</h3></a>
+                                        <p><span class="glyphicon glyphicon-education" aria-hidden="true"></span>&nbsp;&nbsp;Class：2017</p>
+                                          <p><span class="glyphicon glyphicon-home" aria-hidden="true"></span>&nbsp;&nbsp;Degree：master</p>
+                                          <p><span class="glyphicon glyphicon-briefcase" aria-hidden="true"></span>&nbsp;&nbsp;Major：Computer application technolog</p>
+                                          <p><span class="glyphicon glyphicon-book" aria-hidden="true"></span>&nbsp;&nbsp;Rearch Field(s)：Ontology</p>
+                                          <p><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>&nbsp;&nbsp;@jlu.edu.cn</p> 
+                                          <p>&nbsp;</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3 col-sm-6 col-xs-12" style="width:380px;">
+                                <div class="author-card col-md-12 col-sm-12 col-xs-12">
+                                    <div class="col-md-4 col-sm-4 col-xs-4 pic" style="margin-top: -16px;">
+                                        <img src="./pictures/master2.jpg" class="img-circle" alt="Responsive image"> 
+                                    </div>
+                                    <div class="author-name col-md-8 col-sm-8 col-xs-8" style="margin-top: 16px;padding-left: 30px;  font-size: 12px;" >
+                                      <a href="#" style="text-decoration: none;"><h3 style="padding-left: 16px; margin-top: 2px;">祁晓慧</h3></a>
+                                        <p><span class="glyphicon glyphicon-education" aria-hidden="true"></span>&nbsp;&nbsp;Class：2017</p>
+                                          <p><span class="glyphicon glyphicon-home" aria-hidden="true"></span>&nbsp;&nbsp;Degree：master</p>
+                                          <p><span class="glyphicon glyphicon-briefcase" aria-hidden="true"></span>&nbsp;&nbsp;Major：Computer application technology</p>
+                                          <p><span class="glyphicon glyphicon-book" aria-hidden="true"></span>&nbsp;&nbsp;Rearch Field(s)：Knowledge Graph</p>
+                                          <p><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>&nbsp;&nbsp;@jlu.edu.cn</p> 
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3 col-sm-6 col-xs-12" style="width:380px;">
+                                <div class="author-card col-md-12 col-sm-12 col-xs-12">
+                                    <div class="col-md-4 col-sm-4 col-xs-4 pic" style="margin-top: -18px;">
+                                        <img src="./pictures/master3.jpg" class="img-circle" alt="Responsive image"> 
+                                    </div>
+                                    <div class="author-name col-md-8 col-sm-8 col-xs-8" style="margin-top: 16px;padding-left: 30px;  font-size: 12px;" >
+                                          <a href="#" style="text-decoration: none;"><h3 style="padding-left: 16px; margin-top: 2px;">申强</h3></a>
+                                        <p><span class="glyphicon glyphicon-education" aria-hidden="true"></span>&nbsp;&nbsp;Class：2017</p>
+                                          <p><span class="glyphicon glyphicon-home" aria-hidden="true"></span>&nbsp;&nbsp;Degree：master</p>
+                                          <p><span class="glyphicon glyphicon-briefcase" aria-hidden="true"></span>&nbsp;&nbsp;Major：Software Engineering</p>
+                                          <p><span class="glyphicon glyphicon-book" aria-hidden="true"></span>&nbsp;&nbsp;Rearch Field(s)：Competency</p>
+                                          <p><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>&nbsp;&nbsp;@jlu.edu.cn</p> 
+                                          
+                                          
+                                    </div>
+                                </div>
+                            </div>
+                            </div>
+                      </div>
+                      <!-- <div class="container">
+                          <a href="#">Show More&nbsp;&nbsp;<span class="glyphicon glyphicon-chevron-down" aria-hidden="true"></span></a>
+                      </div> -->
+                     
+                  </section>
+                
+	</div>
+  <footer class="row" style="padding-top: 30px;">
+      <div class="container">
+          <div class="row">
+              <div class="col-sm-8 col-md-7 col-lg-4 footer_menuList">
+                  <div class="row menuList">
+                      <ul class="firstOrderList nav" style="text-transform: initial">
+                          <li><a href="../static/index.html" th:href="@{/index}"><img style="width:40%;height: 30%;float: left;margin-left:40px ;"
+                                                                                      src="../static/assets/wq4.png" th:src="@{/assets/wq4.png}" alt=""></a></li>
+
+                      </ul>
+                  </div>
+              </div>
+              <div class="col-sm-4 col-md-5 col-lg-5 footer_menuList">
+                  <div class="row menuList">
+                      <ul class="firstOrderList nav" style="text-transform: initial">
+                          <li><a href="">Jilin University</a></li>
+
+                          <li><a href="">Chinese Ministry of Education</a></li>
+
+                          <li><a href="">National Natural Science Foundation of China</a></li>
+                      </ul>
+                  </div>
+              </div>
+              <div class="col-sm-6 col-md-6 col-lg-3" style="text-align:center;">
+                  <div><img style="width:32%; margin-top:2px; margin-bottom: 8px;" src="../static/assets/erweima.png" th:src="@{/assets/erweima.png}" alt="">
+                  </div>
+                  <p style="margin-top: 2px; color: #eee; text-align: center;">关注微信公众号</p>
+              </div>
+              <div class="fright copyright col-sm-6 col-md-6 col-lg-12" style="text-align: center;margin-top: -15px">&copy;
+                  <a href="../static/index.html" th:href="@{/index}"> 吉林大学计算机科学与技术学院计算智能知识图谱实验室 </a></div>
+          </div>
+      </div>
+  </footer>
+    <a href="#top">
     <button type="button" class="btn btn-primary btn-lg go-top">
-        <span class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span>
+      <span class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span>
     </button>
-</a>
-<div class="modal fade" id="searchform" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
-     style="height: 100%; width: 100%;">
-    <div class="modal-dialog" role="document" style="height: 100%; width: 60%; margin-top: 99px;">
+    </a>
+    <div class="modal fade" id="searchform" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" style="height: 100%; width: 100%;">
+      <div class="modal-dialog" role="document" style="height: 100%; width: 60%; margin-top: 99px;">
         <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>
-                </button>
-                <h4 class="modal-title" id="myModalLabel">Smart Search</h4>
-            </div>
-            <div class="modal-body" style="height: 200px;">
-                <form id="domain-search" action="/search" method="get">
-                    <input id="domain-text" type="text" name="domain" placeholder="Search here"/>
-                    <input id="search-btn" type="submit" name="submit" value="Search"/>
-                </form>
-            </div>
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title" id="myModalLabel">Smart Search</h4>
+          </div>
+          <div class="modal-body" style="height: 200px;">
+            <form id="domain-search" action="/search" method="get">
+              <input id="domain-text" type="text" name="domain" placeholder="Search here" />
+              <input id="search-btn" type="submit" name="submit" value="Search" />
+            </form>
+          </div>
         </div>
+      </div>
     </div>
-</div>
+    <script>
+      window.onscroll=function(){
+          if($(window).scrollTop()>180){
+               $('.go-top').show();
+          }else{
+               $('.go-top').hide();
+          }
+      }
+    </script>
+	<script src="js/jquery-2.1.3.min.js" th:src="@{/js/jquery-2.1.3.min.js}"></script>
+	<!--Bootstrap JS-->
+	<script src="js/bootstrap.min.js" th:src="@{/js/bootstrap.min.js}"></script>
+	<!--Owl Carousel-->
+	<script src="vendors/owl.carousel/js/owl.carousel.min.js" th:src="@{/js/owl.carousel.min.js}"></script>
 
-<form hidden="hidden" id="personPageForm">
-    <!--/*@thymesVar id="graduate" type="java.lang.Boolean"*/-->
-    <input type="hidden" name="personPageNow" id="personPageNow" th:value="${personPage.getNumber()}">
-    <input type="hidden" name="degree" id="degree" th:value="${degree}">
-    <input type="hidden" name="graduate" id="graduate" th:value="${graduate}">
-    <input type="hidden" id="personTotalPages" th:value="${personPage.getTotalPages()}">
-
-</form>
-
-<script>
-    window.onscroll = function () {
-        if ($(window).scrollTop() > 180) {
-            $('.go-top').show();
-        } else {
-            $('.go-top').hide();
-        }
-    }
-</script>
-</body>
-
-<script th:inline="javascript">
-    /*字符串格式化工具*/
-    String.prototype.format = function () {
-        if (arguments.length === 0) return this;
-        var obj = arguments[0];
-        var s = this;
-        for (var key in obj) {
-            s = s.replace(new RegExp("\\{\\{" + key + "\\}\\}", "g"), obj[key]);
-        }
-        return s;
-    };
-
-    /*教授模板*/
-    var element1 = "<div class=\"media blog\">\n" +
-        "                            <div class=\"media-left\">\n" +
-        "                                <a href=\"{{href}}\" style=\"padding-left: 50px;\"><img src=\"{{photo}}\"\n" +
-        "                                                                                   class=\"img-reponsive\"></a>\n" +
-        "                            </div>\n" +
-        "                            <div class=\"media-body\">\n" +
-        "                                <a href=\"{{href}}\"><h3>{{name}}</h3></a>\n" +
-        "                                <div class=\"row m0 meta\">\n" +
-        "                                    Tel : <a href=\"#\">{{tel}}</a> Email : <a href=\"#\">{{email}}</a>\n" +
-        "                                </div>\n" +
-        "                                <p><span class=\"glyphicon glyphicon-home\" aria-hidden=\"true\"></span>&nbsp;&nbsp;&nbsp;单位\n" +
-        "                                    – Unit(s)：{{unit}}</p>\n" +
-        "                                <p><span class=\"glyphicon glyphicon-briefcase\" aria-hidden=\"true\"></span>&nbsp;&nbsp;&nbsp;职称\n" +
-        "                                    – Title(s)：{{title}}</p>\n" +
-        "                                <p><span class=\"glyphicon glyphicon-book\" aria-hidden=\"true\"></span>&nbsp;&nbsp;&nbsp;研究方向\n" +
-        "                                    – Rearch Field(s)：{{field}}</p>\n" +
-        "                            </div>\n" +
-        "                        </div>";
-
-    /*学生模板*/
-    var element2 = "<div class=\"media blog\">\n" +
-        "                        <div class=\"media-left\">\n" +
-        "                            <a href=\"{{href}}\" style=\"padding-left: 50px;\"><img src=\{{photo}} class=\"img-reponsive\"></a>\n" +
-        "                        </div>\n" +
-        "                        <div class=\"media-body\">\n" +
-        "                            <a href=\"#\"><h3>{{name}}</h3></a>\n" +
-        "                            <div class=\"row m0 meta\">\n" +
-        "                                电话 : <a href=\"#\">{{tel}}</a> 邮箱 : <a href=\"#\">{{email}}</a> 年级 : <a href=\"\">{{grade}}</a> <a href=\"\"></a>\n" +
-        "                            </div>\n" +
-        "                            <p><span class=\"glyphicon glyphicon-home\" aria-hidden=\"true\"></span>&nbsp;&nbsp;&nbsp;单位 – Unit(s)：{{unit}}</p>\n" +
-        "                            <p><span class=\"glyphicon glyphicon-book\" aria-hidden=\"true\"></span>&nbsp;&nbsp;&nbsp;研究方向 – Rearch Field(s)：{{field}}</p>\n" +
-        "                        </div>\n" +
-        "                    </div>";
-
-    /*查询成功后更改对应的显示内容*/
-
-    /*alert([[${degree.toString()}]]);*/
-
-    function whenPersonQuerySuccess(pager, status) {
-        console.log(pager);
-        var html = "";
-        var datas = pager['content'];
-        if ([[${degree.toString()}]] === "PROFESSOR") {
-            $.each(datas, function (i, data) {
-                var professor = {
-                    photo: data['photo'],
-                    href: "person/person?id=" + data['id'],
-                    name: data['name'],
-                    tel: data['telephone'],
-                    email: data['email'],
-                    unit: data['unit'],
-                    title: data['title'],
-                    field: data['field']
-                };
-                html += element1.format(professor);
-            });
-        } else {
-            $.each(datas, function (i, data) {
-                var student = {
-                    photo: data['photo'],
-                    href: "person/person?id=" + data['id'],
-                    name: data['name'],
-                    tel: data['telephone'],
-                    email: data['email'],
-                    unit: data['unit'],
-                    grade: data['grade'],
-                    field: data['field']
-                };
-                html += element2.format(student);
-            });
-        }
-        //console.log(html);
-        $("#person_container").html(html);
-    }
-
-
-    /*------------------------------------------------------------------------------*/
-    $(function () {
-        /*person页面的ajax分页*/
-        var personPageNowElem = $("#personPageNow");
-
-
-        $("#person_first").click(function () {
-            if (personPageNowElem.val() <= 0) {
-                layer.msg("It's already the first page.");
-                return;
-            }
-
-            personPageNowElem.val(0);
-            $.get("person/personpage",
-                $("#personPageForm").serialize(),
-                function (pager, status) {
-                    whenPersonQuerySuccess(pager, status);
-                },
-                'json'
-            )
-        });
-        $("#person_prev").click(function () {
-            if (personPageNowElem.val() <= 0) {
-                layer.msg("There is no previous page.");
-                return;
-            }
-            personPageNowElem.val(parseInt(personPageNowElem.val()) - 1);
-            $.get("person/personpage",
-                $("#personPageForm").serialize(),
-                function (pager, status) {
-                    whenPersonQuerySuccess(pager, status);
-                },
-                'json'
-            )
-        });
-        $("#person_next").click(function () {
-            if (personPageNowElem.val() >= $("#personTotalPages").val() - 1) {
-                layer.msg("There is no next page.");
-                return;
-            }
-            personPageNowElem.val(parseInt(personPageNowElem.val()) + 1);
-
-            $.get("person/personpage",
-                $("#personPageForm").serialize(),
-                function (pager, status) {
-                    whenPersonQuerySuccess(pager, status);
-                },
-                'json'
-            )
-        });
-        $("#person_last").click(function () {
-            if (personPageNowElem.val() >= $("#personTotalPages").val() - 1) {
-                layer.msg("It's already the last page.");
-                return;
-            }
-
-            personPageNowElem.val(parseInt($("#personTotalPages").val() - 1));
-
-            $.get("person/personpage",
-                $("#personPageForm").serialize(),
-                function (pager, status) {
-                    whenPersonQuerySuccess(pager, status);
-                },
-                'json'
-            )
-        });
-    })
-
-
-</script>
+  </body>
 </html>

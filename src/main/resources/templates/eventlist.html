@@ -9,6 +9,8 @@
     <link rel="stylesheet" href="../static/css/font-awesome.min.css" th:href="@{/css/font-awesome.min.css}">
     <link rel="stylesheet" href="../static/css/index.css" th:href="@{/css/index.css}">
     <link rel="stylesheet" href="../static/css/event-list.css" th:href="@{/css/event-list.css}">
+    <link rel="stylesheet" href="../static/css/style.css" th:href="@{/css/style.css}">
+    <script src="../static/js/xpagination.js" th:src="@{/js/xpagination.js}"></script>
     <style>
 
         .go-top {
@@ -41,10 +43,10 @@
         <div class="row">
             <div class="fleft phone">
                 <p><a href="#" style="
-    text-decoration: none;
-    color: #03536A;
-">Computational Intelligence Knowledge Mapping Laboratory, School of Computer Science and
-                    Technology, Jilin University</a></p>
+       text-decoration: none;
+       color: #03536A;
+   ">Computational Intelligence Laboratory, College of Computer Science and Technology, Jilin
+                    University</a></p>
             </div>
             <div class="fright">
 
@@ -78,26 +80,27 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="main_nav">
             <a href="../static/index.html" th:href="@{/index.html}">
-                <img style="width:225px;height:70px;margin-left:200px ;margin-top: 9px;" src="../static/assets/wq6.png"
-                     th:src="@{/assets/wq6.png}" alt=""></a>
-            <ul class="nav navbar-nav navbar-right">
+                <img style="width:225px;height:70px;margin-left:200px ;margin-top: 9px;" src="../static/assets/wq6.png" th:src="@{/assets/wq6.png}" alt=""></a>
+            <ul  class="nav navbar-nav navbar-right">
                 <li class="active"><a href="../static/index.html" th:href="@{/index}">Home</a></li>
 
-                <li><a href="../static/aboutus.html" th:href="@{/aboutus}">About Us</a></li>
-                <li class="dropdown">
-                    <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Research</a>
-                    <ul class="dropdown-menu" role="menu">
-                        <li><a href="direction/directionlist" th:href="@{/direction/directionlist}">Directions</a></li>
-                        <li><a href="paper/paperlist" th:href="@{/paper/paperlist}">Papers</a></li>
-                        <li><a href="project/projectlist" th:href="@{/project/projectlist}">Projects</a></li>
-                    </ul>
-                </li>
+
+                <!-- <li class="dropdown">
+                     <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Research</a>
+                     <ul class="dropdown-menu" role="menu">
+                         <li><a href="direction/directionlist" th:href="@{/direction/directionlist}">Directions</a></li>
+                         <li><a href="paper/paperlist" th:href="@{/paper/paperlist}">Papers</a></li>
+                         <li><a href="project/projectlist" th:href="@{/project/projectlist}">Projects</a></li>
+                     </ul>
+                 </li>-->
+                <li><a href="direction/directionlist" th:href="@{/direction/directionlist}">Research</a></li>
                 <li><a href="person/personlist" th:href="@{/person/personlist}">People</a></li>
                 <li><a href="news/newslist" th:href="@{/news/newslist}">News</a></li>
-                <li><a href="resource/resourcelist" th:href="@{/resource/resourcelist}">Resource</a></li>
+                <li><a href="../static/aboutus.html" th:href="@{/aboutus}">About Us</a></li>
+                <li><a href="resource/resourcelist" th:href="@{/resource/resourcelist}">Document</a></li>
 
 
-                <li><a href="../static/join.html" th:href="@{/join}">Join Us</a></li>
+                <!--<li><a href="../static/join.html" th:href="@{/join}">Join Us</a></li>-->
                 <!-- <li class="hidden-xs book"><a href="#" data-toggle="modal" data-target="#appointmefnt_form_pop">Search</a></li> -->
             </ul>
         </div><!-- /.navbar-collapse -->
@@ -113,7 +116,7 @@
     <section class="row content_section">
         <div class="container">
             <div class="row">
-                <div class="col-sm-12 col-md-8 blog_list">
+                <div class="col-sm-12 col-md-7 blog_list">
                     <div class="row m0 widget categories">
                         <h5 class="widget_heading">&nbsp;&nbsp; News</h5>
                     </div>
@@ -122,16 +125,17 @@
                         <div class="media blog" th:each="news : ${newsPage.getContent()}">
 
                             <div class="media-left">
-                                <a th:href="@{/news/news(id=${news.getId()})}" href="../static/news.html"><img
+                                <a style="text-decoration: none;" th:href="@{/news/news(id=${news.getId()})}" href="../static/news.html"><img
                                         th:src="${news.getPhoto()}" src="../static/assets/blog/blog/1.jpg"
                                         alt=""
                                         class="img-reponsive"></a>
                             </div>
                             <div class="media-body">
-                                <a th:href="@{/news/news(id=${news.getId()})}" href="../static/news.html"><h4
+                                <a style="text-decoration: none;" th:href="@{/news/news(id=${news.getId()})}" href="../static/news.html"><h4
                                         th:text="${news.getTitle()}">title</h4></a>
                                 <div class="row m0 meta">
-                                    <span class="glyphicon glyphicon-calendar" aria-hidden="true"></span><a href="#"
+                                    <span class="glyphicon glyphicon-calendar" aria-hidden="true"></span><a
+                                        style="text-decoration: none;"  href="#"
                                                                                                             th:text="${news.getDate()}">2017
                                     /
                                     09 / 10</a>
@@ -147,51 +151,118 @@
                         </div> <!--single blog-->
                     </div>
 
+                    <div style="margin-top: 30px;margin-left: 50px;" id="pagediv1"></div>
+                    <script>
+                        var pagediv1 = document.getElementById('pagediv1');
+                        var pagenav1 = xPagination(pagediv1, {
+                            max:3,
+                            curr:2,
+                            size:30,
+                            pages:22,
+                            jump:true,
 
-                    <div class="row paginationRow" style="clear: both">
-                        <div class="pagination">
-                            <button class="btn-group btn-group-lg" type="button" id="news_first"><span
-                                    class="glyphicon glyphicon-fast-backward" aria-hidden="true"></span>
-                            </button>
-                            <button type="button" id="news_prev"><span
-                                    class="glyphicon glyphicon-triangle-left" aria-hidden="true"></span>
-                            </button>
-                            <button type="button" id="news_next"><span
-                                    class="glyphicon glyphicon-triangle-right"
-                                    aria-hidden="true"></span></button>
-                            <button type="button" id="news_last"><span
-                                    class="glyphicon glyphicon-fast-forward" aria-hidden="true"></span>
-                            </button>
-                        </div>
-                    </div>
+                            onpagination: function  (page, size) {
+                                console.log('pagediv', page, size)
+                            }
+                        })
+
+
+
+                    </script>
+
+                    <!--  <div class="row paginationRow" style="clear: both">
+                          <div class="pagination">
+                              <button class="btn-group btn-group-lg" type="button" id="news_first"><span
+                                      class="glyphicon glyphicon-fast-backward" aria-hidden="true"></span>
+                              </button>
+                              <button type="button" id="news_prev"><span
+                                      class="glyphicon glyphicon-triangle-left" aria-hidden="true"></span>
+                              </button>
+                              <button type="button" id="news_next"><span
+                                      class="glyphicon glyphicon-triangle-right"
+                                      aria-hidden="true"></span></button>
+                              <button type="button" id="news_last"><span
+                                      class="glyphicon glyphicon-fast-forward" aria-hidden="true"></span>
+                              </button>
+                          </div>
+                      </div>-->
                 </div>
-                <div class="col-sm-12 col-md-4 sidebar">
+                <div class="col-sm-12 col-md-5 sidebar">
 
                     <div class="row m0 widget categories">
                         <h5 class="widget_heading">Notification</h5>
-                        <div class="new_list" id="not_container">
+                        <div class="new_list"style="margin-top: -2px;" id="not_container">
                             <!--/*@thymesVar id="notPage" type="org.springframework.data.domain.Page<com.socog.website.module.news.entity.News>"*/-->
                             <div class="new" th:each="notification : ${notPage.getContent()}">
-                                <div class="new_date">
+                               <!-- <div class="new_date">
                                     <div class="day" th:text="${notification.getDate().getDate()}+th">12th</div>
                                     <div class="month " th:text="${notification.getDate().getMonth()+1}">10</div>
+                                </div>-->
+                                <div class="media-body">
+                                    <a style="text-decoration: none;" th:href="@{/news/notification(id=${notification.getId()})}"
+                                       href="../static/news.html"><h4 style="color: #333333;
+    font-weight: bolder;
+    text-transform: capitalize;"
+                                            th:text="${notification.getTitle()}">title</h4></a>
+                                    <div class="row m0 meta" style="margin-left: 1px;margin-top: 20px;">
+                                        <span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>
+                                        &nbsp;&nbsp;&nbsp;<a style="color: #333333;text-decoration: none;" href="#"
+                                                                                                                th:text="${notification.getDate()}">2017
+                                        /
+                                        09 / 10</a>
+                                    </div>
+                                    <p style="margin-top: 5px;color: rgb(121, 121, 121);    text-overflow: ellipsis;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;"  th:text="${notification.getContent()}">Fusce ut velit sempersemper arcu quis, aliquam
+                                        magnatiam
+                                        sed justo et sem varius euismodn
+                                        ac justo urnaonec tincidunt nisl semper sapien ut velit sempersemper arcu quis,
+                                        aliquam
+                                        magnatiam sed justo et sem varius euismodn ac justo urnaonec tincidunt nisl semper
+                                        sapien.</p>
                                 </div>
-                                <div class="new_content">
+                               <!-- <div class="new_content">
                                     <a th:href="@{/news/notification(id=${notification.getId()})}">
                                         <p class="new_content_day" th:text="${notification.getTitle()}">Today</p>
                                     </a>
+                                    <div class="row m0 meta">
+                                        <span class="glyphicon glyphicon-calendar" aria-hidden="true"></span><a href="#"
+                                                                                                                th:text="${notification.getDate()}">2017
+                                        /
+                                        09 / 10</a>
+                                    </div>
                                     <p class="new_content_abs" th:text="${notification.getContent()}">Lorem ipsum dolor
                                         sit amet, consectetur adipiscing elit.
                                         Aenean euismod bibendum laoreet. Proin gravida dolor sit amet </p>
-                                </div>
+                                </div>-->
 
                             </div>
 
                         </div>
                     </div>
 
+                    <div style="margin-top: 30px;margin-left: -30px;" id="pagediv"></div>
+                    <script>
+                        var pagediv = document.getElementById('pagediv');
+                        var pagenav = xPagination(pagediv, {
+                            max:3,
+                            curr:2,
+                            size:30,
+                            pages:22,
+                            jump:true,
 
-                    <div class="row paginationRow" style="clear: both">
+                            onpagination: function  (page, size) {
+                                console.log('pagediv', page, size)
+                            }
+                        })
+
+
+
+                    </script>
+
+                    <!--<div class="row paginationRow" style="clear: both">
                         <div class="pagination">
                             <button type="button" id="not_first"><span
                                     class="glyphicon glyphicon-fast-backward" aria-hidden="true"></span>
@@ -206,7 +277,7 @@
                                     class="glyphicon glyphicon-fast-forward" aria-hidden="true"></span>
                             </button>
                         </div>
-                    </div>
+                    </div>-->
                 </div>
             </div>
         </div>

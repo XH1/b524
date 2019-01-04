@@ -30,9 +30,9 @@
         <div class="row ">
             <div class="fleft phone">
                 <p><a href="#" style="
-	     text-decoration: none;
-	     color: #03536A;
-	 ">Computational Intelligence Knowledge Mapping Laboratory, School of Computer Science and Technology, Jilin
+       text-decoration: none;
+       color: #03536A;
+   ">Computational Intelligence Laboratory, College of Computer Science and Technology, Jilin
                     University</a></p>
             </div>
             <div class="fright">
@@ -67,24 +67,26 @@
         <div class="collapse navbar-collapse" id="main_nav">
             <a href="../static/index.html" th:href="@{/index.html}">
                 <img style="width:225px;height:70px;margin-left:200px ;margin-top: 9px;" src="../static/assets/wq6.png" th:src="@{/assets/wq6.png}" alt=""></a>
-            <ul class="nav navbar-nav navbar-right">
+            <ul  class="nav navbar-nav navbar-right">
                 <li class="active"><a href="../static/index.html" th:href="@{/index}">Home</a></li>
 
-                <li><a href="../static/aboutus.html" th:href="@{/aboutus}">About Us</a></li>
-                <li class="dropdown">
-                    <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Research</a>
-                    <ul class="dropdown-menu" role="menu">
-                        <li><a href="direction/directionlist" th:href="@{/direction/directionlist}">Directions</a></li>
-                        <li><a href="paper/paperlist" th:href="@{/paper/paperlist}">Papers</a></li>
-                        <li><a href="project/projectlist" th:href="@{/project/projectlist}">Projects</a></li>
-                    </ul>
-                </li>
+
+                <!-- <li class="dropdown">
+                     <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Research</a>
+                     <ul class="dropdown-menu" role="menu">
+                         <li><a href="direction/directionlist" th:href="@{/direction/directionlist}">Directions</a></li>
+                         <li><a href="paper/paperlist" th:href="@{/paper/paperlist}">Papers</a></li>
+                         <li><a href="project/projectlist" th:href="@{/project/projectlist}">Projects</a></li>
+                     </ul>
+                 </li>-->
+                <li><a href="direction/directionlist" th:href="@{/direction/directionlist}">Research</a></li>
                 <li><a href="person/personlist" th:href="@{/person/personlist}">People</a></li>
                 <li><a href="news/newslist" th:href="@{/news/newslist}">News</a></li>
-                <li><a href="resource/resourcelist" th:href="@{/resource/resourcelist}">Resource</a></li>
+                <li><a href="../static/aboutus.html" th:href="@{/aboutus}">About Us</a></li>
+                <li><a href="resource/resourcelist" th:href="@{/resource/resourcelist}">Document</a></li>
 
 
-                <li><a href="../static/join.html" th:href="@{/join}">Join Us</a></li>
+                <!--<li><a href="../static/join.html" th:href="@{/join}">Join Us</a></li>-->
                 <!-- <li class="hidden-xs book"><a href="#" data-toggle="modal" data-target="#appointmefnt_form_pop">Search</a></li> -->
             </ul>
         </div><!-- /.navbar-collapse -->
@@ -130,7 +132,7 @@
             </div>
         </div>
     </section>
-    <section class="row achievement_tab">
+    <!--<section class="row achievement_tab">
         <div class="container">
             <div class="col-sm-12 col-md-4">
                 <div class="panel-group accordion white_bg" id="accordion" role="tablist" aria-multiselectable="true">
@@ -150,7 +152,7 @@
                              role="tabpanel" aria-labelledby="headingOne">
                             <div class="panel-body">
 
-                                <!--/*@thymesVar id="countByYear" type="java.util.List<java.util.Map<java.lang.String,java.lang.Object>>"*/-->
+                                &lt;!&ndash;/*@thymesVar id="countByYear" type="java.util.List<java.util.Map<java.lang.String,java.lang.Object>>"*/&ndash;&gt;
                                 <a style="display: block" class="panel_title"
                                    th:text="all+'('+${person.getPaperList().size()}+')'"
                                    th:href="@{/person/person(id=${person.getId()},year='all')}">all</a>
@@ -159,8 +161,8 @@
                                    th:href="@{/person/person(id=${person.getId()},year=${year.get('year')})}">0000</a>
                             </div>
                         </div>
-                    </div> <!--Panel-->
-                    <!-- <div class="panel panel-default">
+                    </div> &lt;!&ndash;Panel&ndash;&gt;
+                    &lt;!&ndash; <div class="panel panel-default">
                          <div class="panel-heading" role="tab" id="headingTwo">
                              <h4 class="panel-title">
                                  <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
@@ -177,8 +179,8 @@
                                 <h4 class="panel_title">2014</h4>
                              </div>
                          </div>
-                     </div> -->
-                    <!--  <div class="panel panel-default">
+                     </div> &ndash;&gt;
+                    &lt;!&ndash;  <div class="panel panel-default">
                           <div class="panel-heading" role="tab" id="headingThree">
                               <h4 class="panel-title">
                                   <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
@@ -195,8 +197,8 @@
                                  <h4 class="panel_title">2014</h4>
                               </div>
                           </div>
-                      </div> --> <!--Panel-->
-                    <!--  <div class="panel panel-default">
+                      </div> &ndash;&gt; &lt;!&ndash;Panel&ndash;&gt;
+                    &lt;!&ndash;  <div class="panel panel-default">
                           <div class="panel-heading" role="tab" id="headingFour">
                               <h4 class="panel-title">
                                   <a data-toggle="collapse" data-parent="#accordion" href="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
@@ -213,8 +215,8 @@
                                  <h4 class="panel_title">2014</h4>
                               </div>
                           </div>
-                      </div> --> <!--Panel-->
-                    <!--    <div class="panel panel-default">
+                      </div> &ndash;&gt; &lt;!&ndash;Panel&ndash;&gt;
+                    &lt;!&ndash;    <div class="panel panel-default">
                             <div class="panel-heading" role="tab" id="headingFive">
                                 <h4 class="panel-title">
                                     <a data-toggle="collapse" data-parent="#accordion" href="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
@@ -231,10 +233,10 @@
                                    <h4 class="panel_title">2014</h4>
                                 </div>
                             </div>
-                        </div> --> <!--Panel-->
+                        </div> &ndash;&gt; &lt;!&ndash;Panel&ndash;&gt;
                 </div>
             </div>
-            <!--/*@thymesVar id="year" type="java.lang.String"*/-->
+            &lt;!&ndash;/*@thymesVar id="year" type="java.lang.String"*/&ndash;&gt;
             <div class="col-sm-12 col-md-8 achievement-content">
                 <div class="titleRow">
                     <h4><b>Publications<span th:text="'('+${year}+')'"
@@ -266,7 +268,7 @@
 
             </div>
         </div>
-    </section>
+    </section>-->
 
     <footer class="row" style="padding-top: 30px;">
         <div class="container">

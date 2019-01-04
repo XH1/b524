@@ -103,10 +103,10 @@
     background-image: url(../assets/icons/service_block/tab/6-w.png);
 }
 .service_tab .tab-content a {
-    display: block;
+   
     margin-top: 28px;
-    width: 130px;
-    padding: 8px 20px;
+  
+    
     font-size: 18px;
 }
 .service_tab .tab-content .tab-pane{
@@ -146,7 +146,7 @@
     display: block;
     margin: 13px 0 0;
 }
-.service_tab .tab-content .tab-pane h4{
+/* .service_tab .tab-content .tab-pane h4{
     font-family: 'Lato', sans-serif;
     line-height: 30px;
     font-weight: normal;
@@ -154,7 +154,7 @@
     color: #657188;
     margin-top: 0;
     margin-bottom: 20px;
-}
+} */
 .service_tab .tab-content .tab-pane p{
     color: #8595b1;
     line-height: 27px;
@@ -204,9 +204,9 @@
 }
 .groupintro h4 {
   font-family: 'Lato', sans-serif;
-    text-transform: uppercase;
+  
     color: #666;
-    margin-top: 0;
+  
     margin-bottom: 20px;
 }
 #group2, #group4, #group6 {
